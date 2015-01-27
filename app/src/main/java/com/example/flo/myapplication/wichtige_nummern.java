@@ -17,6 +17,7 @@ public class wichtige_nummern extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wichtige_nummern);
         setupUI();
+        //
     }
 
     private void setupUI() {
