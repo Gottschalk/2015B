@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flashlightButton"
+        android:id="@+id/flashlight_button_text"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/panne_beheben_button"
+        android:layout_alignStart="@+id/panne_beheben_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/absicherung_gefahrenstelle_button_text"
+        android:id="@+id/gefahrenstelle_absichern_button"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/flashlight_button_text"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pannenbehebung_button_text"
+        android:id="@+id/panne_beheben_button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wichtige_nummern_button_text"
+        android:id="@+id/wichtige_nummern_button"
+        android:layout_below="@+id/panne_beheben_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/werkstatt_finden_button_text"
+        android:id="@+id/werkstatt_finden_button"
+        android:layout_below="@+id/wichtige_nummern_button"
+        android:layout_alignLeft="@+id/panne_beheben_button"
+        android:layout_alignStart="@+id/panne_beheben_button"
+        android:layout_marginTop="51dp" />
+</RelativeLayout>
