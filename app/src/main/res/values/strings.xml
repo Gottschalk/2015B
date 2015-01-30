@@ -16,5 +16,6 @@
     <string name="title_activity_wichtige_nummern">wichtige_nummern</string>
     <string name="flashligt_switch_text">An</string>
     <string name="call_button_text">New Button</string>
+    <string name="title_activity_tutorial_list_view_acitivity_anzeige">TutorialListViewAcitivityAnzeige</string>
 
 </resources>

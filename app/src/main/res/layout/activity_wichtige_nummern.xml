@@ -13,12 +13,14 @@
         android:id="@+id/call_button"
         android:layout_centerHorizontal="true" />
 
-    <ExpandableListView
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/wichtige_nummern_listView"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
         android:layout_below="@+id/call_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="83dp">
+</ListView>
 
 </RelativeLayout>

@@ -7,7 +7,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class wichtige_nummern extends ActionBarActivity {
@@ -17,7 +24,27 @@ public class wichtige_nummern extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wichtige_nummern);
         setupUI();
+
+        List valueList = new ArrayList<String>();
+        for (int i = 0 ; i<10 ; i++){
+            valueList.add("value" + i);
+        }
         //
+        ListAdapter adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
+        final ListView lv = (ListView)findViewById(R.id.wichtige_nummern_listView);
+
+        lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(wichtige_nummern.this,TutorialListViewAcitivityAnzeige.class);
+               // i.setClassName(getPackageName(), getPackageName()+ ".TutorialListViewAcitivityAnzeige");
+                i.putExtra("selected", lv.getAdapter().getItem(position).toString());
+                startActivity(i);
+            }
+        });
+
     }
 
     private void setupUI() {

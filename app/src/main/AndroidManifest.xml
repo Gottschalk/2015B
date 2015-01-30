@@ -3,9 +3,10 @@
     package="com.example.flo.myapplication" >
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,27 +26,31 @@
         <activity
             android:name=".FlashlightActivity"
             android:label="@string/title_activity_flashlight"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".werkstatt_finden"
             android:label="@string/title_activity_werkstatt_finden_activity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".gefahrenstelle_absichern"
             android:label="@string/title_activity_gefahrenstelle_absichern"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".panne_beheben"
             android:label="@string/title_activity_panne_beheben"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".wichtige_nummern"
             android:label="@string/title_activity_wichtige_nummern"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".TutorialListViewAcitivityAnzeige"
+            android:label="@string/title_activity_tutorial_list_view_acitivity_anzeige" >
         </activity>
     </application>
 
