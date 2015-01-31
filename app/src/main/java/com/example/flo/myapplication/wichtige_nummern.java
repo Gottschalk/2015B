@@ -26,8 +26,10 @@ public class wichtige_nummern extends ActionBarActivity {
         setupUI();
 
         List valueList = new ArrayList<String>();
-        for (int i = 0 ; i<10 ; i++){
-            valueList.add("value" + i);
+        final String[] contact = new String[] {"ADAC", "ACE","AUTOMOBILCLUB","WERKSTATT","SPERRNUMMER_KREDITKARTE"};
+        final String[] phoneNumber = new String[]{"*100#","*#0*#","*100#","*100#","*100#","116116"};
+        for (int i = 0 ; i<contact.length ; i++){
+            valueList.add( contact[i] + ": " + phoneNumber[i]);
         }
         //
         ListAdapter adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
@@ -40,7 +42,9 @@ public class wichtige_nummern extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(wichtige_nummern.this,TutorialListViewAcitivityAnzeige.class);
                // i.setClassName(getPackageName(), getPackageName()+ ".TutorialListViewAcitivityAnzeige");
-                i.putExtra("selected", lv.getAdapter().getItem(position).toString());
+                int clickedItemIndex = (int)lv.getAdapter().getItemId(position);
+                i.putExtra("NAME", contact[clickedItemIndex]);
+                i.putExtra("NUMMER", phoneNumber[clickedItemIndex]);
                 startActivity(i);
             }
         });
