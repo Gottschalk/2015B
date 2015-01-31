@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
         gefahrenstelle_absichern_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, gefahrenstelle_absichern.class);
+                Intent intent = new Intent(MainActivity.this, GefahrenstelleAbsichern.class);
                 startActivity(intent);
             }
         });
@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
         panne_beheben_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, panne_beheben.class);
+                Intent intent = new Intent(MainActivity.this, PanneBeheben.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         werkstatt_finden_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, werkstatt_finden.class);
+                Intent intent = new Intent(MainActivity.this, WerkstattFinden.class);
                 startActivity(intent);
             }
         });
@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
         wichtige_nummern_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, wichtige_nummern.class);
+                Intent intent = new Intent(MainActivity.this, WichtigeNummern.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
         flashlight_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FlashlightActivity.class);
+                Intent intent = new Intent(MainActivity.this, Taschenlampe.class);
                 startActivity(intent);
             }
         });

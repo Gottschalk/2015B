@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 
-public class FlashlightActivity extends ActionBarActivity {
+public class Taschenlampe extends ActionBarActivity {
 
     private static final String TAG = "Pannenhilfe App: ";
     ImageButton flashlightSwitch;
@@ -28,7 +28,7 @@ public class FlashlightActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashlight);
+        setContentView(R.layout.activity_taschenlampe);
 
         flashlightSwitch = (ImageButton) findViewById(R.id.btnSwitch);
         // First check if device is supporting flashlight or not
@@ -38,7 +38,7 @@ public class FlashlightActivity extends ActionBarActivity {
         if (!hasFlash) {
             // device doesn't support flash
             // Show alert message and close the application
-            AlertDialog alert = new AlertDialog.Builder(FlashlightActivity.this)
+            AlertDialog alert = new AlertDialog.Builder(Taschenlampe.this)
                     .create();
             alert.setTitle("Error");
             alert.setMessage("Sorry, your device doesn't support flash light!");

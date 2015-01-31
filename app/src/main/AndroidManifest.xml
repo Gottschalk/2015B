@@ -24,32 +24,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FlashlightActivity"
+            android:name=".Taschenlampe"
             android:label="@string/title_activity_flashlight"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".werkstatt_finden"
+            android:name=".WerkstattFinden"
             android:label="@string/title_activity_werkstatt_finden_activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".gefahrenstelle_absichern"
+            android:name=".GefahrenstelleAbsichern"
             android:label="@string/title_activity_gefahrenstelle_absichern"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".panne_beheben"
+            android:name=".PanneBeheben"
             android:label="@string/title_activity_panne_beheben"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".wichtige_nummern"
+            android:name=".WichtigeNummern"
             android:label="@string/title_activity_wichtige_nummern"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".TutorialListViewAcitivityAnzeige"
+            android:name=".WichtigeNummernDetailanzeige"
             android:label="@string/title_activity_tutorial_list_view_acitivity_anzeige" >
         </activity>
     </application>

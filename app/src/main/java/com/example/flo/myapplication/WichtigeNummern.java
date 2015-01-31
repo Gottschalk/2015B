@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class wichtige_nummern extends ActionBarActivity {
+public class WichtigeNummern extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,7 @@ public class wichtige_nummern extends ActionBarActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(wichtige_nummern.this,TutorialListViewAcitivityAnzeige.class);
-               // i.setClassName(getPackageName(), getPackageName()+ ".TutorialListViewAcitivityAnzeige");
+                Intent i = new Intent(WichtigeNummern.this,WichtigeNummernDetailanzeige.class);
                 int clickedItemIndex = (int)lv.getAdapter().getItemId(position);
                 i.putExtra("NAME", contact[clickedItemIndex]);
                 i.putExtra("NUMMER", phoneNumber[clickedItemIndex]);
