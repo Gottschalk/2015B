@@ -12,9 +12,17 @@
         android:id="@+id/wichtige_nummern_listView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 </ListView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nummer_hinzufuegen_text"
+        android:id="@+id/nummer_hinzufuegen"
+        android:layout_below="@+id/wichtige_nummern_listView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

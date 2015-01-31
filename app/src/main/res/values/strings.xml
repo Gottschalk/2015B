@@ -17,5 +17,6 @@
     <string name="flashligt_switch_text">An</string>
     <string name="call_button_text">Anrufen</string>
     <string name="title_activity_tutorial_list_view_acitivity_anzeige">TutorialListViewAcitivityAnzeige</string>
+    <string name="nummer_hinzufuegen_text">Neue Nummer</string>
 
 </resources>
