@@ -51,16 +51,7 @@ public class WichtigeNummern extends ActionBarActivity {
     }
 
     private void setupUI() {
-        Button callButton = (Button)findViewById(R.id.call_button);
-        callButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
-                Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:*100#"));
-                startActivity(callIntent);
-            }
-        });
+
     }
 
 

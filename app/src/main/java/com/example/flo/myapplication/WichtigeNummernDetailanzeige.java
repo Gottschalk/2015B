@@ -2,9 +2,12 @@ package com.example.flo.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -14,12 +17,30 @@ public class WichtigeNummernDetailanzeige extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wichtige_nummern_detailanzeige);
+        setupUI();
+
+    }
+
+    private void setupUI() {
 
         Intent i = getIntent();
-        //System.out.println(i.getStringExtra("selected"));
         TextView view = (TextView)findViewById(R.id.wichtige_nummern_anzeige_textView);
-       // view.setText("fu");
-        ((TextView)findViewById(R.id.wichtige_nummern_anzeige_textView)).setText("Name: "+i.getStringExtra("NAME") + " \n Nummer: " +i.getStringExtra("NUMMER"));
+        final String name = i.getStringExtra("NAME");
+        final String number = i.getStringExtra("NUMMER") ;
+
+        view.setText("Name: "+ name + " \n Nummer: " + number);
+
+        Button callButton = (Button)findViewById(R.id.call_button);
+        callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:"+number));
+                startActivity(callIntent);
+            }
+        });
+
     }
 
 

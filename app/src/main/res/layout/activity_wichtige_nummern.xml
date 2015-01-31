@@ -6,21 +6,15 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.flo.myapplication.WichtigeNummern">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/call_button_text"
-        android:id="@+id/call_button"
-        android:layout_centerHorizontal="true" />
+
 
     <ListView
         android:id="@+id/wichtige_nummern_listView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/call_button"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="83dp">
+        android:layout_alignParentStart="true">
 </ListView>
 
 </RelativeLayout>
