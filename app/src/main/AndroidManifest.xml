@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/PannenhilfeStyle" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -50,7 +50,7 @@
         </activity>
         <activity
             android:name=".WichtigeNummernDetailanzeige"
-            android:label="@string/title_activity_tutorial_list_view_acitivity_anzeige" >
+            android:label="" >
         </activity>
     </application>
 

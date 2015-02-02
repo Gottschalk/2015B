@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nummer_hinzufuegen_text"
-        android:id="@+id/nummer_hinzufuegen"
+        android:id="@+id/nummer_hinzufuegen_button"
         android:layout_below="@+id/wichtige_nummern_listView"
         android:layout_centerHorizontal="true" />
 
