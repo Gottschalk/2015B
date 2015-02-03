@@ -23,8 +23,11 @@ public class WichtigeNummern extends ActionBarActivity {
    private ArrayList<String> valueList = new ArrayList<String>();
    private int listLength;
    private ArrayAdapter adapter;
-   private final String[] CONTACT = new String[] {"ADAC", "ACE","AUTOMOBILCLUB","WERKSTATT","SPERRNUMMER_KREDITKARTE"};
-   private final String[] PHONE_NUMBER = new String[]{"*100#","*#0*#","*100#","*100#","*100#","116116"};
+   //private  String[] contact = new String[] {"ADAC", "ACE","AUTOMOBILCLUB","WERKSTATT","SPERRNUMMER_KREDITKARTE"};
+  // private  String[] phoneNumber = new String[]{"*100#","*#0*#","*100#","*100#","*100#","116116"};
+   private ListView LISTVIEW_NUMMERN;
+   private ArrayList<String> contact;
+   private ArrayList<String> phoneNumber;
 
 
     @Override
@@ -33,11 +36,16 @@ public class WichtigeNummern extends ActionBarActivity {
         setContentView(R.layout.activity_wichtige_nummern);
         setupUI();
 
+        contact = new ArrayList<String>();
+        contact.add("ADAC");
+        contact.add("ACE");
+        phoneNumber = new ArrayList<String>();
+        phoneNumber.add("*100#");
+        phoneNumber.add("*100#");
 
-        final ListView LISTVIEW_NUMMERN = (ListView)findViewById(R.id.wichtige_nummern_listView);
-        listLength = CONTACT.length;
-        for (int i = 0 ; i<CONTACT.length ; i++){
-            valueList.add(CONTACT[i] + ": " + PHONE_NUMBER[i]);
+        LISTVIEW_NUMMERN = (ListView)findViewById(R.id.wichtige_nummern_listView);
+        for (int i = 0 ; i< contact.size() ; i++){
+            valueList.add(contact.get(i) + ": " + phoneNumber.get(i));
         }
         //
         adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
@@ -48,11 +56,15 @@ public class WichtigeNummern extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(WichtigeNummern.this, WichtigeNummernDetailanzeige.class);
                 int clickedItemIndex = (int) LISTVIEW_NUMMERN.getAdapter().getItemId(position);
-                i.putExtra("NAME", CONTACT[clickedItemIndex]);
-                i.putExtra("NUMMER", PHONE_NUMBER[clickedItemIndex]);
+                i.putExtra("NAME", contact.get(clickedItemIndex));
+                i.putExtra("NUMMER", phoneNumber.get(clickedItemIndex));
                 startActivity(i);
             }
         });
+
+    }
+
+    private void updateList() {
 
     }
 
@@ -88,9 +100,10 @@ public class WichtigeNummern extends ActionBarActivity {
                        String name = nameInput.getText().toString();
                         String number = numberInput.getText().toString();
 
+                        contact.add(name);
+                        phoneNumber.add(number);
                         valueList.add(name + ":" + number);
                         adapter.notifyDataSetChanged();
-
 
                     }
                 })
