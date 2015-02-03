@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,12 +34,12 @@ public class WichtigeNummern extends ActionBarActivity {
         setupUI();
 
 
+        final ListView LISTVIEW_NUMMERN = (ListView)findViewById(R.id.wichtige_nummern_listView);
         listLength = CONTACT.length;
         for (int i = 0 ; i<CONTACT.length ; i++){
             valueList.add(CONTACT[i] + ": " + PHONE_NUMBER[i]);
         }
         //
-        final ListView LISTVIEW_NUMMERN = (ListView)findViewById(R.id.wichtige_nummern_listView);
         adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
         LISTVIEW_NUMMERN.setAdapter(adapter);
 
@@ -61,41 +62,47 @@ public class WichtigeNummern extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                showPrompt();
-             // Item zu liste hinzufügen
-             //   valueList.add("test" +listLength++);
-             //   adapter.notifyDataSetChanged();
-
+                showCustomPrompt();
 
             }
         });
     }
 
-    private void showPrompt() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+    private void showCustomPrompt() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        alert.setTitle("Nummer hinzufügen:");
-        alert.setMessage("Nummer:");
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View view = inflater.inflate(R.layout.wichtige_nummern_notification, null);
+        final EditText nameInput = (EditText)view.findViewById(R.id.notification_edit_name);
+        final  EditText numberInput = (EditText)view.findViewById(R.id.notification_edit_number);
 
-// Set an EditText view to get user input
-        final EditText input = new EditText(this);
-        alert.setView(input);
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(view)
+                // Add action buttons
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
 
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String value = String.valueOf(input.getText());
-                // Do something with value!
-            }
-        });
+                        // sign in the user ...
+                       String name = nameInput.getText().toString();
+                        String number = numberInput.getText().toString();
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // Canceled.
-            }
-        });
+                        valueList.add(name + ":" + number);
+                        adapter.notifyDataSetChanged();
 
-        alert.show();
+
+                    }
+                })
+                .setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        //  builder.create();
+        builder.show();
     }
+
 
 
     @Override
