@@ -19,11 +19,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setupUI() {
-        Button gefahrenstelle_absichern_button = (Button)findViewById(R.id.gefahrenstelle_absichern_button);
-        Button panne_beheben_button = (Button)findViewById(R.id.panne_beheben_button);
-        Button werkstatt_finden_button = (Button)findViewById(R.id.werkstatt_finden_button);
-        Button wichtige_nummern_button = (Button)findViewById(R.id.wichtige_nummern_button);
-        Button flashlight_button = (Button)findViewById(R.id.flashlight_button_text);
+        Button gefahrenstelle_absichern_button = (Button) findViewById(R.id.gefahrenstelle_absichern_button);
+        Button panne_beheben_button = (Button) findViewById(R.id.panne_beheben_button);
+        Button werkstatt_finden_button = (Button) findViewById(R.id.werkstatt_finden_button);
+        Button wichtige_nummern_button = (Button) findViewById(R.id.wichtige_nummern_button);
+        Button flashlight_button = (Button) findViewById(R.id.flashlight_button_text);
 
         gefahrenstelle_absichern_button.setOnClickListener(new View.OnClickListener() {
             @Override

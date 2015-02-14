@@ -95,7 +95,7 @@ public class Taschenlampe extends ActionBarActivity {
                 return;
             }
             // play sound
-          //  playSound();
+            //  playSound();
 
             params = camera.getParameters();
             params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
@@ -117,7 +117,7 @@ public class Taschenlampe extends ActionBarActivity {
                 return;
             }
             // play sound
-           // playSound();
+            // playSound();
 
             params = camera.getParameters();
             params.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
@@ -134,10 +134,10 @@ public class Taschenlampe extends ActionBarActivity {
     * Toggle switch button images
     * changing image states to on / off
     * */
-    private void toggleButtonImage(){
-        if(isFlashOn){
+    private void toggleButtonImage() {
+        if (isFlashOn) {
             flashlightSwitch.setImageResource(R.drawable.flashlight_on_hdpi);
-        }else{
+        } else {
             flashlightSwitch.setImageResource(R.drawable.flashlight_off_hdpi);
         }
     }
@@ -175,7 +175,7 @@ public class Taschenlampe extends ActionBarActivity {
 // on starting the app get the camera params
         getCamera();
         // on resume turn on the flash
-      //  if(hasFlash)
+        //  if(hasFlash)
         //    turnOnFlash();
     }
 
@@ -195,9 +195,9 @@ public class Taschenlampe extends ActionBarActivity {
 
 
         // on stop release the camera
-       if (camera != null) {
-           camera.release();
-           camera = null;
+        if (camera != null) {
+            camera.release();
+            camera = null;
         }
 
     }

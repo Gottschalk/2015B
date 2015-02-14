@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -20,14 +19,11 @@ import java.util.ArrayList;
 
 public class WichtigeNummern extends ActionBarActivity {
 
-   private ArrayList<String> valueList = new ArrayList<String>();
-   private int listLength;
-   private ArrayAdapter adapter;
-   //private  String[] contact = new String[] {"ADAC", "ACE","AUTOMOBILCLUB","WERKSTATT","SPERRNUMMER_KREDITKARTE"};
-  // private  String[] phoneNumber = new String[]{"*100#","*#0*#","*100#","*100#","*100#","116116"};
-   private ListView LISTVIEW_NUMMERN;
-   private ArrayList<String> contact;
-   private ArrayList<String> phoneNumber;
+
+
+    private ListView listViewNummern;
+    private ContactAdapter contactAdapter;
+    private ArrayList<Contact> contact_data = new ArrayList<Contact>();
 
 
     @Override
@@ -36,57 +32,62 @@ public class WichtigeNummern extends ActionBarActivity {
         setContentView(R.layout.activity_wichtige_nummern);
         setupUI();
 
-        contact = new ArrayList<String>();
-        contact.add("ADAC");
-        contact.add("ACE");
-        phoneNumber = new ArrayList<String>();
-        phoneNumber.add("*100#");
-        phoneNumber.add("*100#");
+        setupCustomList();
 
-        LISTVIEW_NUMMERN = (ListView)findViewById(R.id.wichtige_nummern_listView);
-        for (int i = 0 ; i< contact.size() ; i++){
-            valueList.add(contact.get(i) + ": " + phoneNumber.get(i));
-        }
-        //
-        adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
-        LISTVIEW_NUMMERN.setAdapter(adapter);
 
-        LISTVIEW_NUMMERN.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    }
+
+    private void setupCustomList() {
+
+
+        contact_data.add(new Contact(R.drawable.ic_launcher, "ADAC", "*100#"));
+        contact_data.add(new Contact(R.drawable.ic_launcher, "Werkstatt", "1155"));
+        contact_data.add(new Contact(R.drawable.ic_launcher, "Pannenhilfe", "*#0*#"));
+        contact_data.add(new Contact(R.drawable.ic_launcher, "ACE", "*100#"));
+
+        contactAdapter = new ContactAdapter(this,
+                R.layout.listview_item_row, contact_data);
+
+
+        listViewNummern = (ListView) findViewById(R.id.wichtige_nummern_listView);
+        //header für listview setzen
+        //   View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row, null);
+        //   listViewNummern.addHeaderView(header);
+
+        listViewNummern.setAdapter(contactAdapter);
+        listViewNummern.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(WichtigeNummern.this, WichtigeNummernDetailanzeige.class);
-                int clickedItemIndex = (int) LISTVIEW_NUMMERN.getAdapter().getItemId(position);
-                i.putExtra("NAME", contact.get(clickedItemIndex));
-                i.putExtra("NUMMER", phoneNumber.get(clickedItemIndex));
+                int clickedItemIndex = (int) listViewNummern.getAdapter().getItemId(position);
+                String contactName = contact_data.get(position).name;
+                String contactNumber = contact_data.get(position).number;
+                i.putExtra("NAME", contactName);
+                i.putExtra("NUMMER", contactNumber);
                 startActivity(i);
             }
         });
-
-    }
-
-    private void updateList() {
-
     }
 
     private void setupUI() {
-        Button nummerHinzufuegen = (Button)findViewById(R.id.nummer_hinzufuegen_button);
+        Button nummerHinzufuegen = (Button) findViewById(R.id.nummer_hinzufuegen_button);
         nummerHinzufuegen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showCustomPrompt();
+                showNewNumberEntryDialog();
 
             }
         });
     }
 
-    private void showCustomPrompt() {
+    private void showNewNumberEntryDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = this.getLayoutInflater();
         final View view = inflater.inflate(R.layout.wichtige_nummern_notification, null);
-        final EditText nameInput = (EditText)view.findViewById(R.id.notification_edit_name);
-        final  EditText numberInput = (EditText)view.findViewById(R.id.notification_edit_number);
+        final EditText nameInput = (EditText) view.findViewById(R.id.notification_edit_name);
+        final EditText numberInput = (EditText) view.findViewById(R.id.notification_edit_number);
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
@@ -97,13 +98,11 @@ public class WichtigeNummern extends ActionBarActivity {
                     public void onClick(DialogInterface dialog, int id) {
 
                         // sign in the user ...
-                       String name = nameInput.getText().toString();
+                        String name = nameInput.getText().toString();
                         String number = numberInput.getText().toString();
 
-                        contact.add(name);
-                        phoneNumber.add(number);
-                        valueList.add(name + ":" + number);
-                        adapter.notifyDataSetChanged();
+                        contact_data.add(new Contact(R.drawable.ic_launcher, name, number));
+                        contactAdapter.notifyDataSetChanged();
 
                     }
                 })
@@ -117,11 +116,10 @@ public class WichtigeNummern extends ActionBarActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_wichtige_nummern, menu);
+        //  getMenuInflater().inflate(R.menu.menu_wichtige_nummern, menu);
         return true;
     }
 

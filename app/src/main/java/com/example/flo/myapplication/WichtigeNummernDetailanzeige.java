@@ -24,19 +24,19 @@ public class WichtigeNummernDetailanzeige extends Activity {
     private void setupUI() {
 
         Intent i = getIntent();
-        TextView view = (TextView)findViewById(R.id.wichtige_nummern_anzeige_textView);
+        TextView view = (TextView) findViewById(R.id.wichtige_nummern_anzeige_textView);
         final String name = i.getStringExtra("NAME");
-        final String number = i.getStringExtra("NUMMER") ;
+        final String number = i.getStringExtra("NUMMER");
 
-        view.setText("Name: "+ name + " \n Nummer: " + number);
+        view.setText("Name: " + name + " \n Nummer: " + number);
 
-        Button callButton = (Button)findViewById(R.id.call_button);
+        Button callButton = (Button) findViewById(R.id.call_button);
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:"+number));
+                callIntent.setData(Uri.parse("tel:" + number));
                 startActivity(callIntent);
             }
         });
