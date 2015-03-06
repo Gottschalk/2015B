@@ -40,6 +40,53 @@ public class WichtigeNummern extends ActionBarActivity {
     private void setupCustomList() {
 
 
+        //contact_data.add(new Contact(R.drawable.ic_launcher, "ADAC", "*100#"));
+        //  contact_data.add(new Contact(R.drawable.ic_launcher, "Werkstatt", "1155"));
+        //contact_data.add(new Contact(R.drawable.ic_launcher, "Pannenhilfe", "*#0*#"));
+        //contact_data.add(new Contact(R.drawable.ic_launcher, "ACE", "*100#"));
+
+        DBHelper mDbHelper = new DBHelper(this);
+        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "ADAC" , "*100#"));
+        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "adsfas" , "*100#"));
+        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "AaadsfDAC" , "*100#"));
+        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "babfdb" , "*100#"));
+
+        final ArrayList<Contact> contact_data= mDbHelper.getAllContacts();
+
+
+
+        contactAdapter = new ContactAdapter(this,
+                R.layout.listview_item_row, contact_data);
+
+
+        listViewNummern = (ListView) findViewById(R.id.wichtige_nummern_listView);
+        //header für listview setzen
+        //   View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row, null);
+        //   listViewNummern.addHeaderView(header);
+
+        listViewNummern.setAdapter(contactAdapter);
+        listViewNummern.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(WichtigeNummern.this, WichtigeNummernDetailanzeige.class);
+                int clickedItemIndex = (int) listViewNummern.getAdapter().getItemId(position);
+
+                String contactName = contact_data.get(position).getName();
+                String contactNumber = contact_data.get(position).getNumber();
+
+                i.putExtra("NAME", contactName);
+                i.putExtra("NUMMER", contactNumber);
+                startActivity(i);
+            }
+        });
+    }
+
+
+   /*
+     alte version ohne datenbank/speicherung von daten
+    private void setupCustomList() {
+
+
         contact_data.add(new Contact(R.drawable.ic_launcher, "ADAC", "*100#"));
         contact_data.add(new Contact(R.drawable.ic_launcher, "Werkstatt", "1155"));
         contact_data.add(new Contact(R.drawable.ic_launcher, "Pannenhilfe", "*#0*#"));
@@ -68,6 +115,8 @@ public class WichtigeNummern extends ActionBarActivity {
             }
         });
     }
+
+    */
 
     private void setupUI() {
         Button nummerHinzufuegen = (Button) findViewById(R.id.nummer_hinzufuegen_button);
@@ -101,7 +150,7 @@ public class WichtigeNummern extends ActionBarActivity {
                         String name = nameInput.getText().toString();
                         String number = numberInput.getText().toString();
 
-                        contact_data.add(new Contact(R.drawable.ic_launcher, name, number));
+                 //       contact_data.add(new Contact(R.drawable.ic_launcher, name, number));
                         contactAdapter.notifyDataSetChanged();
 
                     }

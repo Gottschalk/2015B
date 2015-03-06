@@ -2,64 +2,166 @@ package com.example.flo.myapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 /**
  * Created by Flo_2 on 05.03.2015.
  */
-public class DBHelper extends SQLiteOpenHelper{
 
-    public static final String DATABASE_NAME = "contact.db";
+public class DBHelper extends  SQLiteOpenHelper {
+
+
+
+    public static final String TABLE_CONTACT = "contact";
+    public static final String CONTACT_ID = "id";
+    public static final String CONTACT_NAME = "name";
+    public static final String CONTACT_NUMBER = "number";
+
+    // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
-    public static final String CONTACTS_TABLE = "contacts";
-    public static final String CONTACTS_ID = "id";
-    public static final String CONTACTS_NAME = "name";
-    public static final String CONTACTS_NUMBER = "number";
+    public static final String DATABASE_NAME = "contact.db";
 
-    private static final String DATABASE_CREATE = "create table "
-            + CONTACTS_TABLE + "(" + CONTACTS_NAME
-            + " TEXT, " + CONTACTS_NUMBER
-            + " TEXT, "  + ");";
+    private static final String[] COLUMNS = {CONTACT_ID,CONTACT_NAME,CONTACT_NUMBER};
 
 
+    private static final String TEXT_TYPE = " TEXT";
+    private static final String COMMA_SEP = ",";
+    private static final String SQL_CREATE_ENTRIES =
+            "CREATE TABLE " + TABLE_CONTACT + " (" +
+                    CONTACT_ID + " INTEGER PRIMARY KEY," +
+                    CONTACT_NAME + TEXT_TYPE + COMMA_SEP +
+                    CONTACT_NUMBER + TEXT_TYPE + 
 
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+            " )";
+
+    private static final String SQL_DELETE_ENTRIES =
+            "DROP TABLE IF EXISTS " + TABLE_CONTACT;
+
+
+
+
+    public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
-    @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DATABASE_CREATE);
+        db.execSQL(SQL_CREATE_ENTRIES);
     }
-
-    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.w(DBHelper.class.getName(),
-                "Upgrading database from version " + oldVersion + " to "
-                        + newVersion + ", which will destroy all old data");
-        db.execSQL("DROP TABLE IF EXISTS " + CONTACTS_TABLE);
+        // This database is only a cache for online data, so its upgrade policy is
+        // to simply to discard the data and start over
+        db.execSQL(SQL_DELETE_ENTRIES);
         onCreate(db);
     }
 
-    public boolean insertContact  (String name, String phone, String email, String street,String place)
-    {
+    public void addContact(Contact contact){
+        //for logging
+        Log.d("addBook", contact.toString());
+
+        // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
 
-        contentValues.put("name", name);
-        contentValues.put("phone", phone);
-        contentValues.put("email", email);
-        contentValues.put("street", street);
-        contentValues.put("place", place);
+        // 2. create ContentValues to add key "column"/value
+        ContentValues values = new ContentValues();
+        values.put(CONTACT_NAME, contact.getName()); // get name
+        values.put(CONTACT_NUMBER, contact.getName()); // get number
 
-        db.insert("contacts", null, contentValues);
-        return true;
+        // 3. insert
+        db.insert(TABLE_CONTACT, // table
+                null, //nullColumnHack
+                values); // key/value -> keys = column names/ values = column values
+
+        // 4. close
+        db.close();
     }
-    public Cursor getData(int id){
+
+    public Contact getContact(int id){
+
+        // 1. get reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
-        return res;
+
+        // 2. build query
+        Cursor cursor =
+                db.query(TABLE_CONTACT, // a. table
+                        COLUMNS, // b. column names
+                        " id = ?", // c. selections
+                        new String[] { String.valueOf(id) }, // d. selections args
+                        null, // e. group by
+                        null, // f. having
+                        null, // g. order by
+                        null); // h. limit
+
+        // 3. if we got results get the first one
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        // 4. build book object
+        Contact contact = new Contact();
+        contact.setId(Integer.parseInt(cursor.getString(0)));
+        contact.setName(cursor.getString(1));
+        contact.setNumber(cursor.getString(2));
+
+        //log
+        Log.d("getContact(" + id + ")", contact.toString());
+
+        // 5. return book
+        return contact;
+    }
+
+    public void deleteContact(Contact contact) {
+
+        // 1. get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // 2. delete
+        db.delete(TABLE_CONTACT, //table name
+                CONTACT_ID+" = ?",  // selections
+                new String[] { String.valueOf(contact.getId()) }); //selections args
+
+        // 3. close
+        db.close();
+
+        //log
+        Log.d("deleteContact", contact.toString());
+
+    }
+
+    // Get All Contacts
+    public ArrayList<Contact> getAllContacts() {
+        ArrayList<Contact> contacts = new ArrayList<Contact>();
+
+        // 1. build the query
+        String query = "SELECT  * FROM " + TABLE_CONTACT;
+
+        // 2. get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // 3. go over each row, build contact and add it to list
+        Contact contact = null;
+        if (cursor.moveToFirst()) {
+            do {
+                contact = new Contact();
+                contact.setId(Integer.parseInt(cursor.getString(0)));
+                contact.setName(cursor.getString(1));
+                contact.setNumber(cursor.getString(2));
+
+                // Add contact to contacts
+                contacts.add(contact);
+            } while (cursor.moveToNext());
+        }
+
+        Log.d("getAllContacts()", contacts.toString());
+
+        // return books
+        return contacts;
+    }
+
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        onUpgrade(db, oldVersion, newVersion);
     }
 }

@@ -49,10 +49,10 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
         Contact contact = contact_data.get(position);
         // Text in Listrow zuweisen
-        holder.contactName.setText(contact.name);
-        holder.contactNumber.setText(contact.number);
+        holder.contactName.setText(contact.getName());
+        holder.contactNumber.setText(contact.getNumber());
 
-        holder.imgIcon.setImageResource(contact.icon);
+        holder.imgIcon.setImageResource(contact.getIcon());
 
         return row;
     }
