@@ -47,12 +47,12 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             holder = (ContactHolder) row.getTag();
         }
 
-        Contact weather = contact_data.get(position);
+        Contact contact = contact_data.get(position);
         // Text in Listrow zuweisen
-        holder.contactName.setText(weather.name);
-        holder.contactNumber.setText(weather.number);
+        holder.contactName.setText(contact.name);
+        holder.contactNumber.setText(contact.number);
 
-        holder.imgIcon.setImageResource(weather.icon);
+        holder.imgIcon.setImageResource(contact.icon);
 
         return row;
     }
