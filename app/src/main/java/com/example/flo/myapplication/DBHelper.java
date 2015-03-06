@@ -35,7 +35,7 @@ public class DBHelper extends  SQLiteOpenHelper {
             "CREATE TABLE " + TABLE_CONTACT + " (" +
                     CONTACT_ID + " INTEGER PRIMARY KEY," +
                     CONTACT_NAME + TEXT_TYPE + COMMA_SEP +
-                    CONTACT_NUMBER + TEXT_TYPE + 
+                    CONTACT_NUMBER + TEXT_TYPE +
 
             " )";
 
@@ -60,7 +60,7 @@ public class DBHelper extends  SQLiteOpenHelper {
 
     public void addContact(Contact contact){
         //for logging
-        Log.d("addBook", contact.toString());
+        Log.d("addContact", contact.toString());
 
         // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
@@ -68,7 +68,7 @@ public class DBHelper extends  SQLiteOpenHelper {
         // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
         values.put(CONTACT_NAME, contact.getName()); // get name
-        values.put(CONTACT_NUMBER, contact.getName()); // get number
+        values.put(CONTACT_NUMBER, contact.getNumber()); // get number
 
         // 3. insert
         db.insert(TABLE_CONTACT, // table
@@ -99,7 +99,7 @@ public class DBHelper extends  SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        // 4. build book object
+        // 4. build contact object
         Contact contact = new Contact();
         contact.setId(Integer.parseInt(cursor.getString(0)));
         contact.setName(cursor.getString(1));
@@ -155,7 +155,7 @@ public class DBHelper extends  SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-        Log.d("getAllContacts()", contacts.toString());
+        Log.e("getAllContacts()", contacts.toString());
 
         // return books
         return contacts;
