@@ -23,8 +23,9 @@ public class WichtigeNummern extends ActionBarActivity {
 
     private ListView listViewNummern;
     private ContactAdapter contactAdapter;
-    private ArrayList<Contact> contact_data = new ArrayList<Contact>();
-
+   // private ArrayList<Contact> contact_data = new ArrayList<Contact>();
+    private DBHelper mDbHelper;
+    private ArrayList<Contact> contact_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +46,14 @@ public class WichtigeNummern extends ActionBarActivity {
         //contact_data.add(new Contact(R.drawable.ic_launcher, "Pannenhilfe", "*#0*#"));
         //contact_data.add(new Contact(R.drawable.ic_launcher, "ACE", "*100#"));
 
-        DBHelper mDbHelper = new DBHelper(this);
-        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "ADAC" , "*100#"));
-        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "adsfas" , "*100#"));
-        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "AaadsfDAC" , "*100#"));
-        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "babfdb" , "*100#"));
 
-        final ArrayList<Contact> contact_data= mDbHelper.getAllContacts();
+  //      mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "ADAC" , "*100#"));
+  //      mDbHelper.addContact(new Contact(2,R.drawable.ic_launcher, "adsfas" , "*100#"));
+  //      mDbHelper.addContact(new Contact(3,R.drawable.ic_launcher, "AaadsfDAC" , "*100#"));
+  //      mDbHelper.addContact(new Contact(4,R.drawable.ic_launcher, "babfdb" , "*100#"));
+
+        mDbHelper = new DBHelper(this);
+        contact_data= mDbHelper.getAllContacts();
 
 
 
@@ -150,8 +152,10 @@ public class WichtigeNummern extends ActionBarActivity {
                         String name = nameInput.getText().toString();
                         String number = numberInput.getText().toString();
 
-                 //       contact_data.add(new Contact(R.drawable.ic_launcher, name, number));
+                        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, name , number));
+                        contact_data= mDbHelper.getAllContacts();
                         contactAdapter.notifyDataSetChanged();
+
 
                     }
                 })

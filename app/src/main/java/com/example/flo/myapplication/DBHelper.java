@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -21,12 +20,13 @@ public class DBHelper extends  SQLiteOpenHelper {
     public static final String CONTACT_ID = "id";
     public static final String CONTACT_NAME = "name";
     public static final String CONTACT_NUMBER = "number";
+    public static final String CONTACT_ICON = "icon";
 
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "contact.db";
 
-    private static final String[] COLUMNS = {CONTACT_ID,CONTACT_NAME,CONTACT_NUMBER};
+    private static final String[] COLUMNS = {CONTACT_ID, CONTACT_ICON, CONTACT_NAME,CONTACT_NUMBER};
 
 
     private static final String TEXT_TYPE = " TEXT";
@@ -34,6 +34,7 @@ public class DBHelper extends  SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_CONTACT + " (" +
                     CONTACT_ID + " INTEGER PRIMARY KEY," +
+                    CONTACT_ICON + " INTEGER," +
                     CONTACT_NAME + TEXT_TYPE + COMMA_SEP +
                     CONTACT_NUMBER + TEXT_TYPE +
 
@@ -59,16 +60,16 @@ public class DBHelper extends  SQLiteOpenHelper {
     }
 
     public void addContact(Contact contact){
-        //for logging
-        Log.d("addContact", contact.toString());
 
         // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
 
         // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
+        values.put(CONTACT_ICON, contact.getIcon()); // get icon
         values.put(CONTACT_NAME, contact.getName()); // get name
         values.put(CONTACT_NUMBER, contact.getNumber()); // get number
+
 
         // 3. insert
         db.insert(TABLE_CONTACT, // table
@@ -102,11 +103,11 @@ public class DBHelper extends  SQLiteOpenHelper {
         // 4. build contact object
         Contact contact = new Contact();
         contact.setId(Integer.parseInt(cursor.getString(0)));
-        contact.setName(cursor.getString(1));
-        contact.setNumber(cursor.getString(2));
+        contact.setName(cursor.getString(2));
+        contact.setNumber(cursor.getString(3));
+        contact.setIcon(Integer.parseInt(cursor.getString(1)));
 
-        //log
-        Log.d("getContact(" + id + ")", contact.toString());
+
 
         // 5. return book
         return contact;
@@ -125,8 +126,6 @@ public class DBHelper extends  SQLiteOpenHelper {
         // 3. close
         db.close();
 
-        //log
-        Log.d("deleteContact", contact.toString());
 
     }
 
@@ -143,19 +142,23 @@ public class DBHelper extends  SQLiteOpenHelper {
 
         // 3. go over each row, build contact and add it to list
         Contact contact = null;
+        int counter = 0;
         if (cursor.moveToFirst()) {
             do {
+                counter ++;
                 contact = new Contact();
                 contact.setId(Integer.parseInt(cursor.getString(0)));
-                contact.setName(cursor.getString(1));
-                contact.setNumber(cursor.getString(2));
+                contact.setName(cursor.getString(2));
+                contact.setNumber(cursor.getString(3));
+                contact.setIcon(Integer.parseInt(cursor.getString(1)));
 
                 // Add contact to contacts
                 contacts.add(contact);
+
             } while (cursor.moveToNext());
         }
 
-        Log.e("getAllContacts()", contacts.toString());
+
 
         // return books
         return contacts;
