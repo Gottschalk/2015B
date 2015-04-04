@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         werkstatt_finden_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WerkstattFinden.class);
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

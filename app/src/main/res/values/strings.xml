@@ -19,5 +19,6 @@
     <string name="title_activity_tutorial_list_view_acitivity_anzeige">TutorialListViewAcitivityAnzeige</string>
     <string name="nummer_hinzufuegen_text">Nummer hinzufügen</string>
     <string name="wichtige_nummern_row_header_text">Wichtige Nummern</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
