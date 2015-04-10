@@ -21,6 +21,8 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
 
     private GoogleMap googleMap;
     private Marker currentPosMarker;
+    private SupportMapFragment supportMapFragment;
+    private LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,20 +39,23 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         if (!isGooglePlayServicesAvailable()) {
             finish();
         }
-        SupportMapFragment supportMapFragment =
-                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         googleMap = supportMapFragment.getMap();
         googleMap.setMyLocationEnabled(true);
         googleMap.getUiSettings().setMapToolbarEnabled(true);
         googleMap.getUiSettings().setZoomControlsEnabled(true);
-        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String bestProvider = locationManager.getBestProvider(criteria, true);
         Location location = locationManager.getLastKnownLocation(bestProvider);
         if (location != null) {
             onLocationChanged(location);
         }
-        locationManager.requestLocationUpdates(bestProvider, 20000, 0, (LocationListener) this);
+        locationManager.requestLocationUpdates(bestProvider, 2000, 0, (LocationListener) this);
+
+
+
+
     }
 
 
@@ -97,6 +102,4 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
             return false;
         }
     }
-
-
 }
