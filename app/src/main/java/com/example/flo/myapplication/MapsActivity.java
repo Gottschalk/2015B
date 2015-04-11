@@ -69,10 +69,11 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
-        googlePlacesUrl.append("&types=" + searchTag);
+        googlePlacesUrl.append("&keyword=" + searchTag);
         googlePlacesUrl.append("&sensor=true");
         googlePlacesUrl.append("&key=" + GOOGLE_API_KEY);
 
+        // funktionierender searchTag:  String searchString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=53.6020,53.6020&radius=50000&keyword=bank&sensor=false&key=AIzaSyDDEpWL-ajz5r0hVYTlS4DanzTdqDwEBQE";
         Log.e("#####searchtTAG####", googlePlacesUrl.toString());
 
         GooglePlacesReadTask googlePlacesReadTask = new GooglePlacesReadTask();
