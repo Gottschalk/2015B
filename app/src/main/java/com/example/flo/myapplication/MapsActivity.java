@@ -4,8 +4,13 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -23,6 +28,15 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
     private Marker currentPosMarker;
     private SupportMapFragment supportMapFragment;
     private LocationManager locationManager;
+    private Location location;
+
+    //private static final String GOOGLE_API_KEY = "AIzaSyC1OuzCRRYU8FykKApdyiNIml5XxMweYm8";
+    private static final String GOOGLE_API_KEY = "AIzaSyDDEpWL-ajz5r0hVYTlS4DanzTdqDwEBQE"; // Server key
+    private EditText placeText;
+    private double latitude = 0;
+    private double longitude = 0;
+    private int PROXIMITY_RADIUS = 50000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +44,47 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         setContentView(R.layout.activity_maps);
         // setUpMapIfNeeded();
 
+        setupUI();
         createMap();
 
+    }
 
+    private void setupUI() {
+        placeText = (EditText) findViewById(R.id.mapsPlacesSearchEditText);
+        Button searchPlacesButton = (Button) findViewById(R.id.mapsPlacesSearchButton);
+        searchPlacesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createPlaces();
+            }
+        });
+    }
+
+    private void createPlaces() {
+        // akutelle position in lat und long speichern
+        fetchCurrentLocation();
+
+        String searchTag = placeText.getText().toString();
+        placeText.setText("");
+        StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googlePlacesUrl.append("location=" + latitude + "," + longitude);
+        googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
+        googlePlacesUrl.append("&types=" + searchTag);
+        googlePlacesUrl.append("&sensor=true");
+        googlePlacesUrl.append("&key=" + GOOGLE_API_KEY);
+
+        Log.e("#####searchtTAG####", googlePlacesUrl.toString());
+
+        GooglePlacesReadTask googlePlacesReadTask = new GooglePlacesReadTask();
+        Object[] toPass = new Object[2];
+        toPass[0] = googleMap;
+        toPass[1] = googlePlacesUrl.toString();
+        googlePlacesReadTask.execute(toPass);
+    }
+
+    private void fetchCurrentLocation() {
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
     }
 
     private void createMap() {
@@ -47,15 +99,11 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String bestProvider = locationManager.getBestProvider(criteria, true);
-        Location location = locationManager.getLastKnownLocation(bestProvider);
+        location = locationManager.getLastKnownLocation(bestProvider);
         if (location != null) {
             onLocationChanged(location);
         }
-        locationManager.requestLocationUpdates(bestProvider, 2000, 0, (LocationListener) this);
-
-
-
-
+        locationManager.requestLocationUpdates(bestProvider, 20000, 0, (LocationListener) this);
     }
 
 
@@ -64,8 +112,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
 
 
         TextView locationTv = (TextView) findViewById(R.id.latlongLocation);
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
+        fetchCurrentLocation();
         LatLng latLng = new LatLng(latitude, longitude);
 
         if (currentPosMarker == null) {
@@ -102,4 +149,33 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
             return false;
         }
     }
+
+    public class GooglePlacesReadTask extends AsyncTask<Object, Integer, String> {
+        String googlePlacesData = null;
+        GoogleMap googleMap;
+
+        @Override
+        protected String doInBackground(Object... inputObj) {
+            try {
+                googleMap = (GoogleMap) inputObj[0];
+                String googlePlacesUrl = (String) inputObj[1];
+                Http http = new Http();
+                googlePlacesData = http.read(googlePlacesUrl);
+            } catch (Exception e) {
+                Log.e("Google Place Read Task", e.toString());
+            }
+            Log.e("####PlacesREadTAsk: googlePlacesData", googlePlacesData);
+            return googlePlacesData;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            PlacesDisplayTask placesDisplayTask = new PlacesDisplayTask();
+            Object[] toPass = new Object[2];
+            toPass[0] = googleMap;
+            toPass[1] = result;
+            placesDisplayTask.execute(toPass);
+        }
+    }
+
 }

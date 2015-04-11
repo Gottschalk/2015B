@@ -20,5 +20,7 @@
     <string name="nummer_hinzufuegen_text">Nummer hinzufügen</string>
     <string name="wichtige_nummern_row_header_text">Wichtige Nummern</string>
     <string name="title_activity_maps">Map</string>
+    <string name="placesSearchTagFieldString">z.b. police ...</string>
+    <string name="mapsSearchButtonText">suchen</string>
 
 </resources>
