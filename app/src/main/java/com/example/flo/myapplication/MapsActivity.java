@@ -117,7 +117,10 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         LatLng latLng = new LatLng(latitude, longitude);
 
         if (currentPosMarker == null) {
-            currentPosMarker = googleMap.addMarker(new MarkerOptions().position(latLng));
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title("Aktueller Standort");
+            currentPosMarker = googleMap.addMarker(markerOptions);
         } else {
             currentPosMarker.setPosition(latLng);
         }
@@ -156,6 +159,11 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         GoogleMap googleMap;
 
         @Override
+        protected void onPreExecute() {
+            findViewById(R.id.progressBarFetchPlaces).setVisibility(View.VISIBLE);
+        }
+
+        @Override
         protected String doInBackground(Object... inputObj) {
             try {
                 googleMap = (GoogleMap) inputObj[0];
@@ -165,7 +173,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
             } catch (Exception e) {
                 Log.e("Google Place Read Task", e.toString());
             }
-            Log.e("####PlacesREadTAsk: googlePlacesData", googlePlacesData);
+            // Log.e("####PlacesREadTAsk: googlePlacesData", googlePlacesData);
             return googlePlacesData;
         }
 
@@ -176,6 +184,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
             toPass[0] = googleMap;
             toPass[1] = result;
             placesDisplayTask.execute(toPass);
+            findViewById(R.id.progressBarFetchPlaces).setVisibility(View.GONE);
         }
     }
 

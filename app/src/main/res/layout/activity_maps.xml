@@ -8,19 +8,22 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:hint="@string/placesSearchTagFieldString"
-        android:id="@+id/mapsPlacesSearchEditText" />
+        android:id="@+id/mapsPlacesSearchEditText"
+        android:layout_toLeftOf="@+id/mapsPlacesSearchButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mapsSearchButtonText"
-        android:layout_alignBottom="@+id/mapsPlacesSearchEditText"
-        android:layout_alignRight="@+id/latlongLocation"
-        android:layout_alignEnd="@+id/latlongLocation"
-        android:id="@+id/mapsPlacesSearchButton" />
+        android:id="@+id/mapsPlacesSearchButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,7 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         tools:context="com.example.flo.myapplication.MapsActivity"
-        android:layout_below="@+id/mapsPlacesSearchEditText" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/mapsPlacesSearchEditText"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/latlongLocation"
@@ -45,6 +51,15 @@
         android:textColor="#ffffffff"
         android:paddingLeft="5dp"
         android:paddingRight="5dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBarFetchPlaces"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
 
 </RelativeLayout>
 
