@@ -1,5 +1,8 @@
 package com.example.flo.myapplication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -98,6 +101,32 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         googleMap.getUiSettings().setMapToolbarEnabled(true);
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        boolean enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if (!enabled) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MapsActivity.this);
+            builder.setMessage("GPS ist deaktiviert, aktivieren?")
+                    .setCancelable(false)
+                    .setPositiveButton("Gehe zu Einstellungen",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent callGPSSettingIntent = new Intent(
+                                            android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                    startActivity(callGPSSettingIntent);
+                                }
+                            });
+            builder.setNegativeButton("Abbrechen",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+        }
+
         Criteria criteria = new Criteria();
         String bestProvider = locationManager.getBestProvider(criteria, true);
         location = locationManager.getLastKnownLocation(bestProvider);
@@ -106,6 +135,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         }
         locationManager.requestLocationUpdates(bestProvider, 20000, 0, (LocationListener) this);
     }
+
 
 
     @Override
