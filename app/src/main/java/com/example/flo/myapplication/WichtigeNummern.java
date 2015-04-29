@@ -26,6 +26,7 @@ public class WichtigeNummern extends ActionBarActivity {
     // Tutorials:
     // Datenbank: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
     // CustomListView: http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/
+    // Datenbank und Listview: http://www.mysamplecode.com/2012/07/android-listview-cursoradapter-sqlite.html
 
 
     @Override
@@ -36,19 +37,25 @@ public class WichtigeNummern extends ActionBarActivity {
         setupUI();
 
         db = new DBHelper(this);
-        db.deleteAllContacts();
 
-        Log.e("Insert: ", "Inserting ..");
-        db.addContact(new Contact("ADAC", "*100#"));
-        db.addContact(new Contact("Automobilclub Europa", "*100#"));
-        db.addContact(new Contact("Werkstatt", "*100#"));
-        db.addContact(new Contact("Mechaniker", "*100#"));
 
-        // Reading all contacts
-        Log.e("Reading: ", "Reading all contacts..");
-
+        // falls zu viele testelemente in der db sind
+        // db.deleteAllContacts();
 
         contacts = db.getAllContacts();
+
+        // Bei erster App-Benutzung leere DB abfangen
+        if (contacts.size() == 0) {
+            Log.e("Creating first contacts: ", "Creating first contacts..");
+
+            db.addContact(new Contact("ADAC", "*100#"));
+            db.addContact(new Contact("Automobilclub Europa", "*100#"));
+            db.addContact(new Contact("Werkstatt", "*100#"));
+            db.addContact(new Contact("Mechaniker", "*100#"));
+
+            contacts = db.getAllContacts();
+
+        }
 
         for (Contact cn : contacts) {
             String log = "Id: " + cn.getId() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getNumber();
