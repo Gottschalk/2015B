@@ -36,20 +36,20 @@ public class Taschenlampe extends ActionBarActivity {
                 .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
         if (!hasFlash) {
-            // device doesn't support flash
-            // Show alert message and close the application
-            AlertDialog alert = new AlertDialog.Builder(Taschenlampe.this)
-                    .create();
-            alert.setTitle("Error");
-            alert.setMessage("Sorry, your device doesn't support flash light!");
-            alert.setButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    // closing the application
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(Taschenlampe.this);
+            builder.setTitle(("Kein Blitz vorhanden!"));
+            builder.setMessage("Sorry, dieses Smartphone besitzt keinen Blitz, daher kann die Taschenlampenfunktion leider nicht verwendet werden.");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked OK button
                     finish();
                 }
             });
-            alert.show();
-            return;
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
         }
 
         // get the camera
@@ -82,7 +82,7 @@ public class Taschenlampe extends ActionBarActivity {
                 camera = Camera.open();
                 params = camera.getParameters();
             } catch (RuntimeException e) {
-                Log.e("Camera Error. Failed to Open. Error: ", e.getMessage());
+                Log.e("Camera Error.Failed to Open.Error: ", e.getMessage());
             }
         }
     }
