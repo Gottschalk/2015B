@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,106 +20,64 @@ import java.util.ArrayList;
 
 public class WichtigeNummern extends ActionBarActivity {
 
+    DBHelper db;
+    ContactAdapter adapter;
+    ArrayList<Contact> contacts;
+    // Tutorials:
+    // Datenbank: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
+    // CustomListView: http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/
 
-
-    private ListView listViewNummern;
-    private ContactAdapter contactAdapter;
-   // private ArrayList<Contact> contact_data = new ArrayList<Contact>();
-    private DBHelper mDbHelper;
-    private ArrayList<Contact> contact_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wichtige_nummern);
+
         setupUI();
 
-        setupCustomList();
+        db = new DBHelper(this);
+        db.deleteAllContacts();
+
+        Log.e("Insert: ", "Inserting ..");
+        db.addContact(new Contact("ADAC", "*100#"));
+        db.addContact(new Contact("Automobilclub Europa", "*100#"));
+        db.addContact(new Contact("Werkstatt", "*100#"));
+        db.addContact(new Contact("Mechaniker", "*100#"));
+
+        // Reading all contacts
+        Log.e("Reading: ", "Reading all contacts..");
 
 
-    }
+        contacts = db.getAllContacts();
 
-    private void setupCustomList() {
-
-
-        //contact_data.add(new Contact(R.drawable.ic_launcher, "ADAC", "*100#"));
-        //  contact_data.add(new Contact(R.drawable.ic_launcher, "Werkstatt", "1155"));
-        //contact_data.add(new Contact(R.drawable.ic_launcher, "Pannenhilfe", "*#0*#"));
-        //contact_data.add(new Contact(R.drawable.ic_launcher, "ACE", "*100#"));
+        for (Contact cn : contacts) {
+            String log = "Id: " + cn.getId() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getNumber();
+            // Writing Contacts to log
+            Log.e("Name: ", log);
+        }
 
 
-  //      mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, "ADAC" , "*100#"));
-  //      mDbHelper.addContact(new Contact(2,R.drawable.ic_launcher, "adsfas" , "*100#"));
-  //      mDbHelper.addContact(new Contact(3,R.drawable.ic_launcher, "AaadsfDAC" , "*100#"));
-  //      mDbHelper.addContact(new Contact(4,R.drawable.ic_launcher, "babfdb" , "*100#"));
+        adapter = new ContactAdapter(this, R.layout.listview_item_row, contacts);
+        final ListView listView = (ListView) findViewById(R.id.wichtige_nummern_listView);
+        listView.setAdapter(adapter);
 
-        mDbHelper = new DBHelper(this);
-        contact_data= mDbHelper.getAllContacts();
-
-
-
-        contactAdapter = new ContactAdapter(this,
-                R.layout.listview_item_row, contact_data);
-
-
-        listViewNummern = (ListView) findViewById(R.id.wichtige_nummern_listView);
-        //header für listview setzen
-        //   View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row, null);
-        //   listViewNummern.addHeaderView(header);
-
-        listViewNummern.setAdapter(contactAdapter);
-        listViewNummern.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(WichtigeNummern.this, WichtigeNummernDetailanzeige.class);
-                int clickedItemIndex = (int) listViewNummern.getAdapter().getItemId(position);
+                int clickedItemIndex = (int) listView.getAdapter().getItemId(position);
 
-                String contactName = contact_data.get(position).getName();
-                String contactNumber = contact_data.get(position).getNumber();
+                String contactName = contacts.get(position).getName();
+                String contactNumber = contacts.get(position).getNumber();
 
                 i.putExtra("NAME", contactName);
                 i.putExtra("NUMMER", contactNumber);
                 startActivity(i);
             }
         });
+
+
     }
-
-
-   /*
-     alte version ohne datenbank/speicherung von daten
-    private void setupCustomList() {
-
-
-        contact_data.add(new Contact(R.drawable.ic_launcher, "ADAC", "*100#"));
-        contact_data.add(new Contact(R.drawable.ic_launcher, "Werkstatt", "1155"));
-        contact_data.add(new Contact(R.drawable.ic_launcher, "Pannenhilfe", "*#0*#"));
-        contact_data.add(new Contact(R.drawable.ic_launcher, "ACE", "*100#"));
-
-        contactAdapter = new ContactAdapter(this,
-                R.layout.listview_item_row, contact_data);
-
-
-        listViewNummern = (ListView) findViewById(R.id.wichtige_nummern_listView);
-        //header für listview setzen
-        //   View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row, null);
-        //   listViewNummern.addHeaderView(header);
-
-        listViewNummern.setAdapter(contactAdapter);
-        listViewNummern.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(WichtigeNummern.this, WichtigeNummernDetailanzeige.class);
-                int clickedItemIndex = (int) listViewNummern.getAdapter().getItemId(position);
-                String contactName = contact_data.get(position).name;
-                String contactNumber = contact_data.get(position).number;
-                i.putExtra("NAME", contactName);
-                i.putExtra("NUMMER", contactNumber);
-                startActivity(i);
-            }
-        });
-    }
-
-    */
 
     private void setupUI() {
         Button nummerHinzufuegen = (Button) findViewById(R.id.nummer_hinzufuegen_button);
@@ -140,8 +99,7 @@ public class WichtigeNummern extends ActionBarActivity {
         final EditText nameInput = (EditText) view.findViewById(R.id.notification_edit_name);
         final EditText numberInput = (EditText) view.findViewById(R.id.notification_edit_number);
 
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because its going in the dialog layout
+
         builder.setView(view)
                 // Add action buttons
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -152,11 +110,16 @@ public class WichtigeNummern extends ActionBarActivity {
                         String name = nameInput.getText().toString();
                         String number = numberInput.getText().toString();
 
-                        mDbHelper.addContact(new Contact(1,R.drawable.ic_launcher, name , number));
-                        contact_data= mDbHelper.getAllContacts();
-                        contactAdapter.notifyDataSetChanged();
+                        db.addContact(new Contact(name, number));
+                        contacts = db.getAllContacts();
+                        adapter.add(new Contact(name, number));
+                        adapter.notifyDataSetChanged();
 
-
+                        for (Contact cn : contacts) {
+                            String log = "Id: " + cn.getId() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getNumber();
+                            // Writing Contacts to log
+                            Log.e("Name: ", log);
+                        }
                     }
                 })
                 .setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
@@ -190,4 +153,6 @@ public class WichtigeNummern extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

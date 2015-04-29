@@ -5,7 +5,7 @@ package com.example.flo.myapplication;
  */
 public class Contact {
 
-    private int icon;
+
     private int id;
     private String name;
     private String number;
@@ -14,17 +14,17 @@ public class Contact {
         super();
     }
 
-    public Contact(int id, int icon, String name, String number) {
-        super();
+    // constructor
+    public Contact(int id, String name, String number) {
         this.id = id;
-        this.icon = icon;
         this.name = name;
         this.number = number;
-
     }
 
-    public int getIcon(){
-        return icon;
+    // constructor
+    public Contact(String name, String _phone_number) {
+        this.name = name;
+        this.number = _phone_number;
     }
 
     public int getId(){
@@ -37,10 +37,6 @@ public class Contact {
 
     public String getNumber(){
         return number;
-    }
-
-    public void setIcon(int icon){
-        this.icon = icon;
     }
 
     public void setId(int id){
@@ -56,7 +52,7 @@ public class Contact {
     }
 
     public String toString() {
-        return "Contact [id=" + id + ", name=" + name + ", icon=" + icon + ", number=" + number
+        return "Contact [id=" + id + ", name=" + name + ", number=" + number
                 + "]";
     }
 

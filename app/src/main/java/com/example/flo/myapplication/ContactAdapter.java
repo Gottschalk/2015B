@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 public class ContactAdapter extends ArrayAdapter<Contact> {
     Context context;
     int layoutResourceId;
-   // Contact data[] = null;
+    // Contact data[] = null;
     ArrayList<Contact> contact_data = null;
 
     public ContactAdapter(Context context, int layoutResourceId, ArrayList<Contact> contact_data) {
@@ -37,7 +36,6 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             row = inflater.inflate(layoutResourceId, parent, false);
 
             holder = new ContactHolder();
-            holder.imgIcon = (ImageView) row.findViewById(R.id.imgIcon);
             holder.contactName = (TextView) row.findViewById(R.id.contactName);
             holder.contactNumber = (TextView) row.findViewById(R.id.contactNumber);
 
@@ -52,13 +50,10 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         holder.contactName.setText(contact.getName());
         holder.contactNumber.setText(contact.getNumber());
 
-        holder.imgIcon.setImageResource(contact.getIcon());
-
         return row;
     }
 
     static class ContactHolder {
-        ImageView imgIcon;
         TextView contactName;
         TextView contactNumber;
     }
