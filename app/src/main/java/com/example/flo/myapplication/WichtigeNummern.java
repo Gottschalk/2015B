@@ -84,6 +84,42 @@ public class WichtigeNummern extends ActionBarActivity {
         });
 
 
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(WichtigeNummern.this);
+                builder.setTitle(("Element wirklich entfernen?"));
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+
+                        int clickedItemIndex = (int) listView.getAdapter().getItemId(position);
+
+                        Contact contact = contacts.get(position);
+
+                        db.deleteContact(contact);
+                        contacts = db.getAllContacts();
+                        adapter.remove(contact);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
+                builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                return false;
+            }
+        });
+
     }
 
     private void setupUI() {
@@ -133,7 +169,7 @@ public class WichtigeNummern extends ActionBarActivity {
                     public void onClick(DialogInterface dialog, int id) {
 
                     }
-                });
+                }).setTitle("Neue Nummer erstellen");
         //  builder.create();
         builder.show();
     }
