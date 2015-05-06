@@ -82,7 +82,7 @@ public class Taschenlampe extends ActionBarActivity {
                 camera = Camera.open();
                 params = camera.getParameters();
             } catch (RuntimeException e) {
-                Log.e("Camera Error.Failed to Open.Error: ", e.getMessage());
+                //  Log.e("Camera Error.Failed to Open.Error: ", e.getMessage());
             }
         }
     }
