@@ -1,0 +1,22 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ListView
+        android:id="@+id/wichtige_nummern_listView"
+        android:layout_height="0dip"
+        android:layout_width="match_parent"
+        android:layout_weight="0.94"
+        />
+
+    <Button
+        android:id="@+id/nummer_hinzufuegen_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nummer_hinzufuegen_text"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

@@ -22,5 +22,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="placesSearchTagFieldString">z.b. police ...</string>
     <string name="mapsSearchButtonText">suchen</string>
+    <string name="title_activity_start_splash">Pannenhilfe</string>
+    <string name="StartSplashText1">Starte</string>
+    <string name="StartSplashText2">. . .</string>
+    <string name="StartSplashHeader">Pannenhilfe</string>
 
 </resources>

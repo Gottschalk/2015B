@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MenuActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
         gefahrenstelle_absichern_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GefahrenstelleAbsichern.class);
+                Intent intent = new Intent(MenuActivity.this, GefahrenstelleAbsichern.class);
                 startActivity(intent);
             }
         });
@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
         panne_beheben_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PanneBeheben.class);
+                Intent intent = new Intent(MenuActivity.this, PanneBeheben.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         werkstatt_finden_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                Intent intent = new Intent(MenuActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
         });
@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
         wichtige_nummern_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WichtigeNummern.class);
+                Intent intent = new Intent(MenuActivity.this, WichtigeNummern.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
         flashlight_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Taschenlampe.class);
+                Intent intent = new Intent(MenuActivity.this, Taschenlampe.class);
                 startActivity(intent);
             }
         });
