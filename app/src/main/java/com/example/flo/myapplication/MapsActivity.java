@@ -140,7 +140,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
         if (location != null) {
             onLocationChanged(location);
         }
-        locationManager.requestLocationUpdates(bestProvider, 10000, 0, (LocationListener) this);
+        locationManager.requestLocationUpdates(bestProvider, 10000, 0, this);
 
     }
 
