@@ -26,5 +26,6 @@
     <string name="StartSplashText1">Starte</string>
     <string name="StartSplashText2">. . .</string>
     <string name="StartSplashHeader">Pannenhilfe</string>
+    <string name="unfall_dokumentieren_button_text">Unfall dokumentieren</string>
 
 </resources>
