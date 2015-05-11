@@ -1,7 +1,11 @@
 package com.example.flo.myapplication;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.media.MediaPlayer;
@@ -12,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 public class Taschenlampe extends ActionBarActivity {
@@ -24,6 +29,7 @@ public class Taschenlampe extends ActionBarActivity {
     private boolean hasFlash;
     Camera.Parameters params;
     MediaPlayer mp;
+    TextView batteryLevelTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +57,27 @@ public class Taschenlampe extends ActionBarActivity {
             dialog.show();
 
         }
-
         // get the camera
         getCamera();
-
         // displaying button image
         toggleButtonImage();
+
+        //show battery level
+        Intent batteryIntent = this.getApplicationContext().registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        int rawlevel = batteryIntent.getIntExtra("level", -1);
+        double scale = batteryIntent.getIntExtra("scale", -1);
+        double level = -1;
+        if (rawlevel >= 0 && scale > 0) {
+            level = rawlevel / scale;
+        }
+
+        level = level * 100;
+        batteryLevelTv = (TextView)findViewById(R.id.taschenlampe_akku_status_text);
+        batteryLevelTv.setText((int) level + "%");
+
+        // receive battery level change
+        registerReceiver(this.mBatInfoReceiver,
+                new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
 
         // Switch button click event to toggle flash on/off
@@ -64,18 +85,21 @@ public class Taschenlampe extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
+                TextView flashlightStatusText = (TextView)findViewById(R.id.taschenlampe_status_text);
                 if (isFlashOn) {
                     // turn off flash
                     turnOffFlash();
+                    flashlightStatusText.setText(("Aus"));
                 } else {
                     // turn on flash
                     turnOnFlash();
+                    flashlightStatusText.setText(("An"));
+
                 }
             }
         });
     }
 
-    // Get the camera
     private void getCamera() {
         if (camera == null) {
             try {
@@ -87,8 +111,6 @@ public class Taschenlampe extends ActionBarActivity {
         }
     }
 
-
-    // Turning On flash
     private void turnOnFlash() {
         if (!isFlashOn) {
             if (camera == null || params == null) {
@@ -109,8 +131,6 @@ public class Taschenlampe extends ActionBarActivity {
 
     }
 
-
-    // Turning Off flash
     private void turnOffFlash() {
         if (isFlashOn) {
             if (camera == null || params == null) {
@@ -224,4 +244,18 @@ public class Taschenlampe extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver(){
+      //  TextView batteryLevelTv = (TextView)findViewById(R.id.taschenlampe_akku_status_text);
+
+        @Override
+        public void onReceive(Context arg0, Intent intent) {
+            int level = intent.getIntExtra("level", 0);
+            // do something...
+            batteryLevelTv.setText((int)level + "%");
+
+        }
+    };
+
 }

@@ -10,11 +10,60 @@
         android:id="@+id/btnSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dip"
         android:src="@drawable/flashlight_on_hdpi"
         android:background="@null"
         android:contentDescription="@null"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Durch Klicken des Buttons kann die Taschenlampenfunktion aktiviert und deaktiviert werden."
+        android:id="@+id/taschenlampe_erklaerung_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Taschenlampe: "
+        android:id="@+id/taschenlampe_vor_status_text"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Aus"
+        android:textColor="#240d00"
+        android:id="@+id/taschenlampe_status_text"
+        android:layout_alignTop="@+id/taschenlampe_vor_status_text"
+        android:layout_alignLeft="@+id/taschenlampe_akku_status_text"
+        android:layout_alignStart="@+id/taschenlampe_akku_status_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Akku: "
+        android:id="@+id/taschenlampe_akku_text"
+        android:layout_above="@+id/taschenlampe_vor_status_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0%"
+        android:id="@+id/taschenlampe_akku_status_text"
+        android:layout_alignTop="@+id/taschenlampe_akku_text"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
