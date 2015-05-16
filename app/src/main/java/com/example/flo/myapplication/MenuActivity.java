@@ -11,9 +11,18 @@ import android.widget.Button;
 
 public class MenuActivity extends ActionBarActivity {
 
+    private double latitude = 0;
+    private double longitude = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            latitude= extras.getDouble("latitude");
+            longitude= extras.getDouble("longitude");
+        }
         setContentView(R.layout.activity_menu);
         setupUI();
     }
@@ -45,6 +54,8 @@ public class MenuActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, MapsActivity.class);
+                intent.putExtra("latitude", latitude);
+                intent.putExtra("longitude", longitude);
                 startActivity(intent);
             }
         });
@@ -57,8 +68,6 @@ public class MenuActivity extends ActionBarActivity {
             }
         });
 
-
-        // Register the onClick listener with the implementation above
         flashlight_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

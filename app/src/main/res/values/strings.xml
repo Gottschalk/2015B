@@ -28,7 +28,7 @@
     <string name="StartSplashHeader">Pannenhilfe</string>
     <string name="panne_dokumentieren_button_text">Panne dokumentieren</string>
     <string name="title_activity_maps_activity2">Map</string>
-    <string name="werkstatt_finden_text_resource">Durch Klicken auf den Button kann nach dem Element, dass im Dropdown Menü ausgewählt ist, gesucht werden</string>
+    <string name="werkstatt_finden_text_resource">Durch Klicken auf den Button kann auf der Karte nach dem Element, dass im Dropdown Menü ausgewählt ist, gesucht werden.</string>
 
 
     <string-array name="search_tag_array">

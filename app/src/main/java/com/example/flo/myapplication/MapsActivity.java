@@ -51,6 +51,13 @@ public class MapsActivity extends ActionBarActivity implements LocationListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            latitude= extras.getDouble("latitude");
+            longitude= extras.getDouble("longitude");
+        }
+
         setContentView(R.layout.activity_maps);
         // setUpMapIfNeeded();
 
