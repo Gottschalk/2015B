@@ -12,8 +12,8 @@
         android:background="@drawable/ic_taschenlampe"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="50dp"
-        android:layout_above="@+id/panne_beheben_button"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -22,18 +22,23 @@
         android:layout_height="70dp"
         android:background="@drawable/ic_gefahrenstelle3"
         android:id="@+id/gefahrenstelle_absichern_button"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/wichtige_nummern_button"
-        android:layout_alignStart="@+id/wichtige_nummern_button" />
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="180dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
 
     <Button
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/ic_panne2"
         android:id="@+id/panne_beheben_button"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/flashlight_button_text"
-        android:layout_alignStart="@+id/flashlight_button_text" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="70dp"
@@ -41,8 +46,8 @@
         android:background="@drawable/ic_kontakte1"
         android:id="@+id/wichtige_nummern_button"
         android:layout_marginRight="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_alignTop="@+id/flashlight_button_text"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -51,18 +56,22 @@
         android:layout_height="70dp"
         android:background="@drawable/ic_werkstatt2"
         android:id="@+id/werkstatt_finden_button"
-        android:layout_below="@+id/button_unfallstelle_absichern_titel"
-        android:layout_alignLeft="@+id/panne_beheben_button"
-        android:layout_alignStart="@+id/panne_beheben_button" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="340dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/ic_camera2"
-        android:id="@+id/unfall_dokumentieren_button"
-        android:layout_alignTop="@+id/werkstatt_finden_button"
-        android:layout_alignLeft="@+id/gefahrenstelle_absichern_button"
-        android:layout_alignStart="@+id/gefahrenstelle_absichern_button" />
+        android:id="@+id/panne_dokumentieren_button"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="340dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="120dp"
@@ -70,9 +79,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/flashlightButton"
         android:id="@+id/button_taschenlampe_titel"
-        android:layout_below="@+id/wichtige_nummern_button"
+        android:layout_below="@+id/flashlight_button_text"
         android:layout_alignLeft="@+id/flashlight_button_text"
-        android:layout_alignStart="@+id/flashlight_button_text" />
+        android:layout_alignStart="@+id/flashlight_button_text"
+        android:layout_gravity="right|left" />
 
     <TextView
         android:layout_width="120dp"
@@ -91,8 +101,8 @@
         android:text="@string/pannenbehebung_button_text"
         android:id="@+id/button_panne_beheben_titel"
         android:layout_below="@+id/panne_beheben_button"
-        android:layout_alignRight="@+id/button_taschenlampe_titel"
-        android:layout_alignEnd="@+id/button_taschenlampe_titel" />
+        android:layout_alignLeft="@+id/panne_beheben_button"
+        android:layout_alignStart="@+id/panne_beheben_button" />
 
     <TextView
         android:layout_width="120dp"
@@ -102,9 +112,7 @@
         android:id="@+id/button_unfallstelle_absichern_titel"
         android:layout_below="@+id/gefahrenstelle_absichern_button"
         android:layout_alignLeft="@+id/gefahrenstelle_absichern_button"
-        android:layout_alignStart="@+id/gefahrenstelle_absichern_button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignStart="@+id/gefahrenstelle_absichern_button" />
 
     <TextView
         android:layout_width="120dp"
@@ -122,7 +130,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/panne_dokumentieren_button_text"
         android:id="@+id/button_panne_dokumentieren_titel"
-        android:layout_below="@+id/unfall_dokumentieren_button"
-        android:layout_alignLeft="@+id/unfall_dokumentieren_button"
-        android:layout_alignStart="@+id/unfall_dokumentieren_button" />
+        android:layout_below="@+id/panne_dokumentieren_button"
+        android:layout_alignLeft="@+id/panne_dokumentieren_button"
+        android:layout_alignStart="@+id/panne_dokumentieren_button" />
 </RelativeLayout>

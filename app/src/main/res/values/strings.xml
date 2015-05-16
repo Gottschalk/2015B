@@ -8,7 +8,7 @@
     <string name="title_activity_flashlight">Taschenlampe</string>
     <string name="pannenbehebung_button_text">Panne beheben</string>
     <string name="wichtige_nummern_button_text">Wichtige Nummern</string>
-    <string name="absicherung_gefahrenstelle_button_text">Gefahrenstelle absichern</string>
+    <string name="absicherung_gefahrenstelle_button_text">Gefahren- stelle absichern</string>
     <string name="werkstatt_finden_button_text">Werkstatt finden</string>
     <string name="title_activity_werkstatt_finden_activity">Werkstatt finden</string>
     <string name="title_activity_gefahrenstelle_absichern">Gefahrenstelle absichern</string>
@@ -26,7 +26,7 @@
     <string name="StartSplashText1">Starte</string>
     <string name="StartSplashText2">. . .</string>
     <string name="StartSplashHeader">Pannenhilfe</string>
-    <string name="panne_dokumentieren_button_text">Panne dokumentieren</string>
+    <string name="panne_dokumentieren_button_text">Panne doku- mentieren</string>
     <string name="title_activity_maps_activity2">Map</string>
     <string name="werkstatt_finden_text_resource">Durch Klicken auf den Button kann auf der Karte nach dem Element, dass im Dropdown Menü ausgewählt ist, gesucht werden.</string>
 
