@@ -35,7 +35,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     private Location location;
 
     //private static final String GOOGLE_API_KEY = "AIzaSyC1OuzCRRYU8FykKApdyiNIml5XxMweYm8";
-    private static final String GOOGLE_API_KEY = "AIzaSyDDEpWL-ajz5r0hVYTlS4DanzTdqDwEBQE"; // Server key
+    private static final String GOOGLE_API_KEY = "AIzaSyAegGx3EuWv0NyBrGQZ8JdRhCixQE9MGp0"; // Server key
     private EditText placeText;
     private double latitude = 0;
     private double longitude = 0;
@@ -94,6 +94,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
 
     private void createMap() {
         if (!isGooglePlayServicesAvailable()) {
+            Log.w("####MAPS: ", "play services not available");
             finish();
         }
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);

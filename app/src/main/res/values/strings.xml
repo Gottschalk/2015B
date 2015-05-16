@@ -27,5 +27,6 @@
     <string name="StartSplashText2">. . .</string>
     <string name="StartSplashHeader">Pannenhilfe</string>
     <string name="panne_dokumentieren_button_text">Panne dokumentieren</string>
+    <string name="title_activity_maps_activity2">Map</string>
 
 </resources>
