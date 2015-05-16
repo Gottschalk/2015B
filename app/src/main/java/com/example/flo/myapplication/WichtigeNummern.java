@@ -46,7 +46,7 @@ public class WichtigeNummern extends ActionBarActivity {
 
         // Bei erster App-Benutzung leere DB abfangen
         if (contacts.size() == 0) {
-            Log.e("Creating first contacts: ", "Creating first contacts..");
+            Log.e("Creating first contact ", "Creating contact");
 
             db.addContact(new Contact("ADAC", "*100#"));
             db.addContact(new Contact("Automobilclub Europa", "*100#"));
