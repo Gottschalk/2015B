@@ -95,7 +95,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     private void createMap() {
         if (!isGooglePlayServicesAvailable()) {
             Log.w("####MAPS: ", "play services not available");
-            finish();
+           // finish();
         }
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         supportMapFragment.getMapAsync(this);
@@ -131,7 +131,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
                         }
                     });
             AlertDialog dialog = builder.create();
-            dialog.show();
+            if(!isFinishing()) {
+                dialog.show();
+            }
 
         }
 
@@ -187,7 +189,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
         if (ConnectionResult.SUCCESS == status) {
             return true;
         } else {
-            GooglePlayServicesUtil.getErrorDialog(status, this, 0).show();
+            if(!isFinishing()){
+                GooglePlayServicesUtil.getErrorDialog(status, this, 0).show();
+            }
             return false;
         }
     }
