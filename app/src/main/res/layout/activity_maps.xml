@@ -7,21 +7,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <EditText
-        android:layout_width="240dp"
+    <Spinner
+        android:id="@+id/search_tag_spinner"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/placesSearchTagFieldString"
-        android:id="@+id/mapsPlacesSearchEditText"
-        android:layout_toLeftOf="@+id/mapsPlacesSearchButton"
+        android:layout_alignTop="@+id/mapsPlacesSearchButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/mapsPlacesSearchButton"
+        android:layout_alignRight="@+id/progressBarFetchPlaces"
+        android:layout_alignEnd="@+id/progressBarFetchPlaces"
+        android:layout_above="@+id/map" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mapsSearchButtonText"
         android:id="@+id/mapsPlacesSearchButton"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/werkstatt_finden_textview"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -36,8 +39,7 @@
         tools:context="com.example.flo.myapplication.MapsActivity"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/mapsPlacesSearchEditText"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@+id/mapsPlacesSearchButton" />
 
     <TextView
         android:id="@+id/latlongLocation"
@@ -60,6 +62,15 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/werkstatt_finden_text_resource"
+        android:id="@+id/werkstatt_finden_textview"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

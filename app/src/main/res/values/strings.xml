@@ -19,7 +19,7 @@
     <string name="title_activity_tutorial_list_view_acitivity_anzeige">TutorialListViewAcitivityAnzeige</string>
     <string name="nummer_hinzufuegen_text">Nummer hinzufügen</string>
     <string name="wichtige_nummern_row_header_text">Wichtige Nummern</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Werkstatt finden</string>
     <string name="placesSearchTagFieldString">z.b. police ...</string>
     <string name="mapsSearchButtonText">suchen</string>
     <string name="title_activity_start_splash">Pannenhilfe</string>
@@ -28,5 +28,15 @@
     <string name="StartSplashHeader">Pannenhilfe</string>
     <string name="panne_dokumentieren_button_text">Panne dokumentieren</string>
     <string name="title_activity_maps_activity2">Map</string>
+    <string name="werkstatt_finden_text_resource">Durch Klicken auf den Button kann nach dem Element, dass im Dropdown Menü ausgewählt ist, gesucht werden</string>
+
+
+    <string-array name="search_tag_array">
+        <item>Polizei</item>
+        <item>Strassenmeisterei</item>
+        <item>Tankstelle</item>
+        <item>Werkstatt</item>
+    </string-array>
+
 
 </resources>

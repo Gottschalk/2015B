@@ -40,34 +40,43 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Taschenlampe"
             android:label="@string/title_activity_flashlight"
+            android:theme="@style/Theme.AppCompat"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WerkstattFinden"
             android:label="@string/title_activity_werkstatt_finden_activity"
+            android:theme="@style/Theme.AppCompat"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GefahrenstelleAbsichern"
             android:label="@string/title_activity_gefahrenstelle_absichern"
+            android:theme="@style/Theme.AppCompat"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PanneBeheben"
             android:label="@string/title_activity_panne_beheben"
+            android:theme="@style/Theme.AppCompat"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WichtigeNummern"
             android:label="@string/title_activity_wichtige_nummern"
+            android:theme="@style/Theme.AppCompat"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WichtigeNummernDetailanzeige"
+            android:theme="@style/Theme.AppCompat"
             android:label="" />
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" />
 
         <meta-data
             android:name="com.google.android.gms.version"

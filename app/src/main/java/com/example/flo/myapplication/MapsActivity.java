@@ -10,10 +10,15 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -26,13 +31,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements LocationListener, OnMapReadyCallback {
+public class MapsActivity extends ActionBarActivity implements LocationListener, OnMapReadyCallback {
 
     private GoogleMap googleMap;
     private Marker currentPosMarker;
     private SupportMapFragment supportMapFragment;
     private LocationManager locationManager;
     private Location location;
+    private Spinner searchTagSpinner;
 
     //private static final String GOOGLE_API_KEY = "AIzaSyC1OuzCRRYU8FykKApdyiNIml5XxMweYm8";
     private static final String GOOGLE_API_KEY = "AIzaSyAegGx3EuWv0NyBrGQZ8JdRhCixQE9MGp0"; // Server key
@@ -54,7 +60,13 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     }
 
     private void setupUI() {
-        placeText = (EditText) findViewById(R.id.mapsPlacesSearchEditText);
+        searchTagSpinner = (Spinner) findViewById(R.id.search_tag_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.search_tag_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        searchTagSpinner.setAdapter(adapter);
+
+    //    placeText = (EditText) findViewById(R.id.mapsPlacesSearchEditText);
         Button searchPlacesButton = (Button) findViewById(R.id.mapsPlacesSearchButton);
         searchPlacesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,8 +80,12 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
         // akutelle position in lat und long speichern
         fetchCurrentLocation();
 
-        String searchTag = placeText.getText().toString();
-        placeText.setText("");
+      //  String searchTag = "Auto";
+        int pos = searchTagSpinner.getSelectedItemPosition();
+        String searchTag = searchTagSpinner.getItemAtPosition(pos).toString();
+       // Log.w("#####test#####", test);
+
+       // placeText.setText("");
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
@@ -194,6 +210,28 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
             }
             return false;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        //  getMenuInflater().inflate(R.menu.menu_wichtige_nummern, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public class GooglePlacesReadTask extends AsyncTask<Object, Integer, String> {
