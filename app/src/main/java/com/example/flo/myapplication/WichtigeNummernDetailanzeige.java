@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,20 +27,57 @@ public class WichtigeNummernDetailanzeige extends Activity {
         Intent i = getIntent();
         TextView nameTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_name);
         final TextView numberTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_nummer);
+        final TextView streetTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_strasse);
+        final TextView postalTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_plz);
+        final TextView cityTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_stadt);
 
         final String name = i.getStringExtra("NAME");
         final String number = i.getStringExtra("NUMMER");
+        final String street = i.getStringExtra("STREET");
+        final String postal = i.getStringExtra("PLZ");
+        final String city = i.getStringExtra("CITY");
 
         nameTV.setText(name);
         numberTV.setText(number);
+        streetTV.setText(street);
+        postalTV.setText(postal);
+        cityTV.setText(city);
+
+
         Button callButton = (Button) findViewById(R.id.call_button);
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
+                Log.w("lajdföslkj", "adlkjölsflk");
+
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
                 callIntent.setData(Uri.parse("tel:" + numberTV.getText().toString()));
                 startActivity(callIntent);
+            }
+        });
+
+        Button changeButton = (Button) findViewById(R.id.wichtige_nummern_detailanzeige_bearbeiten_button);
+        callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
+                Log.w("lajdföslkj", "adlkjölsflk");
+
+            }
+        });
+
+
+        Button navigateButton = (Button) findViewById(R.id.wichtige_nummern_detailanzeige_navigation_button);
+        callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
+              //  Intent callIntent = new Intent(Intent.ACTION_DIAL);
+              //  callIntent.setData(Uri.parse("tel:" + numberTV.getText().toString()));
+             //   startActivity(callIntent);
+                Log.w("lajdföslkj", "adlkjölsflk");
+
             }
         });
 

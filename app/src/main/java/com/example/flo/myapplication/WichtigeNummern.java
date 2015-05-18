@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class WichtigeNummern extends ActionBarActivity {
@@ -38,20 +39,21 @@ public class WichtigeNummern extends ActionBarActivity {
 
         db = new DBHelper(this);
 
-
+      //  Log.w("0000000000000000", "000000000");
         // falls zu viele testelemente in der db sind
-        // db.deleteAllContacts();
+      //   db.deleteAllContacts();
 
+      ///  Log.w("1111111111111111111", "1111111111111111111111");
         contacts = db.getAllContacts();
-
+      //  Log.w("22222222222222" , "22222222222");
         // Bei erster App-Benutzung leere DB abfangen
         if (contacts.size() == 0) {
             Log.e("Creating first contact ", "Creating contact");
 
-            db.addContact(new Contact("ADAC", "*100#"));
-            db.addContact(new Contact("Automobilclub Europa", "*100#"));
-            db.addContact(new Contact("Werkstatt", "*100#"));
-            db.addContact(new Contact("Mechaniker", "*100#"));
+            db.addContact(new Contact("ADAC", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
+            db.addContact(new Contact("Automobilclub Europa", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
+            db.addContact(new Contact("Werkstatt", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
+            db.addContact(new Contact("Mechaniker", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
 
             contacts = db.getAllContacts();
 
@@ -76,9 +78,15 @@ public class WichtigeNummern extends ActionBarActivity {
 
                 String contactName = contacts.get(position).getName();
                 String contactNumber = contacts.get(position).getNumber();
+                String contactStreet = contacts.get(position).getStreet();
+                String contactPLZ = contacts.get(position).getPLZ();
+                String contactCity = contacts.get(position).getCity();
 
                 i.putExtra("NAME", contactName);
                 i.putExtra("NUMMER", contactNumber);
+                i.putExtra("STREET", contactStreet);
+                i.putExtra("PLZ", contactPLZ);
+                i.putExtra("CITY", contactCity);
                 startActivity(i);
             }
         });
@@ -141,6 +149,10 @@ public class WichtigeNummern extends ActionBarActivity {
         final View view = inflater.inflate(R.layout.wichtige_nummern_notification, null);
         final EditText nameInput = (EditText) view.findViewById(R.id.notification_edit_name);
         final EditText numberInput = (EditText) view.findViewById(R.id.notification_edit_number);
+        final EditText streetInput = (EditText) view.findViewById(R.id.notification_edit_street);
+        final EditText plzInput = (EditText) view.findViewById(R.id.notification_edit_postal);
+        final EditText cityInput = (EditText) view.findViewById(R.id.notification_edit_city);
+
 
 
         builder.setView(view)
@@ -152,10 +164,29 @@ public class WichtigeNummern extends ActionBarActivity {
                         // sign in the user ...
                         String name = nameInput.getText().toString();
                         String number = numberInput.getText().toString();
+                        String street = streetInput.getText().toString();
+                        String plz = plzInput.getText().toString();
+                        String city = cityInput.getText().toString();
 
-                        db.addContact(new Contact(name, number));
+                        if(name.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(number.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(street.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(plz.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(city.equals("")){
+                            city = "Kein Eintrag";
+                        }
+
+                        db.addContact(new Contact(name, number,street,plz,city));
                         contacts = db.getAllContacts();
-                        adapter.add(new Contact(name, number));
+                        adapter.add(new Contact(name, number, street,plz,city));
                         adapter.notifyDataSetChanged();
 
                         for (Contact cn : contacts) {
@@ -169,7 +200,7 @@ public class WichtigeNummern extends ActionBarActivity {
                     public void onClick(DialogInterface dialog, int id) {
 
                     }
-                }).setTitle("Neue Nummer erstellen");
+                }).setTitle("Neuen Kontakt erstellen");
         //  builder.create();
         builder.show();
     }
