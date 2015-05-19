@@ -44,6 +44,35 @@ public class WichtigeNummernDetailanzeige extends Activity {
         cityTV.setText(city);
 
 
+        Button callButton = (Button)findViewById(R.id.call_button);
+        callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.w("########", "call button clicked!!!!");
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:" + numberTV.getText().toString()));
+                startActivity(callIntent);
+            }
+        });
+
+        Button navigateButton = (Button)findViewById(R.id.wichtige_nummern_detailanzeige_navigation_button);
+        navigateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.w("#######", "navigate button clicked");
+            }
+        });
+
+        Button changeButton = (Button)findViewById(R.id.wichtige_nummern_detailanzeige_bearbeiten_button);
+        changeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.w("######", "change button clicked");
+            }
+        });
+
+        /*
+
         Button callButton = (Button) findViewById(R.id.call_button);
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +109,7 @@ public class WichtigeNummernDetailanzeige extends Activity {
 
             }
         });
+        */
 
     }
 
