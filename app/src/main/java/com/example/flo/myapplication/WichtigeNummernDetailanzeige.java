@@ -60,6 +60,14 @@ public class WichtigeNummernDetailanzeige extends Activity {
             @Override
             public void onClick(View v) {
                 Log.w("#######", "navigate button clicked");
+
+                String street =  streetTV.getText().toString();
+                String postal = postalTV.getText().toString();
+                String city =  cityTV.getText().toString();
+
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("google.navigation:q=" + street + " " + postal + " " + city));
+                startActivity(i);
             }
         });
 
@@ -70,46 +78,6 @@ public class WichtigeNummernDetailanzeige extends Activity {
                 Log.w("######", "change button clicked");
             }
         });
-
-        /*
-
-        Button callButton = (Button) findViewById(R.id.call_button);
-        callButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
-                Log.w("lajdföslkj", "adlkjölsflk");
-
-                Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:" + numberTV.getText().toString()));
-                startActivity(callIntent);
-            }
-        });
-
-        Button changeButton = (Button) findViewById(R.id.wichtige_nummern_detailanzeige_bearbeiten_button);
-        callButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
-                Log.w("lajdföslkj", "adlkjölsflk");
-
-            }
-        });
-
-
-        Button navigateButton = (Button) findViewById(R.id.wichtige_nummern_detailanzeige_navigation_button);
-        callButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("*100#")));
-              //  Intent callIntent = new Intent(Intent.ACTION_DIAL);
-              //  callIntent.setData(Uri.parse("tel:" + numberTV.getText().toString()));
-             //   startActivity(callIntent);
-                Log.w("lajdföslkj", "adlkjölsflk");
-
-            }
-        });
-        */
 
     }
 
