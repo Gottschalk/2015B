@@ -83,9 +83,29 @@ public class WichtigeNummernDetailanzeige extends Activity {
                 String postal = postalTV.getText().toString();
                 String city =  cityTV.getText().toString();
 
-                Intent i = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("google.navigation:q=" + street + " " + postal + " " + city));
-                startActivity(i);
+                if(street.equals("Kein Eintrag")){
+                    street = "";
+                }
+
+                if(postal.equals("Kein Eintrag")){
+                    postal = "";
+                }
+
+                if(city.equals("Kein Eintrag")){
+                    city = "";
+                }
+
+                String searchQuery = street + " " + postal +  " " + city;
+                if(searchQuery.length() <=3 ){
+                    Toast.makeText(getApplicationContext(), "Bitte Adressdaten aktualisieren!",
+                            Toast.LENGTH_LONG).show();
+                }else{
+                    Intent i = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("google.navigation:q=" + street + " " + postal + " " + city));
+                    startActivity(i);
+                }
+
+
             }
         });
 
@@ -128,16 +148,16 @@ public class WichtigeNummernDetailanzeige extends Activity {
                         String city = cityInput.getText().toString();
 
                         if(name.equals("")){
-                            city = "Kein Eintrag";
+                            name = "Kein Eintrag";
                         }
                         if(number.equals("")){
-                            city = "Kein Eintrag";
+                            number = "Kein Eintrag";
                         }
                         if(street.equals("")){
-                            city = "Kein Eintrag";
+                            street = "Kein Eintrag";
                         }
                         if(plz.equals("")){
-                            city = "Kein Eintrag";
+                            plz = "Kein Eintrag";
                         }
                         if(city.equals("")){
                             city = "Kein Eintrag";

@@ -109,11 +109,9 @@ public class WichtigeNummern extends ActionBarActivity {
                         int clickedItemIndex = (int) listView.getAdapter().getItemId(position);
 
                         Contact contact = contacts.get(position);
-
-
                         db.deleteContact(contact);
-                        contacts = db.getAllContacts();
-                        adapter.remove(contact);
+                        contacts.clear();
+                        contacts.addAll(db.getAllContacts());
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -173,24 +171,24 @@ public class WichtigeNummern extends ActionBarActivity {
                         String city = cityInput.getText().toString();
 
                         if(name.equals("")){
-                            city = "Kein Eintrag";
+                            name = "Kein Eintrag";
                         }
                         if(number.equals("")){
-                            city = "Kein Eintrag";
+                            number = "Kein Eintrag";
                         }
                         if(street.equals("")){
-                            city = "Kein Eintrag";
+                            street = "Kein Eintrag";
                         }
                         if(plz.equals("")){
-                            city = "Kein Eintrag";
+                            plz = "Kein Eintrag";
                         }
                         if(city.equals("")){
                             city = "Kein Eintrag";
                         }
 
-                        db.addContact(new Contact(name, number,street,plz,city));
-                        contacts = db.getAllContacts();
-                        adapter.add(new Contact(name, number, street,plz,city));
+                        db.addContact(new Contact(name, number,street, plz, city));
+                        contacts.clear();
+                        contacts.addAll(db.getAllContacts());
                         adapter.notifyDataSetChanged();
 
                         for (Contact cn : contacts) {
@@ -207,6 +205,33 @@ public class WichtigeNummern extends ActionBarActivity {
                 }).setTitle("Neuen Kontakt erstellen");
         //  builder.create();
         builder.show();
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+
+        contacts.clear();
+        contacts.addAll(db.getAllContacts());
+        adapter.notifyDataSetChanged();
+
+        Log.w("balllfasdlj", "ON RESTUME!!!");
+
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();  // Always call the superclass method first
+
+        // Activity being restarted from stopped state
+        contacts.clear();
+        contacts.addAll(db.getAllContacts());
+        adapter.notifyDataSetChanged();
+
+        Log.w("balllfasdlj", "ON RESTART!!!");
+
     }
 
 
