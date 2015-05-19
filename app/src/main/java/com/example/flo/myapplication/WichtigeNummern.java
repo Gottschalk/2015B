@@ -21,9 +21,9 @@ import java.util.Objects;
 
 public class WichtigeNummern extends ActionBarActivity {
 
-    DBHelper db;
-    ContactAdapter adapter;
-    ArrayList<Contact> contacts;
+    private DBHelper db;
+    private ContactAdapter adapter;
+    private ArrayList<Contact> contacts;
     // Tutorials:
     // Datenbank: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
     // CustomListView: http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/
@@ -39,13 +39,11 @@ public class WichtigeNummern extends ActionBarActivity {
 
         db = new DBHelper(this);
 
-      //  Log.w("0000000000000000", "000000000");
         // falls zu viele testelemente in der db sind
       //   db.deleteAllContacts();
 
-      ///  Log.w("1111111111111111111", "1111111111111111111111");
         contacts = db.getAllContacts();
-      //  Log.w("22222222222222" , "22222222222");
+
         // Bei erster App-Benutzung leere DB abfangen
         if (contacts.size() == 0) {
             Log.e("Creating first contact ", "Creating contact");
@@ -82,11 +80,16 @@ public class WichtigeNummern extends ActionBarActivity {
                 String contactPLZ = contacts.get(position).getPLZ();
                 String contactCity = contacts.get(position).getCity();
 
+                int contactId = contacts.get(position).getId();
+
+                Log.w("###############nr:" , String.valueOf(contactId));
+
                 i.putExtra("NAME", contactName);
                 i.putExtra("NUMMER", contactNumber);
                 i.putExtra("STREET", contactStreet);
                 i.putExtra("PLZ", contactPLZ);
                 i.putExtra("CITY", contactCity);
+                i.putExtra("CONTACT_ID", contactId);
                 startActivity(i);
             }
         });
@@ -106,6 +109,7 @@ public class WichtigeNummern extends ActionBarActivity {
                         int clickedItemIndex = (int) listView.getAdapter().getItemId(position);
 
                         Contact contact = contacts.get(position);
+
 
                         db.deleteContact(contact);
                         contacts = db.getAllContacts();

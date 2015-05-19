@@ -1,23 +1,40 @@
 package com.example.flo.myapplication;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class WichtigeNummernDetailanzeige extends Activity {
+
+    private DBHelper db;
+    private int contactId;
+
+    private TextView nameTV;
+    private TextView numberTV ;
+    private TextView streetTV;
+    private TextView postalTV;
+    private TextView cityTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wichtige_nummern_detailanzeige);
+
+        db = new DBHelper(this);
+
         setupUI();
 
     }
@@ -25,17 +42,20 @@ public class WichtigeNummernDetailanzeige extends Activity {
     private void setupUI() {
 
         Intent i = getIntent();
-        TextView nameTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_name);
-        final TextView numberTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_nummer);
-        final TextView streetTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_strasse);
-        final TextView postalTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_plz);
-        final TextView cityTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_stadt);
+          nameTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_name);
+          numberTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_nummer);
+          streetTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_strasse);
+          postalTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_plz);
+          cityTV = (TextView) findViewById(R.id.wichtige_nummern_detailanzeige_stadt);
 
         final String name = i.getStringExtra("NAME");
         final String number = i.getStringExtra("NUMMER");
         final String street = i.getStringExtra("STREET");
         final String postal = i.getStringExtra("PLZ");
         final String city = i.getStringExtra("CITY");
+        contactId = i.getIntExtra("CONTACT_ID" , -1);
+
+        Log.w("#########id:", String.valueOf(contactId));
 
         nameTV.setText(name);
         numberTV.setText(number);
@@ -48,7 +68,6 @@ public class WichtigeNummernDetailanzeige extends Activity {
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.w("########", "call button clicked!!!!");
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
                 callIntent.setData(Uri.parse("tel:" + numberTV.getText().toString()));
                 startActivity(callIntent);
@@ -59,7 +78,6 @@ public class WichtigeNummernDetailanzeige extends Activity {
         navigateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.w("#######", "navigate button clicked");
 
                 String street =  streetTV.getText().toString();
                 String postal = postalTV.getText().toString();
@@ -71,14 +89,80 @@ public class WichtigeNummernDetailanzeige extends Activity {
             }
         });
 
-        Button changeButton = (Button)findViewById(R.id.wichtige_nummern_detailanzeige_bearbeiten_button);
-        changeButton.setOnClickListener(new View.OnClickListener() {
+        Button editDataButton = (Button)findViewById(R.id.wichtige_nummern_detailanzeige_bearbeiten_button);
+        editDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.w("######", "change button clicked");
+
+                createEditDataDialog();
             }
         });
 
+    }
+
+    private void createEditDataDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View view = inflater.inflate(R.layout.wichtige_nummern_notification, null);
+        final EditText nameInput = (EditText) view.findViewById(R.id.notification_edit_name);
+        final EditText numberInput = (EditText) view.findViewById(R.id.notification_edit_number);
+        final EditText streetInput = (EditText) view.findViewById(R.id.notification_edit_street);
+        final EditText plzInput = (EditText) view.findViewById(R.id.notification_edit_postal);
+        final EditText cityInput = (EditText) view.findViewById(R.id.notification_edit_city);
+
+
+
+        builder.setView(view)
+                // Add action buttons
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        // sign in the user ...
+                        String name = nameInput.getText().toString();
+                        String number = numberInput.getText().toString();
+                        String street = streetInput.getText().toString();
+                        String plz = plzInput.getText().toString();
+                        String city = cityInput.getText().toString();
+
+                        if(name.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(number.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(street.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(plz.equals("")){
+                            city = "Kein Eintrag";
+                        }
+                        if(city.equals("")){
+                            city = "Kein Eintrag";
+                        }
+
+                        db.updateContact(new Contact(contactId, name, number, street, plz, city));
+
+                        nameTV.setText(name);
+                        numberTV.setText(number);
+                        streetTV.setText(street);
+                        postalTV.setText(plz);
+                        cityTV.setText(city);
+
+                        Toast.makeText(getApplicationContext(), "Daten gespeichert",
+                                Toast.LENGTH_LONG).show();
+
+                    }
+                })
+                .setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                }).setTitle("Kontakt bearbeiten");
+        //  builder.create();
+        builder.show();
     }
 
 
