@@ -31,6 +31,7 @@
     <string name="werkstatt_finden_text_resource">Durch Klicken auf den Button kann auf der Karte nach dem Element, dass im Dropdown Menü ausgewählt ist, gesucht werden.</string>
     <string name="wichtige_nummern_row_contact_name_text">beispieltext</string>
     <string name="wichtige_nummern_row_contact_number_text">beispieltext_zwei</string>
+    <string name="panne_dokumentieren_header">Vorhandene Bilder</string>
 
 
     <string-array name="search_tag_array">

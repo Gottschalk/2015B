@@ -11,4 +11,8 @@
         <item name="android:background">#BBBBBB</item>
     </style>
 
+    <declare-styleable name="MyGallery">
+        <attr name="android:galleryItemBackground" />
+    </declare-styleable>
+
 </resources>

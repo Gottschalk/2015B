@@ -33,6 +33,8 @@ public class MenuActivity extends ActionBarActivity {
         Button werkstatt_finden_button = (Button) findViewById(R.id.werkstatt_finden_button);
         Button wichtige_nummern_button = (Button) findViewById(R.id.wichtige_nummern_button);
         Button flashlight_button = (Button) findViewById(R.id.flashlight_button_text);
+        Button panne_dokumentieren_button = (Button) findViewById(R.id.panne_dokumentieren_button);
+
 
         gefahrenstelle_absichern_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +74,14 @@ public class MenuActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, Taschenlampe.class);
+                startActivity(intent);
+            }
+        });
+
+        panne_dokumentieren_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, PanneDokumentieren.class);
                 startActivity(intent);
             }
         });
