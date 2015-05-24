@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,7 +37,7 @@ public class PanneDokumentieren extends ActionBarActivity {
     public static final int MEDIA_TYPE_VIDEO = 2;
 
     // hier zum befüllen des arrays methode benutzen, die in ordner nach vorhandenen photos sucht
-    Integer[] imageIDs = {
+   /* Integer[] imageIDs = {
             R.drawable.ic_gefahrenstelle1,
             R.drawable.ic_gefahrenstelle2,
             R.drawable.ic_camera1,
@@ -44,6 +46,10 @@ public class PanneDokumentieren extends ActionBarActivity {
             R.drawable.ic_kontakte2,
     };
 
+    */
+
+    private String[] imageIDs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +57,26 @@ public class PanneDokumentieren extends ActionBarActivity {
 
         checkIfCameraIsAvailable();
 
+        getImagesFromStorage();
+
         setupUI();
         setupGallery();
 
+
+    }
+
+    private void getImagesFromStorage() {
+
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), "Pannenhilfe");
+
+        File[] test = mediaStorageDir.listFiles();
+
+        imageIDs = new String[test.length];
+        for(int i = 0; i<test.length; i++){
+            Log.w("BLAAAAAAAAAAAA",test[i].getName());
+            imageIDs[i]= test[i].getPath();
+        }
     }
 
     private void setupGallery() {
@@ -61,11 +84,22 @@ public class PanneDokumentieren extends ActionBarActivity {
         Gallery gallery = (Gallery) findViewById(R.id.vorhandene_photos_gallery);
         gallery.setAdapter(new ImageAdapter(this));
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position,long id)
-            {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
                 ImageView imageView = (ImageView) findViewById(R.id.aktuelles_photo_panne_dokumentieren);
-                imageView.setImageResource(imageIDs[position]);
+
+                Bitmap myBitmap;
+
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPurgeable = true;
+                options.outHeight = 50;
+                options.outWidth = 50;
+                options.inSampleSize = 4;
+
+                File imgFile = new File(imageIDs[position]);
+                myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
+
+                imageView.setImageBitmap(myBitmap);
             }
         });
     }
@@ -101,7 +135,7 @@ public class PanneDokumentieren extends ActionBarActivity {
         // using Environment.getExternalStorageState() before doing this.
 
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "MyCameraApp");
+                Environment.DIRECTORY_PICTURES), "Pannenhilfe");
         // This location works best if you want the created images to be shared
         // between applications and persist after your app has been uninstalled.
 
@@ -201,7 +235,19 @@ public class PanneDokumentieren extends ActionBarActivity {
         // returns an ImageView view
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView = new ImageView(context);
-            imageView.setImageResource(imageIDs[position]);
+
+            Bitmap myBitmap;
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPurgeable = true;
+            options.outHeight = 50;
+            options.outWidth = 50;
+            options.inSampleSize = 4;
+
+            File imgFile = new File(imageIDs[position]);
+            myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
+
+            imageView.setImageBitmap(myBitmap);
             imageView.setLayoutParams(new Gallery.LayoutParams(100, 100));
             imageView.setBackgroundResource(itemBackground);
             return imageView;
