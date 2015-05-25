@@ -37,6 +37,7 @@ public class PanneDokumentieren extends ActionBarActivity {
     public static final int MEDIA_TYPE_VIDEO = 2;
     private Gallery gallery;
     private ImageAdapter adapter;
+    private ImageView currentBigImage;
 
     // hier zum befüllen des arrays methode benutzen, die in ordner nach vorhandenen photos sucht
    /* Integer[] imageIDs = {
@@ -89,8 +90,6 @@ public class PanneDokumentieren extends ActionBarActivity {
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-                ImageView imageView = (ImageView) findViewById(R.id.aktuelles_photo_panne_dokumentieren);
-
                 Bitmap myBitmap;
 
                 BitmapFactory.Options options = new BitmapFactory.Options();
@@ -102,14 +101,58 @@ public class PanneDokumentieren extends ActionBarActivity {
                 File imgFile = new File(imageIDs[position]);
                 myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
 
-                imageView.setImageBitmap(myBitmap);
+                currentBigImage.setImageBitmap(myBitmap);
             }
         });
+
+
+        gallery.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                Log.w("//////////////gallery ", "long clicke!!!");
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(PanneDokumentieren.this);
+                builder.setTitle(("Bild löschen?"));
+                builder.setMessage(" ");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+
+                        File imgFile = new File(imageIDs[position]);
+                        boolean deleted = imgFile.delete();
+
+                        getImagesFromStorage();
+                        adapter.notifyDataSetChanged();
+
+
+
+                    }
+                });
+
+
+                builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+
+                return false;
+            }
+        });
+
     }
 
 
     private void setupUI() {
 
+        currentBigImage = (ImageView) findViewById(R.id.aktuelles_photo_panne_dokumentieren);
         Button takeNewPictureButton = (Button)findViewById(R.id.neues_photo_button);
         takeNewPictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +165,23 @@ public class PanneDokumentieren extends ActionBarActivity {
 
                 // start the image capture Intent
                 startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
+        currentBigImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.w("%%%%%%%% current image" , "loing cliiiiiicked");
+            }
+        });
+
+        currentBigImage.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                Log.w("%%%%%%%% current image" , "loing cliiiiiicked");
+
+                return false;
             }
         });
 
