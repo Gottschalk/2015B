@@ -35,6 +35,8 @@ public class PanneDokumentieren extends ActionBarActivity {
     private Uri fileUri;
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
+    private Gallery gallery;
+    private ImageAdapter adapter;
 
     // hier zum befüllen des arrays methode benutzen, die in ordner nach vorhandenen photos sucht
    /* Integer[] imageIDs = {
@@ -81,8 +83,9 @@ public class PanneDokumentieren extends ActionBarActivity {
 
     private void setupGallery() {
         // Note that Gallery view is deprecated in Android 4.1---
-        Gallery gallery = (Gallery) findViewById(R.id.vorhandene_photos_gallery);
-        gallery.setAdapter(new ImageAdapter(this));
+         gallery = (Gallery) findViewById(R.id.vorhandene_photos_gallery);
+        adapter = new ImageAdapter(this);
+        gallery.setAdapter(adapter);
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
@@ -122,6 +125,27 @@ public class PanneDokumentieren extends ActionBarActivity {
             }
         });
 
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        Log.w("$$$$$$$$$$$$$" , "on activity result");
+        // Check which request we're responding to
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            // Make sure the request was successful
+            Log.w("$$$$$$$$$$$$" , "on activity result2");
+
+
+            if (resultCode == RESULT_OK) {
+                Log.w("$$$$$$$$$$$$$" , "on activity result3");
+
+                getImagesFromStorage();
+                adapter.notifyDataSetChanged();
+
+            }
+        }
     }
 
     /** Create a file Uri for saving an image or video */
