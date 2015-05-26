@@ -12,10 +12,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,7 +32,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class PanneDokumentieren extends ActionBarActivity {
+public class PanneDokumentieren extends ActionBarActivity implements
+        GestureDetector.OnGestureListener,
+        GestureDetector.OnDoubleTapListener{
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private Uri fileUri;
@@ -38,6 +43,10 @@ public class PanneDokumentieren extends ActionBarActivity {
     private Gallery gallery;
     private ImageAdapter adapter;
     private ImageView currentBigImage;
+    private String[] imageIDs;
+
+    private static final String DEBUG_TAG = "Gestures";
+    private GestureDetectorCompat mDetector;
 
     // hier zum befüllen des arrays methode benutzen, die in ordner nach vorhandenen photos sucht
    /* Integer[] imageIDs = {
@@ -51,12 +60,12 @@ public class PanneDokumentieren extends ActionBarActivity {
 
     */
 
-    private String[] imageIDs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panne_dokumentieren);
+
 
         checkIfCameraIsAvailable();
 
@@ -198,7 +207,7 @@ public class PanneDokumentieren extends ActionBarActivity {
         currentBigImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.w("%%%%%%%% current image" , "loing cliiiiiicked");
+                Log.w("%%%%%%%% current image", "just cliiiiiicked");
             }
         });
 
@@ -206,11 +215,62 @@ public class PanneDokumentieren extends ActionBarActivity {
             @Override
             public boolean onLongClick(View v) {
 
-                Log.w("%%%%%%%% current image" , "loing cliiiiiicked");
+                Log.w("%%%%%%%% current image", "loing cliiiiiicked");
 
                 return false;
             }
         });
+
+        final GestureDetector detector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+
+            //new myGestureClass());
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                // TODO Auto-generated method stub
+                System.out.println("SINGLE TAP");
+                return false;
+            }
+
+            @Override
+            public boolean onDoubleTap(MotionEvent arg0) {
+                // TODO Auto-generated method stub
+                System.out.println("DOUBLE TAP");
+                return false;
+            }
+
+            @Override
+            public boolean onDoubleTapEvent(MotionEvent arg0) {
+                // TODO Auto-generated method stub
+                System.out.println("DOUBLE TAP EVENT");
+                return false;
+            }
+
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent arg0) {
+                // TODO Auto-generated method stub
+                return false;
+            }
+
+        });
+
+        View.OnTouchListener gestureListener = new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                System.out.println("TOUCH!" +event);
+                if (detector.onTouchEvent(event)) {
+                    return true;
+                }
+                return false;
+            }
+        };
+
+        currentBigImage.setOnTouchListener(gestureListener);
+
+
+
+
+
+
 
     }
 
@@ -317,6 +377,66 @@ public class PanneDokumentieren extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        Log.d(DEBUG_TAG,"onSingleTapConfirmed: " + e.toString());
+
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        Log.d(DEBUG_TAG,"onDoubleTap: " + e.toString());
+
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        Log.d(DEBUG_TAG,"onDoubleTapEvent: " + e.toString());
+
+        return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        Log.d(DEBUG_TAG,"onDown: " + e.toString());
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+        Log.d(DEBUG_TAG,"onShowPress: " + e.toString());
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        Log.d(DEBUG_TAG,"onSingleTapUp: " + e.toString());
+
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        Log.d(DEBUG_TAG,"onScroll: " + e1.toString() + "/" + e2.toString());
+
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        Log.d(DEBUG_TAG,"onLongPress: " + e.toString());
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        Log.d(DEBUG_TAG,"onFling: " + e1.toString() + "/" + e2.toString());
+
+        return false;
     }
 
 
