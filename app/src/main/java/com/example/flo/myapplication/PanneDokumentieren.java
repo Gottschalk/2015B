@@ -65,7 +65,34 @@ public class PanneDokumentieren extends ActionBarActivity {
         setupUI();
         setupGallery();
 
+        showFirstPicture();
 
+    }
+
+    private void showFirstPicture() {
+       // Log.w("$%§%&$&§$%&§", imageIDs[0]);
+        if(imageIDs != null){
+            Bitmap myBitmap;
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPurgeable = true;
+            options.outHeight = 50;
+            options.outWidth = 50;
+            options.inSampleSize = 4;
+
+            for(int i = 0; i<imageIDs.length; i++){
+                if(imageIDs[i] != null){
+                    File imgFile = new File(imageIDs[0]);
+                    myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
+
+                    currentBigImage.setImageBitmap(myBitmap);
+
+                    break;
+                }
+            }
+
+
+        }
     }
 
     private void getImagesFromStorage() {
