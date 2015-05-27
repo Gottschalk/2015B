@@ -40,6 +40,9 @@
         <item>Tankstelle</item>
         <item>Werkstatt</item>
     </string-array>
+    <string name="title_activity_panne_dokumentieren_fullscreen_bild">
+        PanneDokumentierenFullscreenBild
+    </string>
 
 
 </resources>

@@ -44,6 +44,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
     private ImageAdapter adapter;
     private ImageView currentBigImage;
     private String[] imageIDs;
+    private String currentImagePath;
 
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
@@ -95,6 +96,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
                     myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
 
                     currentBigImage.setImageBitmap(myBitmap);
+                    currentImagePath = imageIDs[0];
 
                     break;
                 }
@@ -138,6 +140,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
                 myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
 
                 currentBigImage.setImageBitmap(myBitmap);
+                currentImagePath = imageIDs[position];
             }
         });
 
@@ -243,6 +246,9 @@ public class PanneDokumentieren extends ActionBarActivity implements
             public boolean onDoubleTapEvent(MotionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("DOUBLE TAP EVENT");
+
+                zoomImage();
+
                 return false;
             }
 
@@ -267,18 +273,20 @@ public class PanneDokumentieren extends ActionBarActivity implements
         currentBigImage.setOnTouchListener(gestureListener);
 
 
+    }
 
-
-
-
-
+    private void zoomImage( ) {
+        Intent intent = new Intent(PanneDokumentieren.this, PanneDokumentierenFullscreenBild.class);
+        String image = currentImagePath;
+        intent.putExtra("IMAGE", image);
+        startActivity(intent);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        Log.w("$$$$$$$$$$$$$" , "on activity result");
+        Log.w("$$$$$$$$$$$$$", "on activity result");
         // Check which request we're responding to
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             // Make sure the request was successful
