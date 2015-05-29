@@ -54,7 +54,7 @@
     <Button
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@drawable/ic_werkstatt2"
+        android:background="@drawable/ic_werkstatt1"
         android:id="@+id/werkstatt_finden_button"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
