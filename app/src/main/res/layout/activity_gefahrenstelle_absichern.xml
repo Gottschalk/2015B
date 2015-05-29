@@ -6,7 +6,91 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.flo.myapplication.GefahrenstelleAbsichern">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView android:text="Ort der Panne?" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView3" />
+
+    <ImageButton
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/gefahrenstelle_absichern_autobahn_button"
+        android:background="@drawable/ic_autobahn"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/textView3"
+        android:layout_toLeftOf="@+id/textView3"
+        android:layout_toStartOf="@+id/textView3" />
+
+    <ImageButton
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/gefahrenstelle_absichern_kurve_button"
+        android:background="@drawable/ic_kurve"
+        android:layout_alignBottom="@+id/gefahrenstelle_absichern_autobahn_button"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <ImageButton
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/gefahrenstelle_absichern_innerorts_button"
+        android:background="@drawable/ic_innerorts"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/gefahrenstelle_absichern_autobahn_button"
+        android:layout_alignStart="@+id/gefahrenstelle_absichern_autobahn_button"
+        android:layout_marginBottom="80dp" />
+
+    <ImageButton
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/gefahrenstelle_absichern_aussererorts_button"
+        android:background="@drawable/ic_ausserorts"
+        android:layout_alignBottom="@+id/gefahrenstelle_absichern_innerorts_button"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Autobahn"
+        android:id="@+id/gefahrenstelle_absichern_autobahn_textview"
+        android:layout_below="@+id/gefahrenstelle_absichern_autobahn_button"
+        android:layout_alignLeft="@+id/gefahrenstelle_absichern_autobahn_button"
+        android:layout_alignStart="@+id/gefahrenstelle_absichern_autobahn_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nach einer Kurve"
+        android:id="@+id/gefahrenstelle_absichern_kurve_textview"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/gefahrenstelle_absichern_kurve_button"
+        android:layout_alignEnd="@+id/gefahrenstelle_absichern_kurve_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Innerorts"
+        android:id="@+id/gefahrenstelle_absichern_innerorts_textview"
+        android:layout_below="@+id/gefahrenstelle_absichern_aussererorts_button"
+        android:layout_alignLeft="@+id/gefahrenstelle_absichern_innerorts_button"
+        android:layout_alignStart="@+id/gefahrenstelle_absichern_innerorts_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ausserorts"
+        android:id="@+id/gefahrenstelle_absichern_ausserorts_textview"
+        android:layout_below="@+id/gefahrenstelle_absichern_aussererorts_button"
+        android:layout_alignRight="@+id/gefahrenstelle_absichern_aussererorts_button"
+        android:layout_alignEnd="@+id/gefahrenstelle_absichern_aussererorts_button" />
+
 
 </RelativeLayout>

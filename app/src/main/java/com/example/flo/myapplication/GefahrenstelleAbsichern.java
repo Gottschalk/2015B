@@ -1,9 +1,12 @@
 package com.example.flo.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 
 public class GefahrenstelleAbsichern extends ActionBarActivity {
@@ -12,6 +15,53 @@ public class GefahrenstelleAbsichern extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gefahrenstelle_absichern);
+
+        setupUI();
+    }
+
+    private void setupUI() {
+
+        final ImageButton autobahn = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_autobahn_button);
+        ImageButton kurve = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_kurve_button);
+        ImageButton innerorts = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_innerorts_button);
+        ImageButton ausserorts = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_aussererorts_button);
+
+        autobahn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GefahrenstelleAbsichern.this, GefahrenstelleAbsichernAnleitung.class);
+                intent.putExtra("Ort", "Autobahn");
+                startActivity(intent);
+            }
+        });
+
+        kurve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GefahrenstelleAbsichern.this, GefahrenstelleAbsichernAnleitung.class);
+                intent.putExtra("Ort", "Kurve");
+                startActivity(intent);
+            }
+        });
+
+        innerorts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GefahrenstelleAbsichern.this, GefahrenstelleAbsichernAnleitung.class);
+                intent.putExtra("Ort", "innerorts");
+                startActivity(intent);
+            }
+        });
+
+        ausserorts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GefahrenstelleAbsichern.this, GefahrenstelleAbsichernAnleitung.class);
+                intent.putExtra("Ort", "ausserorts");
+                startActivity(intent);
+            }
+        });
+
     }
 
 

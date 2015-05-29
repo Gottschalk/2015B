@@ -43,6 +43,9 @@
     <string name="title_activity_panne_dokumentieren_fullscreen_bild">
         PanneDokumentierenFullscreenBild
     </string>
+    <string name="title_activity_gefahrenstelle_absichern__anleitung">
+        GefahrenstelleAbsichern_Anleitung
+    </string>
 
 
 </resources>

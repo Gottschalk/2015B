@@ -93,9 +93,13 @@
 
         <activity
             android:name=".PanneDokumentierenFullscreenBild"
+            android:label=""
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:label="" >
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".GefahrenstelleAbsichernAnleitung"
+            android:label="@string/title_activity_gefahrenstelle_absichern__anleitung" >
         </activity>
     </application>
 
