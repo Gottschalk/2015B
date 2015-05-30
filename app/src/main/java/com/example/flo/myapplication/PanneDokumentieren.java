@@ -198,7 +198,8 @@ public class PanneDokumentieren extends ActionBarActivity implements
             public void onClick(View v) {
                 // create Intent to take a picture and return control to the calling application
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
+                intent.addFlags(
+                        Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
                 fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file name
 
