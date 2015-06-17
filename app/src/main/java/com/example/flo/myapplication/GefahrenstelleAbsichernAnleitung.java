@@ -17,6 +17,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
     private ViewFlipper viewFlipper;
     private float lastX;
     private int currentStep = 1;
+    private TextView currentStepTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
 
 
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
-        final TextView currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_stepTextview);
+        currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_stepTextview);
         Button nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_nextStepButton);
         Button previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_previousStepButton);
 
@@ -61,7 +62,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                     // Display previous screen.
                     viewFlipper.showPrevious();
                     currentStep +=1;
-                    currentStepTV.setText(("Schritt " + currentStep + " / 9" ));
+                    currentStepTV.setText(("Schritt " + currentStep + " / 9"));
                 }
             }
         });
@@ -92,6 +93,8 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
 
                     // Display next screen.
                     viewFlipper.showNext();
+                    currentStep -=1;
+                    currentStepTV.setText(("Schritt " + currentStep + " / 9"));
                 }
 
                 // Handling right to left screen swap.
@@ -108,6 +111,8 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
 
                     // Display previous screen.
                     viewFlipper.showPrevious();
+                    currentStep +=1;
+                    currentStepTV.setText(("Schritt " + currentStep + " / 9"));
                 }
                 break;
         }
