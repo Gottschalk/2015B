@@ -6,53 +6,36 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.flo.myapplication.GefahrenstelleAbsichernAnleitung">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_marginLeft="46dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginBottom="46dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <ViewFlipper
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewFlipper"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_above="@+id/gefahrenstelle_absichern_stepTextview"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <ImageView
-                android:layout_marginTop="15dp"
-                android:id="@+id/imageViewFlip1"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_innerorts" />
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_warnblinkanlage" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bla"
-                android:textColor="#b7102f"
-                android:textSize="25dp"
+                android:text="Warnblinkanlage anschalten"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true">
             </TextView>
@@ -66,18 +49,18 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
-                android:id="@+id/imageViewFlip2"
+                android:layout_marginTop="0dp"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_autobahn" />
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_handbremse" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bla"
-                android:textColor="#b7102f"
-                android:textSize="25dp"
+                android:text="Hanbremse anziehen"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true">
             </TextView>
@@ -91,17 +74,161 @@
 
             <ImageView
                 android:layout_marginTop="15dp"
-                android:id="@+id/imageViewFlip3"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_kurve" />
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_lenkrad" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bla"
-                android:textColor="#b7102f"
-                android:textSize="25dp"
+                android:text="Lenkrad Richtung Strassenrand eindrehen"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip4"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_scheinwerfer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bei Dunkelheit Scheinwerfer einschalten"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip5"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_warnweste" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Warnweste anziehen. Die Warnweste befindet sich üblicherweise im Kofferraum"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip6"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_warndreieck_verpackt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Warndreieck auspacken. Das Warndreieck befindet sich üblicherweise im Kofferraum"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip7"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_warndreieck_aufstellen" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Warndreieck sichtbar für den entgegenkommenden Verkehr hochhalten und in entgegengesetzte Fahrtrichtung gehen. Wenn möglich andere Verkehrsteilnehmer durch auf und abwinken mit dem Warndreieck warnen"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip8"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_warndreieck_aufgestellt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Warndreieck nach x Metern gut sichtbar für den Verkehr aufstellen"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_anleitung_flip9"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/absichern_auspuff_verloren" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vorsichtig zum Fahrzeug zurückkehren. Gegenverkehr beobachten und wenn möglich hinter Leitplanke gehen"
+                android:textColor="#ffabb1b7"
+                android:textSize="20dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true">
             </TextView>
@@ -109,7 +236,33 @@
 
     </ViewFlipper>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Schritt 1 / 9 "
+        android:id="@+id/gefahrenstelle_absichern_stepTextview"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zurück"
+        android:id="@+id/gefahrenstelle_absichern_previousStepButton"
+        android:layout_alignTop="@+id/gefahrenstelle_absichern_nextStepButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vor"
+        android:id="@+id/gefahrenstelle_absichern_nextStepButton"
+        android:layout_alignTop="@+id/gefahrenstelle_absichern_stepTextview"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

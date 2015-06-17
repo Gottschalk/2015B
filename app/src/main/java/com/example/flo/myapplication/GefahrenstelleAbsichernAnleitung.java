@@ -6,6 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 
@@ -13,7 +16,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
 
     private ViewFlipper viewFlipper;
     private float lastX;
-
+    private int currentStep = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,44 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
 
 
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+        final TextView currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_stepTextview);
+        Button nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_nextStepButton);
+        Button previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_previousStepButton);
+
+        previousStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewFlipper.getDisplayedChild() != 0){
+                    // Next screen comes in from left.
+                    viewFlipper.setInAnimation(getApplicationContext(), R.anim.slide_in_from_left);
+                    // Current screen goes out from right.
+                    viewFlipper.setOutAnimation(getApplicationContext(), R.anim.slide_out_to_right);
+
+                    // Display next screen.
+                    viewFlipper.showNext();
+                    currentStep -=1;
+                    currentStepTV.setText(("Schritt " + currentStep + " / 9" ));
+                }
+            }
+        });
+
+        nextStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewFlipper.getDisplayedChild() != 1){
+                    // Next screen comes in from right.
+                    viewFlipper.setInAnimation(getApplicationContext(), R.anim.slide_in_from_right);
+                    // Current screen goes out from left.
+                    viewFlipper.setOutAnimation(getApplicationContext(), R.anim.slide_out_to_left);
+
+                    // Display previous screen.
+                    viewFlipper.showPrevious();
+                    currentStep +=1;
+                    currentStepTV.setText(("Schritt " + currentStep + " / 9" ));
+                }
+            }
+        });
+
 
     }
 
