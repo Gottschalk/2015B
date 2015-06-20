@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 
 
 public class PanneBehebenFragmentBauteilTab extends Fragment {
@@ -22,8 +22,10 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_bauteil, container, false);
-        TextView tv = (TextView) v.findViewById(R.id.text);
-        tv.setText("Bauteil");
+       // TextView tv = (TextView) v.findViewById(R.id.text);
+       // tv.setText("Bauteil");
+        ListView nameListView = (ListView)v.findViewById(R.id.panne_beheben_fragment_bauteil_listview);
+
         return v;
     }
 }

@@ -1,13 +1,13 @@
 package com.example.flo.myapplication;
 
 import android.annotation.TargetApi;
-import android.support.v4.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 
 /**
  * Created by Flo on 20.06.2015.
@@ -25,8 +25,9 @@ public class PanneBehebenFragmentNameTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_name, container, false);
-        TextView tv = (TextView) v.findViewById(R.id.text);
-        tv.setText("Name");
+      //  TextView tv = (TextView) v.findViewById(R.id.text);
+     //   tv.setText("Name");
+        ListView nameListView = (ListView)v.findViewById(R.id.panne_beheben_fragment_name_listview);
         return v;
     }
 }

@@ -7,18 +7,9 @@
     android:orientation="vertical"
     android:background="#eaecee">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button" />
-
-    <TextView
-        android:id="@+id/text"
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/hello_world"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        android:layout_height="wrap_content"
+        android:id="@+id/panne_beheben_fragment_symptom_listview"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
