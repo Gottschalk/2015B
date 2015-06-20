@@ -13,7 +13,7 @@ import android.widget.TextView;
  * Created by Flo on 20.06.2015.
  */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class FragmentTab extends Fragment {
+public class PanneBehebenFragmentNameTab extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,9 @@ public class FragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_layout, container, false);
+        View v = inflater.inflate(R.layout.fragment_layout_name, container, false);
         TextView tv = (TextView) v.findViewById(R.id.text);
-        tv.setText(this.getTag() + " Content");
+        tv.setText("Name");
         return v;
     }
 }

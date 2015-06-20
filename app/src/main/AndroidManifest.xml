@@ -99,9 +99,17 @@
         </activity>
         <activity
             android:name=".GefahrenstelleAbsichernAnleitung"
+            android:label=""
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat"
-            android:label="" >
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".PanneBehebenFragmentBauteilTab"
+            android:label="@string/title_activity_fragment_bauteil_tab" >
+        </activity>
+        <activity
+            android:name=".PanneBehebenFragmentSymptomTab"
+            android:label="@string/title_activity_panne_beheben_fragment_symptom_tab" >
         </activity>
     </application>
 

@@ -46,6 +46,10 @@
     <string name="title_activity_gefahrenstelle_absichern__anleitung">
         GefahrenstelleAbsichern_Anleitung
     </string>
+    <string name="title_activity_fragment_bauteil_tab">FragmentBauteilTab</string>
+    <string name="title_activity_panne_beheben_fragment_symptom_tab">
+        PanneBehebenFragmentSymptomTab
+    </string>
 
 
 </resources>

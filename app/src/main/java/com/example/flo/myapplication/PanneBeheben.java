@@ -20,14 +20,14 @@ public class PanneBeheben extends ActionBarActivity {
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab1").setIndicator("Tab 1", null),
-                FragmentTab.class, null);
+                mTabHost.newTabSpec("tab1").setIndicator("Name", null),
+                PanneBehebenFragmentNameTab.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab2").setIndicator("Tab 2", null),
-                FragmentTab.class, null);
+                mTabHost.newTabSpec("tab2").setIndicator("Bauteil", null),
+                PanneBehebenFragmentBauteilTab.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab3").setIndicator("Tab 3", null),
-                FragmentTab.class, null);
+                mTabHost.newTabSpec("tab3").setIndicator("Symptom", null),
+                PanneBehebenFragmentSymptomTab.class, null);
     }
 
 

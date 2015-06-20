@@ -49,7 +49,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
 
-    // hier zum befüllen des arrays methode benutzen, die in ordner nach vorhandenen photos sucht
+    // hier zum befuellen des arrays methode benutzen, die in ordner nach vorhandenen photos sucht
    /* Integer[] imageIDs = {
             R.drawable.ic_gefahrenstelle1,
             R.drawable.ic_gefahrenstelle2,
@@ -80,7 +80,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
     }
 
     private void showFirstPicture() {
-       // Log.w("$%§%&$&§$%&§", imageIDs[0]);
+       // Log.w("bla", imageIDs[0]);
         if(imageIDs != null){
             Bitmap myBitmap;
 
@@ -152,7 +152,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(PanneDokumentieren.this);
-                builder.setTitle(("Bild löschen?"));
+                builder.setTitle(("Bild loeschen?"));
                 builder.setMessage(" ");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
