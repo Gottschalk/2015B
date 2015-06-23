@@ -16,12 +16,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 public class WichtigeNummern extends ActionBarActivity {
 
-    private DBHelper db;
+    private ContactDBHelper db;
     private ContactAdapter adapter;
     private ArrayList<Contact> contacts;
     // Tutorials:
@@ -37,7 +36,7 @@ public class WichtigeNummern extends ActionBarActivity {
 
         setupUI();
 
-        db = new DBHelper(this);
+        db = new ContactDBHelper(this);
 
         // falls zu viele testelemente in der db sind
       //   db.deleteAllContacts();

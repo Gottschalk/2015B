@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class WichtigeNummernDetailanzeige extends Activity {
 
-    private DBHelper db;
+    private ContactDBHelper db;
     private int contactId;
 
     private TextView nameTV;
@@ -33,7 +33,7 @@ public class WichtigeNummernDetailanzeige extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wichtige_nummern_detailanzeige);
 
-        db = new DBHelper(this);
+        db = new ContactDBHelper(this);
 
         setupUI();
 

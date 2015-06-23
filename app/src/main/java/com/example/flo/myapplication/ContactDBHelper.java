@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by Flo_2 on 05.03.2015.
  */
 
-public class DBHelper extends  SQLiteOpenHelper {
+public class ContactDBHelper extends  SQLiteOpenHelper {
 
 
     // All Static variables
@@ -36,7 +36,7 @@ public class DBHelper extends  SQLiteOpenHelper {
 
 
 
-    public DBHelper(Context context) {
+    public ContactDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -203,7 +203,7 @@ public class DBHelper extends  SQLiteOpenHelper {
 
 
 
-    public DBHelper(Context context) {
+    public ContactDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     public void onCreate(SQLiteDatabase db) {

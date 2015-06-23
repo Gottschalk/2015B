@@ -28,7 +28,7 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
         ListView nameListView = (ListView) v.findViewById(R.id.panne_beheben_fragment_symptom_listview);
 
 
-        String[] codeLearnChapters = new String[]{"Kontrolllampen leuchten", "Lenkung schwerfällig",
+        String[] codeLearnChapters = new String[]{"Kontrolllampen leuchten", "Lenkung schwerfaellig",
                 "Motor ruckelt aber startet nicht", "Rauch aus dem Motorblock", "Auspuff laut"};
 
         ArrayAdapter<String> codeLearnArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, codeLearnChapters);
