@@ -50,6 +50,7 @@
     <string name="title_activity_panne_beheben_fragment_symptom_tab">
         PanneBehebenFragmentSymptomTab
     </string>
+    <string name="title_activity_panne_beheben_anleitung">PanneBehebenAnleitung</string>
 
 
 </resources>

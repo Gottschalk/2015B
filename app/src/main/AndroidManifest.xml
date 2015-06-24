@@ -111,6 +111,10 @@
             android:name=".PanneBehebenFragmentSymptomTab"
             android:label="@string/title_activity_panne_beheben_fragment_symptom_tab" >
         </activity>
+        <activity
+            android:name=".PanneBehebenAnleitung"
+            android:label="@string/title_activity_panne_beheben_anleitung" >
+        </activity>
     </application>
 
 </manifest>
