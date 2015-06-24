@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class PanneDBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // Database Name
     private static final String DATABASE_NAME = "panneManager";
@@ -26,7 +26,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_SYMPTOM = "symptom";
-    private static final String KEY_URSACHE = "ursache";
+    private static final String KEY_BAUTEIL = "bauteil";
 
     private static final String KEY_ANZSCHRITTE = "anzschritte";
     private static final String KEY_SCHRITTE = "schritte";
@@ -44,7 +44,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
 
         String CREATE_PANNE_TABLE = "CREATE TABLE " + TABLE_PANNEN + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_SYMPTOM + " TEXT," + KEY_URSACHE + " TEXT," + KEY_ANZSCHRITTE + " TEXT," + KEY_SCHRITTE + " TEXT," + KEY_BILDER + " TEXT" + ")";
+                + KEY_SYMPTOM + " TEXT," + KEY_BAUTEIL + " TEXT," + KEY_ANZSCHRITTE + " TEXT," + KEY_SCHRITTE + " TEXT," + KEY_BILDER + " TEXT" + ")";
 
         Log.e("###create: ", CREATE_PANNE_TABLE);
 
@@ -68,7 +68,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, panne.getName());
         values.put(KEY_SYMPTOM, panne.getSymptom());
-        values.put(KEY_URSACHE, panne.getUrsache());
+        values.put(KEY_BAUTEIL, panne.getBauteil());
         values.put(KEY_ANZSCHRITTE, panne.getAnzSchritte());
         values.put(KEY_SCHRITTE, panne.getSchritte());
         values.put(KEY_BILDER, panne.getBilder());
@@ -84,7 +84,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_PANNEN, new String[]{KEY_ID,
-                        KEY_NAME, KEY_NAME, KEY_SYMPTOM, KEY_URSACHE, KEY_ANZSCHRITTE, KEY_SCHRITTE, KEY_BILDER}, KEY_ID + "=?",
+                        KEY_NAME, KEY_NAME, KEY_SYMPTOM, KEY_BAUTEIL, KEY_ANZSCHRITTE, KEY_SCHRITTE, KEY_BILDER}, KEY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -111,7 +111,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
                 panne.setId(Integer.parseInt(cursor.getString(0)));
                 panne.setName(cursor.getString(1));
                 panne.setSymptom(cursor.getString(2));
-                panne.setUrsache(cursor.getString(3));
+                panne.setBauteil(cursor.getString(3));
                 panne.setAnzSchritte(Integer.parseInt(cursor.getString(4)));
                 panne.setSchritte(cursor.getString(5));
                 panne.setBilder(Integer.parseInt(cursor.getString(6)));
@@ -130,7 +130,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, panne.getName());
         values.put(KEY_SYMPTOM, panne.getSymptom());
-        values.put(KEY_URSACHE, panne.getUrsache());
+        values.put(KEY_BAUTEIL, panne.getBauteil());
         values.put(KEY_ANZSCHRITTE, panne.getAnzSchritte());
         values.put(KEY_SCHRITTE, panne.getSchritte());
         values.put(KEY_BILDER, panne.getBilder());

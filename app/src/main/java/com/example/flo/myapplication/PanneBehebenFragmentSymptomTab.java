@@ -49,7 +49,7 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
         int index = 0;
 
         for (Panne panne : pannen) {
-          //   String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Ursache: " + panne.getUrsache() + "Symptom" + panne.getSymptom();
+          //   String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Ursache: " + panne.getBauteil() + "Symptom" + panne.getSymptom();
           //  Log.e("SymptomFragment: ", log + "  / index: " + index);
           //      Log.e("SymptomFragment: " , panne.getSymptom());
 

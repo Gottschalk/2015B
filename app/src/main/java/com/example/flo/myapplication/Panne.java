@@ -6,26 +6,26 @@ package com.example.flo.myapplication;
 public class Panne {
 
     private String name;
-    private String ursache;
+    private String bauteil;
     private String symptom;
     private String schritte;
     private int anzSchritte;
     private int bilder;
     private int id;
 
-    public Panne(int id, String name, String ursache, String symptom, String schritte, int anzSchritte, int bilder) {
+    public Panne(int id, String name, String bauteil, String symptom, String schritte, int anzSchritte, int bilder) {
         this.id = id;
         this.name = name;
-        this.ursache = ursache;
+        this.bauteil = bauteil;
         this.symptom = symptom;
         this.schritte = schritte;
         this.anzSchritte = anzSchritte;
         this.bilder = bilder;
     }
 
-    public Panne(String name, String ursache, String symptom, String schritte, int anzSchritte, int bilder) {
+    public Panne(String name, String bauteil, String symptom, String schritte, int anzSchritte, int bilder) {
         this.name = name;
-        this.ursache = ursache;
+        this.bauteil = bauteil;
         this.symptom = symptom;
         this.schritte = schritte;
         this.anzSchritte = anzSchritte;
@@ -44,8 +44,8 @@ public class Panne {
         return name;
     }
 
-    public String getUrsache() {
-        return name;
+    public String getBauteil() {
+        return bauteil;
     }
 
     public String getSymptom() {
@@ -72,8 +72,8 @@ public class Panne {
         this.name = name;
     }
 
-    public void setUrsache(String ursache) {
-        this.ursache = ursache;
+    public void setBauteil(String bauteil) {
+        this.bauteil = bauteil;
     }
 
     public void setSymptom(String symptom) {

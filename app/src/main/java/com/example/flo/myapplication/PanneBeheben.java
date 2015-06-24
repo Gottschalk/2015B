@@ -36,14 +36,15 @@ public class PanneBeheben extends ActionBarActivity {
         //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
+        db.deleteAllPannen();
 
         // Bei erster App-Benutzung leere DB abfangen
         if (pannen.size() == 0) {
             Log.e("Creating first panne ", "Creating panne");
 
-            db.addPanne(new Panne("Reifen platt", "Reifen plattgefahren", "Reifen platt", "Schritt 1: ... ", 1, R.id.icon));
-            db.addPanne(new Panne("Batterie leer", "Batterie leer", "Batterie leer", "Schritt 1: ... ", 1, R.id.icon));
-            db.addPanne(new Panne("Kontrollampen leuchten", "Kontrollampen leuchten", "Kontrollampen leuchten", "Schritt 1: ... ", 1, R.id.icon));
+            db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", "Schritt 1: ... ", 1, R.id.icon));
+            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", "Schritt 1: ... ", 1, R.id.icon));
+            db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", "Schritt 1: ... ", 1, R.id.icon));
 
 
             pannen = db.getAllPannen();
@@ -51,7 +52,7 @@ public class PanneBeheben extends ActionBarActivity {
         }
 
         for (Panne panne : pannen) {
-            String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Symptom: " + panne.getSymptom() + " ,Ursache: " + panne.getUrsache()
+            String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Symptom: " + panne.getSymptom() + " ,Bauteil: " + panne.getBauteil()
                     + " ,AnzahlSchritte: " + panne.getAnzSchritte() + " ,Schritte: " + panne.getSchritte() + " ,Bilder: " + panne.getBilder();
             // Writing Contacts to log
             Log.e("Name: ", log);

@@ -56,7 +56,7 @@ public class PanneAdapter extends ArrayAdapter<Panne> {
         // Text in Listrow zuweisen
         holder.panneName.setText(panne.getName());
         holder.panneSymptom.setText(panne.getSymptom());
-        holder.panneUrsache.setText(panne.getUrsache());
+        holder.panneUrsache.setText(panne.getBauteil());
 
 
         return row;
