@@ -3,7 +3,6 @@ package com.example.flo.myapplication;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -30,40 +29,9 @@ public class PanneBeheben extends ActionBarActivity {
     private void setupDB() {
         db = new PanneDBHelper(this);
 
+        PannenCreator pannenCreator = new PannenCreator(this);
+        pannenCreator.savePannenToDB(this);
 
-
-        // falls zu viele testelemente in der db sind
-        //   db.deleteAllContacts();
-
-        pannen = db.getAllPannen();
-
-        // TODO RAUSMACHEN!!!!
-        db.deleteAllPannen();
-
-        // Bei erster App-Benutzung leere DB abfangen
-        if (pannen.size() == 0) {
-            Log.e("Creating first panne ", "Creating panne");
-
-
-            String reifenPlattAnleitung = "$ Wagen abstellen $ Handbremse ziehen $ Gang einlegen $ Wagenheber holen";
-            String batterieLeerAnleitung = "$ Plus pol an plus pol $ zweitwagen bal $ nix";
-            String kontrolllampenAnleitung = "$ kontrollampe rot: $ kontrollampe blau";
-
-            db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 1, R.id.icon));
-            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", batterieLeerAnleitung, 1, R.id.icon));
-            db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", kontrolllampenAnleitung, 1, R.id.icon));
-
-
-            pannen = db.getAllPannen();
-
-        }
-
-        for (Panne panne : pannen) {
-            String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Symptom: " + panne.getSymptom() + " ,Bauteil: " + panne.getBauteil()
-                    + " ,AnzahlSchritte: " + panne.getAnzSchritte() + " ,Schritte: " + panne.getSchritte() + " ,Bilder: " + panne.getBilder();
-            // Writing Contacts to log
-            Log.e("Name: ", log);
-        }
     }
 
     private void setupTabView() {
@@ -85,7 +53,7 @@ public class PanneBeheben extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  getMenuInflater().inflate(R.menu.menu_panne_beheben, menu);
+        //  getMenuInflater().inflate(R.menu.menu_panne_beheben, menu);
         return true;
     }
 
