@@ -32,7 +32,7 @@ public class PannenCreator {
         pannen = db.getAllPannen();
 
         // TODO RAUSMACHEN!!!!
-        db.deleteAllPannen();
+    //    db.deleteAllPannen();
 
         // Bei erster App-Benutzung leere DB abfangen
         if (pannen.size() == 0) {

@@ -6,11 +6,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 
 public class PanneBehebenAnleitung extends ActionBarActivity {
+
+    private int currentStep;
+    private int maxSteps;
+    private TextView step;
+    private TextView toDo;
+    private ArrayList<String> pannenAnleitung;
+    private ImageView helpImage;
 
 
     @Override
@@ -27,12 +38,56 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
         Log.w("pannebeheben anleitung ", name);
 
 
-        ArrayList<String> pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
+         pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
 
         for (int i = 0; i < pannenAnleitung.size(); i++) {
             Log.e("%%%%%steps: " , pannenAnleitung.get(i));
 
         }
+
+          maxSteps = pannenAnleitung.size();
+          currentStep = 1;
+
+        Button nextButton = (Button)findViewById(R.id.panne_beheben_nextStepButton);
+        Button previousButton = (Button)findViewById(R.id.panne_beheben_previousStepButton);
+
+         helpImage = (ImageView)findViewById(R.id.panneBeheben_anleitung_bild);
+         step = (TextView)findViewById(R.id.panne_beheben_stepTextview);
+         toDo = (TextView)findViewById(R.id.panneBeheben_anleitung_text);
+
+        step.setText("Schritt: " + currentStep + " / " + maxSteps);
+        toDo.setText(pannenAnleitung.get(currentStep));
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (currentStep < maxSteps) {
+
+                    currentStep++;
+                    step.setText("Schritt: " + currentStep + " / " + maxSteps);
+                    step.setText("Schritt: " + currentStep + " / " + maxSteps);
+                    toDo.setText(pannenAnleitung.get(currentStep-1));
+
+                }
+            }
+        });
+
+        previousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(currentStep > 1){
+
+                    currentStep--;
+                    step.setText("Schritt: " + currentStep + " / " + maxSteps);
+                    step.setText("Schritt: " + currentStep + " / " + maxSteps);
+                    toDo.setText(pannenAnleitung.get(currentStep-1));
+
+                }
+            }
+        });
+
     }
 
     private ArrayList<String> createPannenStepsFromDBString(String stepsFromDB) {

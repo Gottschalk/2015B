@@ -105,14 +105,17 @@
         </activity>
         <activity
             android:name=".PanneBehebenFragmentBauteilTab"
+            android:theme="@style/Theme.AppCompat"
             android:label="@string/title_activity_fragment_bauteil_tab" >
         </activity>
         <activity
             android:name=".PanneBehebenFragmentSymptomTab"
+            android:theme="@style/Theme.AppCompat"
             android:label="@string/title_activity_panne_beheben_fragment_symptom_tab" >
         </activity>
         <activity
             android:name=".PanneBehebenAnleitung"
+            android:theme="@style/Theme.AppCompat"
             android:label="@string/title_activity_panne_beheben_anleitung" >
         </activity>
     </application>
