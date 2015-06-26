@@ -68,6 +68,8 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
                 int clickedItemIndex = (int) bauteilListView.getAdapter().getItemId(position);
 
                 String panneName = pannen.get(position).getName();
+                String panneSchritte = pannen.get(position).getSchritte();
+
 
 
                 int symptomId = pannen.get(position).getId();
@@ -75,6 +77,7 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
                 Log.w("###############nr:", String.valueOf(symptomId));
 
                 i.putExtra("NAME", panneName);
+                i.putExtra("SCHRITTE", panneSchritte);
 
                 startActivity(i);
             }

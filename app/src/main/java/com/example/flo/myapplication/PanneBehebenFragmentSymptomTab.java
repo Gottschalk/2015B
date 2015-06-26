@@ -68,13 +68,14 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
                 int clickedItemIndex = (int) symptomListView.getAdapter().getItemId(position);
 
                 String panneName = pannen.get(position).getName();
-
+                String panneSchritte = pannen.get(position).getSchritte();
 
                 int symptomId = pannen.get(position).getId();
 
                 Log.w("###############nr:", String.valueOf(symptomId));
 
                 i.putExtra("NAME", panneName);
+                i.putExtra("SCHRITTE", panneSchritte);
 
                 startActivity(i);
             }

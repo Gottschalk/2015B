@@ -36,15 +36,22 @@ public class PanneBeheben extends ActionBarActivity {
         //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
+
+        // TODO RAUSMACHEN!!!!
         db.deleteAllPannen();
 
         // Bei erster App-Benutzung leere DB abfangen
         if (pannen.size() == 0) {
             Log.e("Creating first panne ", "Creating panne");
 
-            db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", "Schritt 1: ... ", 1, R.id.icon));
-            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", "Schritt 1: ... ", 1, R.id.icon));
-            db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", "Schritt 1: ... ", 1, R.id.icon));
+
+            String reifenPlattAnleitung = "$ Wagen abstellen $ Handbremse ziehen $ Gang einlegen $ Wagenheber holen";
+            String batterieLeerAnleitung = "$ Plus pol an plus pol $ zweitwagen bal $ nix";
+            String kontrolllampenAnleitung = "$ kontrollampe rot: $ kontrollampe blau";
+
+            db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 1, R.id.icon));
+            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", batterieLeerAnleitung, 1, R.id.icon));
+            db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", kontrolllampenAnleitung, 1, R.id.icon));
 
 
             pannen = db.getAllPannen();
