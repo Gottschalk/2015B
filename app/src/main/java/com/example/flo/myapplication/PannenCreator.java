@@ -14,13 +14,13 @@ public class PannenCreator {
     private ArrayList<Panne> pannen;
     private PanneDBHelper db;
 
-    public PannenCreator(Context context){
+    public PannenCreator(Context context) {
 
         this.context = context;
 
         Log.w("Pannencrator", "creator created");
 
-       // savePannenToDB(context);
+        // savePannenToDB(context);
     }
 
     public void savePannenToDB(Context context) {
@@ -32,7 +32,7 @@ public class PannenCreator {
         pannen = db.getAllPannen();
 
         // TODO RAUSMACHEN!!!!
-    //    db.deleteAllPannen();
+            db.deleteAllPannen();
 
         // Bei erster App-Benutzung leere DB abfangen
         if (pannen.size() == 0) {
@@ -40,15 +40,22 @@ public class PannenCreator {
 
 
             String reifenPlattAnleitung = "$ Wagen abstellen $ Handbremse ziehen $ Gang einlegen $ Wagenheber holen";
+            String reifenPlattAnleitungBilder = "$ic_camera1$ic_kontakte1$ic_camera1$ic_kontakte1";
+
             String batterieLeerAnleitung = "$ Plus pol an plus pol $ zweitwagen bal $ nix";
+            String batterieLeerAnleitungBilder = "$ic_camera1$ic_kontakte1";
+
             String kontrolllampenAnleitung = "$ kontrollampe rot: $ kontrollampe blau";
+            String kontrolllampenAnleitungBilder = "$ic_camera1$ic_kontakte1";
+
             String lenkungKlemmtAnleitung = "$ Schluessel in Zuendschloss stecken $ Lenkrad drehen";
+            String lenkungKlemmtAnleitungBilder = "$ic_camera1$ic_kontakte1";
 
 
-            db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 1, R.id.icon));
-            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", batterieLeerAnleitung, 1, R.id.icon));
-            db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", kontrolllampenAnleitung, 1, R.id.icon));
-            db.addPanne(new Panne("Lenkung klemmt(name)", "Lenkung(bauteil)", "Lenkung klemmt(symptom)", lenkungKlemmtAnleitung, 1, R.id.icon));
+            db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 4, reifenPlattAnleitungBilder));
+            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", batterieLeerAnleitung, 2, batterieLeerAnleitungBilder));
+            db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", kontrolllampenAnleitung, 2, kontrolllampenAnleitungBilder));
+            db.addPanne(new Panne("Lenkung klemmt(name)", "Lenkung(bauteil)", "Lenkung klemmt(symptom)", lenkungKlemmtAnleitung, 2, lenkungKlemmtAnleitungBilder));
 
 
             pannen = db.getAllPannen();

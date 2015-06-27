@@ -1,6 +1,7 @@
 package com.example.flo.myapplication;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -21,6 +22,7 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
     private TextView step;
     private TextView toDo;
     private ArrayList<String> pannenAnleitung;
+    private ArrayList<String> pannnenAnleitungBilder;
     private ImageView helpImage;
 
 
@@ -33,15 +35,30 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
 
         String name = intent.getStringExtra("NAME");
         Log.w("pannebeheben anleitung ", name);
+        setTitle(name);
 
         String pannenAnleitungString = intent.getStringExtra("SCHRITTE");
-        Log.w("pannebeheben anleitung ", name);
+        Log.w("pannebeheben anleitung ", pannenAnleitungString);
+
+        String pannenAnleitungPicturesString = intent.getStringExtra("BILDER");
+        Log.w("pannebeheben anleitung ", pannenAnleitungPicturesString);
 
 
-         pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
+        pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
+        pannnenAnleitungBilder = createPannenStepsPicturesFromDBString(pannenAnleitungPicturesString);
 
         for (int i = 0; i < pannenAnleitung.size(); i++) {
             Log.e("%%%%%steps: " , pannenAnleitung.get(i));
+
+        }
+
+        for (int i = 0; i < pannnenAnleitungBilder.size(); i++) {
+            Log.e("%%%%%bilder: " , pannnenAnleitungBilder.get(i));
+
+            String idString = pannnenAnleitungBilder.get(i);
+            int id = getResources().getIdentifier(idString, "drawable", getPackageName());
+            Log.e("%%%%%bilderINT: " , String.valueOf(id));
+
 
         }
 
@@ -58,6 +75,11 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
         step.setText("Schritt: " + currentStep + " / " + maxSteps);
         toDo.setText(pannenAnleitung.get(currentStep));
 
+        String idString = pannnenAnleitungBilder.get(currentStep);
+        int id = getResources().getIdentifier(idString, "drawable", getPackageName());
+        Drawable new_image= getResources().getDrawable(id);
+        helpImage.setImageDrawable(new_image);
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +90,11 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
                     step.setText("Schritt: " + currentStep + " / " + maxSteps);
                     step.setText("Schritt: " + currentStep + " / " + maxSteps);
                     toDo.setText(pannenAnleitung.get(currentStep-1));
+
+                    String idString = pannnenAnleitungBilder.get(currentStep-1);
+                    int id = getResources().getIdentifier(idString, "drawable", getPackageName());
+                    Drawable new_image= getResources().getDrawable(id);
+                    helpImage.setImageDrawable(new_image);
 
                 }
             }
@@ -84,10 +111,45 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
                     step.setText("Schritt: " + currentStep + " / " + maxSteps);
                     toDo.setText(pannenAnleitung.get(currentStep-1));
 
+                    String idString = pannnenAnleitungBilder.get(currentStep-1);
+                    int id = getResources().getIdentifier(idString, "drawable", getPackageName());
+                    Drawable new_image= getResources().getDrawable(id);
+                    helpImage.setImageDrawable(new_image);
+
                 }
             }
         });
 
+    }
+
+    private ArrayList<String> createPannenStepsPicturesFromDBString(String stepsPicturesFromDB) {
+
+        ArrayList<String> stepsToDoPictures = new ArrayList<String>();
+        int firstWordPart = 0;
+        int secondWordPart = 1;
+
+        for (int index = 0; index < stepsPicturesFromDB.length(); index++) {
+
+            if (index == (stepsPicturesFromDB.length() - 1) && stepsPicturesFromDB.charAt(index) != '$') {
+                String bla = stepsPicturesFromDB.substring(firstWordPart, secondWordPart);
+                if (bla.length() != 0) {
+                    stepsToDoPictures.add(bla);
+                }
+            }
+
+            if (stepsPicturesFromDB.charAt(index) != '$') {
+                secondWordPart++;
+            } else {
+                String bla = stepsPicturesFromDB.substring(firstWordPart, secondWordPart - 1);
+                if (bla.length() != 0) {
+                    stepsToDoPictures.add(bla);
+                }
+                firstWordPart = secondWordPart;
+                secondWordPart++;
+            }
+        }
+
+        return stepsToDoPictures;
     }
 
     private ArrayList<String> createPannenStepsFromDBString(String stepsFromDB) {
@@ -123,7 +185,7 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_panne_beheben_anleitung, menu);
+       // getMenuInflater().inflate(R.menu.menu_panne_beheben_anleitung, menu);
         return true;
     }
 

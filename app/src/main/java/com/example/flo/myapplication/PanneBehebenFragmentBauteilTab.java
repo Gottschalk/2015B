@@ -69,8 +69,7 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
 
                 String panneName = pannen.get(position).getName();
                 String panneSchritte = pannen.get(position).getSchritte();
-
-
+                String panneSchritteBilder = pannen.get(position).getBilder();
 
                 int symptomId = pannen.get(position).getId();
 
@@ -78,6 +77,8 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);
+                i.putExtra("BILDER", panneSchritteBilder);
+
 
                 startActivity(i);
             }

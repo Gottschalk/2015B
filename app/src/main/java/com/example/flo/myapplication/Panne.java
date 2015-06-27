@@ -10,10 +10,10 @@ public class Panne {
     private String symptom;
     private String schritte;
     private int anzSchritte;
-    private int bilder;
+    private String bilder;
     private int id;
 
-    public Panne(int id, String name, String bauteil, String symptom, String schritte, int anzSchritte, int bilder) {
+    public Panne(int id, String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder) {
         this.id = id;
         this.name = name;
         this.bauteil = bauteil;
@@ -23,7 +23,7 @@ public class Panne {
         this.bilder = bilder;
     }
 
-    public Panne(String name, String bauteil, String symptom, String schritte, int anzSchritte, int bilder) {
+    public Panne(String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder) {
         this.name = name;
         this.bauteil = bauteil;
         this.symptom = symptom;
@@ -60,7 +60,7 @@ public class Panne {
         return anzSchritte;
     }
 
-    public int getBilder() {
+    public String getBilder() {
         return bilder;
     }
 
@@ -88,7 +88,7 @@ public class Panne {
         this.anzSchritte = anzSchritte;
     }
 
-    public void setBilder(int bilder) {
+    public void setBilder(String bilder) {
         this.bilder = bilder;
     }
 }

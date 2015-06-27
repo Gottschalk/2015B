@@ -90,7 +90,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         Panne panne = new Panne(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5)), Integer.parseInt(cursor.getString(6)));
+                cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5)), cursor.getString(6));
         // return contact
         return panne;
     }
@@ -114,7 +114,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
                 panne.setBauteil(cursor.getString(3));
                 panne.setAnzSchritte(Integer.parseInt(cursor.getString(4)));
                 panne.setSchritte(cursor.getString(5));
-                panne.setBilder(Integer.parseInt(cursor.getString(6)));
+                panne.setBilder(cursor.getString(6));
                 // Adding contact to list
                 pannenList.add(panne);
             } while (cursor.moveToNext());
