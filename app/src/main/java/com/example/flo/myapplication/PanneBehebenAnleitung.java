@@ -73,9 +73,9 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
          toDo = (TextView)findViewById(R.id.panneBeheben_anleitung_text);
 
         step.setText("Schritt: " + currentStep + " / " + maxSteps);
-        toDo.setText(pannenAnleitung.get(currentStep));
+        toDo.setText(pannenAnleitung.get(0));
 
-        String idString = pannnenAnleitungBilder.get(currentStep);
+        String idString = pannnenAnleitungBilder.get(0);
         int id = getResources().getIdentifier(idString, "drawable", getPackageName());
         Drawable new_image= getResources().getDrawable(id);
         helpImage.setImageDrawable(new_image);
@@ -130,14 +130,14 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
 
         for (int index = 0; index < stepsPicturesFromDB.length(); index++) {
 
-            if (index == (stepsPicturesFromDB.length() - 1) && stepsPicturesFromDB.charAt(index) != '$') {
+            if (index == (stepsPicturesFromDB.length() - 1) && stepsPicturesFromDB.charAt(index) != '|') {
                 String bla = stepsPicturesFromDB.substring(firstWordPart, secondWordPart);
                 if (bla.length() != 0) {
                     stepsToDoPictures.add(bla);
                 }
             }
 
-            if (stepsPicturesFromDB.charAt(index) != '$') {
+            if (stepsPicturesFromDB.charAt(index) != '|') {
                 secondWordPart++;
             } else {
                 String bla = stepsPicturesFromDB.substring(firstWordPart, secondWordPart - 1);

@@ -39,21 +39,25 @@ public class PannenCreator {
             Log.e("Creating first panne ", "Creating panne");
 
 
+            //  REIFEN PLATT //
             String reifenPlattAnleitung = "$ Wagen abstellen $ Handbremse ziehen $ Gang einlegen $ Wagenheber holen";
-            String reifenPlattAnleitungBilder = "$ic_camera1$ic_kontakte1$ic_camera1$ic_kontakte1";
+            String reifenPlattAnleitungBilder = "|ic_camera1|ic_kontakte1|ic_camera1|ic_kontakte1";
 
+            //  BATTERIE LEER //
             String batterieLeerAnleitung = "$ Plus pol an plus pol $ zweitwagen bal $ nix";
-            String batterieLeerAnleitungBilder = "$ic_camera1$ic_kontakte1";
+            String batterieLeerAnleitungBilder = "|ic_camera1|ic_kontakte1|ic_camera1";
 
+            // KONTROLLLAMPEN LEUCHTEN
             String kontrolllampenAnleitung = "$ kontrollampe rot: $ kontrollampe blau";
-            String kontrolllampenAnleitungBilder = "$ic_camera1$ic_kontakte1";
+            String kontrolllampenAnleitungBilder = "|ic_camera1|ic_kontakte1";
 
+            // LENKUNG KLEMMT //
             String lenkungKlemmtAnleitung = "$ Schluessel in Zuendschloss stecken $ Lenkrad drehen";
-            String lenkungKlemmtAnleitungBilder = "$ic_camera1$ic_kontakte1";
+            String lenkungKlemmtAnleitungBilder = "|ic_camera1|ic_kontakte1";
 
 
             db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 4, reifenPlattAnleitungBilder));
-            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", batterieLeerAnleitung, 2, batterieLeerAnleitungBilder));
+            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", batterieLeerAnleitung, 3, batterieLeerAnleitungBilder));
             db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", kontrolllampenAnleitung, 2, kontrolllampenAnleitungBilder));
             db.addPanne(new Panne("Lenkung klemmt(name)", "Lenkung(bauteil)", "Lenkung klemmt(symptom)", lenkungKlemmtAnleitung, 2, lenkungKlemmtAnleitungBilder));
 
