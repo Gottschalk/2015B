@@ -17,7 +17,7 @@
         android:gravity="center_vertical"
         android:textStyle="bold"
         android:textSize="22sp"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:text="@string/wichtige_nummern_row_contact_name_text"
         android:layout_below="@+id/imgIcon"
         android:layout_toRightOf="@+id/imgIcon"
@@ -30,7 +30,7 @@
         android:textStyle="normal"
         android:textSize="22sp"
         android:text="@string/wichtige_nummern_row_contact_number_text"
-        android:textColor="#000000"
+        android:textColor="#aaaaaa"
         android:layout_below="@+id/contactName"
         android:layout_toRightOf="@+id/imgIcon"
         android:layout_toEndOf="@+id/imgIcon" />
