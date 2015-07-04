@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class WerkstattFinden extends FragmentActivity {
+public class WerkstattFinden_old extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

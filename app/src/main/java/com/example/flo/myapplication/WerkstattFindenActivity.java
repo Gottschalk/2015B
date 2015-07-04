@@ -9,7 +9,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -31,7 +30,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends ActionBarActivity implements LocationListener, OnMapReadyCallback {
+public class WerkstattFindenActivity extends ActionBarActivity implements LocationListener, OnMapReadyCallback {
 
     private GoogleMap googleMap;
     private Marker currentPosMarker;
@@ -58,7 +57,7 @@ public class MapsActivity extends ActionBarActivity implements LocationListener,
             longitude= extras.getDouble("longitude");
         }
 
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_werkstatt_maps);
         // setUpMapIfNeeded();
 
         setupUI();
@@ -136,7 +135,7 @@ public class MapsActivity extends ActionBarActivity implements LocationListener,
         boolean enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
         if (!enabled) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MapsActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(WerkstattFindenActivity.this);
             builder.setMessage("GPS ist deaktiviert, aktivieren?")
                     .setCancelable(false)
                     .setPositiveButton("Gehe zu Einstellungen",

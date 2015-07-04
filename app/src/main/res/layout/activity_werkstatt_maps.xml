@@ -36,7 +36,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        tools:context="com.example.flo.myapplication.MapsActivity"
+        tools:context="com.example.flo.myapplication.WerkstattFindenActivity"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/mapsPlacesSearchButton" />

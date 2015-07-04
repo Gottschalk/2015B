@@ -35,6 +35,7 @@
 
 
     <string-array name="search_tag_array">
+        <item>Pannendienst</item>
         <item>Polizei</item>
         <item>Strassenmeisterei</item>
         <item>Tankstelle</item>
