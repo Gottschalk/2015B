@@ -28,7 +28,19 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_panne_beheben_anleitung);
+
+        boolean stepByStep = true;
+
+        if (stepByStep) {
+            setupLayoutWithStepByStep();
+        } else {
+            setupLayoutWithoutStepByStep();
+        }
+
+    }
+
+    private void setupLayoutWithStepByStep() {
+        setContentView(R.layout.activity_panne_beheben_anleitung_stepbystep);
 
         Intent intent = getIntent();
 
@@ -107,6 +119,11 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
                 }
             }
         });
+
+    }
+
+    private void setupLayoutWithoutStepByStep() {
+        setContentView(R.layout.activity_menu);
 
     }
 
