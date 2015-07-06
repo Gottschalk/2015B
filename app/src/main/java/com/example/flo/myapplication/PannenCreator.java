@@ -18,14 +18,10 @@ public class PannenCreator {
 
         this.context = context;
 
-        Log.w("Pannencrator", "creator created");
-
         // savePannenToDB(context);
     }
 
     public void savePannenToDB(Context context) {
-
-        Log.w("Pannencrator", "creator savePannenToDB");
 
         db = new PanneDBHelper(context);
 
@@ -69,8 +65,7 @@ public class PannenCreator {
         for (Panne panne : pannen) {
             String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Symptom: " + panne.getSymptom() + " ,Bauteil: " + panne.getBauteil()
                     + " ,AnzahlSchritte: " + panne.getAnzSchritte() + " ,Schritte: " + panne.getSchritte() + " ,Bilder: " + panne.getBilder();
-            // Writing Contacts to log
-            Log.e("Name: ", log);
+
         }
     }
 }

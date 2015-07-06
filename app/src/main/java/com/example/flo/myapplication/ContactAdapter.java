@@ -10,13 +10,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Flo_2 on 14.02.2015.
- */
+
 public class ContactAdapter extends ArrayAdapter<Contact> {
     Context context;
     int layoutResourceId;
-    // Contact data[] = null;
     ArrayList<Contact> contact_data = null;
 
     public ContactAdapter(Context context, int layoutResourceId, ArrayList<Contact> contact_data) {
@@ -38,15 +35,13 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             holder = new ContactHolder();
             holder.contactName = (TextView) row.findViewById(R.id.contactName);
             holder.contactNumber = (TextView) row.findViewById(R.id.contactNumber);
-
-
             row.setTag(holder);
         } else {
             holder = (ContactHolder) row.getTag();
         }
 
         Contact contact = contact_data.get(position);
-        // Text in Listrow zuweisen
+        // set text in listview
         holder.contactName.setText(contact.getName());
         holder.contactNumber.setText(contact.getNumber());
 

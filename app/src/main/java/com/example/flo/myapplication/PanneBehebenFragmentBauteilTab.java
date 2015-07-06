@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,9 +48,6 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
         int index = 0;
 
         for (Panne panne : pannen) {
-            //   String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Ursache: " + panne.getBauteil() + "Symptom" + panne.getSymptom();
-            //  Log.e("SymptomFragment: ", log + "  / index: " + index);
-            //      Log.e("SymptomFragment: " , panne.getSymptom());
 
             bauteilArray[index] = panne.getBauteil();
             index++;
@@ -72,8 +68,6 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
                 String panneSchritteBilder = pannen.get(position).getBilder();
 
                 int symptomId = pannen.get(position).getId();
-
-                Log.w("###############nr:", String.valueOf(symptomId));
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);

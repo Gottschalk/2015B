@@ -22,10 +22,6 @@ public class WichtigeNummern extends ActionBarActivity {
     private ContactDBHelper db;
     private ContactAdapter adapter;
     private ArrayList<Contact> contacts;
-    // Tutorials:
-    // Datenbank: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
-    // CustomListView: http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/
-    // Datenbank und Listview: http://www.mysamplecode.com/2012/07/android-listview-cursoradapter-sqlite.html
 
 
     @Override
@@ -208,7 +204,7 @@ public class WichtigeNummern extends ActionBarActivity {
         contacts.clear();
         contacts.addAll(db.getAllContacts());
         adapter.notifyDataSetChanged();
-        
+
     }
 
 

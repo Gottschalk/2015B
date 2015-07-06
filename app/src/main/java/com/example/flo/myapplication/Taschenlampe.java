@@ -11,7 +11,6 @@ import android.hardware.Camera;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,7 +71,7 @@ public class Taschenlampe extends ActionBarActivity {
         }
 
         level = level * 100;
-        batteryLevelTv = (TextView)findViewById(R.id.taschenlampe_akku_status_text);
+        batteryLevelTv = (TextView) findViewById(R.id.taschenlampe_akku_status_text);
         batteryLevelTv.setText((int) level + "%");
 
         // receive battery level change
@@ -85,7 +84,7 @@ public class Taschenlampe extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                TextView flashlightStatusText = (TextView)findViewById(R.id.taschenlampe_status_text);
+                TextView flashlightStatusText = (TextView) findViewById(R.id.taschenlampe_status_text);
                 if (isFlashOn) {
                     // turn off flash
                     turnOffFlash();
@@ -106,7 +105,7 @@ public class Taschenlampe extends ActionBarActivity {
                 camera = Camera.open();
                 params = camera.getParameters();
             } catch (RuntimeException e) {
-                //  Log.e("Camera Error.Failed to Open.Error: ", e.getMessage());
+
             }
         }
     }
@@ -116,8 +115,6 @@ public class Taschenlampe extends ActionBarActivity {
             if (camera == null || params == null) {
                 return;
             }
-            // play sound
-            //  playSound();
 
             params = camera.getParameters();
             params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
@@ -136,8 +133,6 @@ public class Taschenlampe extends ActionBarActivity {
             if (camera == null || params == null) {
                 return;
             }
-            // play sound
-            // playSound();
 
             params = camera.getParameters();
             params.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
@@ -165,7 +160,6 @@ public class Taschenlampe extends ActionBarActivity {
    /* @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy()");
 
     }
     */
@@ -173,7 +167,6 @@ public class Taschenlampe extends ActionBarActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause()");
 
         // on pause turn off the flash
         turnOffFlash();
@@ -183,7 +176,6 @@ public class Taschenlampe extends ActionBarActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "onRestart()");
 
     }
 
@@ -191,7 +183,6 @@ public class Taschenlampe extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
 
-        Log.d(TAG, "onResume()");
 // on starting the app get the camera params
         getCamera();
         // on resume turn on the flash
@@ -202,7 +193,6 @@ public class Taschenlampe extends ActionBarActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart()");
 
         // on starting the app get the camera params
         getCamera();
@@ -211,7 +201,6 @@ public class Taschenlampe extends ActionBarActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, "onPause()");
 
 
         // on stop release the camera
@@ -226,7 +215,7 @@ public class Taschenlampe extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-     //   getMenuInflater().inflate(R.menu.menu_flashlight, menu);
+        //   getMenuInflater().inflate(R.menu.menu_flashlight, menu);
         return true;
     }
 
@@ -246,14 +235,14 @@ public class Taschenlampe extends ActionBarActivity {
     }
 
 
-    BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver(){
-      //  TextView batteryLevelTv = (TextView)findViewById(R.id.taschenlampe_akku_status_text);
+    BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
+        //  TextView batteryLevelTv = (TextView)findViewById(R.id.taschenlampe_akku_status_text);
 
         @Override
         public void onReceive(Context arg0, Intent intent) {
             int level = intent.getIntExtra("level", 0);
             // do something...
-            batteryLevelTv.setText((int)level + "%");
+            batteryLevelTv.setText((int) level + "%");
 
         }
     };

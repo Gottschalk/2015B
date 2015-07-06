@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +48,7 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
         int index = 0;
 
         for (Panne panne : pannen) {
-          //   String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Ursache: " + panne.getBauteil() + "Symptom" + panne.getSymptom();
-          //  Log.e("SymptomFragment: ", log + "  / index: " + index);
-          //      Log.e("SymptomFragment: " , panne.getSymptom());
-
+       
             symptomArray[index] = panne.getSymptom();
             index++;
         }
@@ -64,7 +60,7 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
         symptomListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getActivity() , PanneBehebenAnleitung.class);
+                Intent i = new Intent(getActivity(), PanneBehebenAnleitung.class);
                 int clickedItemIndex = (int) symptomListView.getAdapter().getItemId(position);
 
                 String panneName = pannen.get(position).getName();
@@ -73,8 +69,6 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
 
 
                 int symptomId = pannen.get(position).getId();
-
-                Log.w("###############nr:", String.valueOf(symptomId));
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);

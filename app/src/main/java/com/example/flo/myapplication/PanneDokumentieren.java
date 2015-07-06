@@ -210,7 +210,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
         currentBigImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.w("%%%%%%%% current image", "just cliiiiiicked");
+
             }
         });
 
@@ -218,7 +218,6 @@ public class PanneDokumentieren extends ActionBarActivity implements
             @Override
             public boolean onLongClick(View v) {
 
-                Log.w("%%%%%%%% current image", "loing cliiiiiicked");
 
                 return false;
             }
@@ -286,15 +285,12 @@ public class PanneDokumentieren extends ActionBarActivity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        Log.w("$$$$$$$$$$$$$", "on activity result");
         // Check which request we're responding to
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             // Make sure the request was successful
-            Log.w("$$$$$$$$$$$$" , "on activity result2");
 
 
             if (resultCode == RESULT_OK) {
-                Log.w("$$$$$$$$$$$$$" , "on activity result3");
 
                 getImagesFromStorage();
                 adapter.notifyDataSetChanged();
@@ -389,60 +385,51 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
-        Log.d(DEBUG_TAG,"onSingleTapConfirmed: " + e.toString());
 
         return false;
     }
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        Log.d(DEBUG_TAG,"onDoubleTap: " + e.toString());
 
         return false;
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
-        Log.d(DEBUG_TAG,"onDoubleTapEvent: " + e.toString());
 
         return false;
     }
 
     @Override
     public boolean onDown(MotionEvent e) {
-        Log.d(DEBUG_TAG,"onDown: " + e.toString());
         return true;
     }
 
     @Override
     public void onShowPress(MotionEvent e) {
-        Log.d(DEBUG_TAG,"onShowPress: " + e.toString());
 
     }
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
-        Log.d(DEBUG_TAG,"onSingleTapUp: " + e.toString());
 
         return false;
     }
 
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        Log.d(DEBUG_TAG,"onScroll: " + e1.toString() + "/" + e2.toString());
 
         return false;
     }
 
     @Override
     public void onLongPress(MotionEvent e) {
-        Log.d(DEBUG_TAG,"onLongPress: " + e.toString());
 
     }
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        Log.d(DEBUG_TAG,"onFling: " + e1.toString() + "/" + e2.toString());
 
         return false;
     }

@@ -113,7 +113,6 @@ public class WichtigeNummernDetailanzeige extends Activity {
         editDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.w("######", "change button clicked");
 
                 createEditDataDialog();
             }

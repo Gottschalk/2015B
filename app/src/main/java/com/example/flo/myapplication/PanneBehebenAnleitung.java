@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,50 +33,39 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
         Intent intent = getIntent();
 
         String name = intent.getStringExtra("NAME");
-        Log.w("pannebeheben anleitung ", name);
         setTitle(name);
 
         String pannenAnleitungString = intent.getStringExtra("SCHRITTE");
-        Log.w("pannebeheben anleitung ", pannenAnleitungString);
-
         String pannenAnleitungPicturesString = intent.getStringExtra("BILDER");
-        Log.w("pannebeheben anleitung ", pannenAnleitungPicturesString);
 
 
         pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
         pannnenAnleitungBilder = createPannenStepsPicturesFromDBString(pannenAnleitungPicturesString);
 
-        for (int i = 0; i < pannenAnleitung.size(); i++) {
-            Log.e("%%%%%steps: " , pannenAnleitung.get(i));
-
-        }
 
         for (int i = 0; i < pannnenAnleitungBilder.size(); i++) {
-            Log.e("%%%%%bilder: " , pannnenAnleitungBilder.get(i));
 
             String idString = pannnenAnleitungBilder.get(i);
             int id = getResources().getIdentifier(idString, "drawable", getPackageName());
-            Log.e("%%%%%bilderINT: " , String.valueOf(id));
-
 
         }
 
-          maxSteps = pannenAnleitung.size();
-          currentStep = 1;
+        maxSteps = pannenAnleitung.size();
+        currentStep = 1;
 
-        Button nextButton = (Button)findViewById(R.id.panne_beheben_nextStepButton);
-        Button previousButton = (Button)findViewById(R.id.panne_beheben_previousStepButton);
+        Button nextButton = (Button) findViewById(R.id.panne_beheben_nextStepButton);
+        Button previousButton = (Button) findViewById(R.id.panne_beheben_previousStepButton);
 
-         helpImage = (ImageView)findViewById(R.id.panneBeheben_anleitung_bild);
-         step = (TextView)findViewById(R.id.panne_beheben_stepTextview);
-         toDo = (TextView)findViewById(R.id.panneBeheben_anleitung_text);
+        helpImage = (ImageView) findViewById(R.id.panneBeheben_anleitung_bild);
+        step = (TextView) findViewById(R.id.panne_beheben_stepTextview);
+        toDo = (TextView) findViewById(R.id.panneBeheben_anleitung_text);
 
         step.setText("Schritt: " + currentStep + " / " + maxSteps);
         toDo.setText(pannenAnleitung.get(0));
 
         String idString = pannnenAnleitungBilder.get(0);
         int id = getResources().getIdentifier(idString, "drawable", getPackageName());
-        Drawable new_image= getResources().getDrawable(id);
+        Drawable new_image = getResources().getDrawable(id);
         helpImage.setImageDrawable(new_image);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -89,11 +77,11 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
                     currentStep++;
                     step.setText("Schritt: " + currentStep + " / " + maxSteps);
                     step.setText("Schritt: " + currentStep + " / " + maxSteps);
-                    toDo.setText(pannenAnleitung.get(currentStep-1));
+                    toDo.setText(pannenAnleitung.get(currentStep - 1));
 
-                    String idString = pannnenAnleitungBilder.get(currentStep-1);
+                    String idString = pannnenAnleitungBilder.get(currentStep - 1);
                     int id = getResources().getIdentifier(idString, "drawable", getPackageName());
-                    Drawable new_image= getResources().getDrawable(id);
+                    Drawable new_image = getResources().getDrawable(id);
                     helpImage.setImageDrawable(new_image);
 
                 }
@@ -104,16 +92,16 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                if(currentStep > 1){
+                if (currentStep > 1) {
 
                     currentStep--;
                     step.setText("Schritt: " + currentStep + " / " + maxSteps);
                     step.setText("Schritt: " + currentStep + " / " + maxSteps);
-                    toDo.setText(pannenAnleitung.get(currentStep-1));
+                    toDo.setText(pannenAnleitung.get(currentStep - 1));
 
-                    String idString = pannnenAnleitungBilder.get(currentStep-1);
+                    String idString = pannnenAnleitungBilder.get(currentStep - 1);
                     int id = getResources().getIdentifier(idString, "drawable", getPackageName());
-                    Drawable new_image= getResources().getDrawable(id);
+                    Drawable new_image = getResources().getDrawable(id);
                     helpImage.setImageDrawable(new_image);
 
                 }
@@ -185,7 +173,7 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-       // getMenuInflater().inflate(R.menu.menu_panne_beheben_anleitung, menu);
+        // getMenuInflater().inflate(R.menu.menu_panne_beheben_anleitung, menu);
         return true;
     }
 

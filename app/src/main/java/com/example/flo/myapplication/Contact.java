@@ -1,8 +1,6 @@
 package com.example.flo.myapplication;
 
-/**
- * Created by Flo_2 on 14.02.2015.
- */
+
 public class Contact {
 
 
@@ -17,7 +15,6 @@ public class Contact {
         super();
     }
 
-    // constructor
     public Contact(int id, String name, String number, String street, String plz, String city) {
         this.id = id;
         this.name = name;
@@ -27,7 +24,6 @@ public class Contact {
         this.city = city;
     }
 
-    // constructor
     public Contact(String name, String _phone_number, String street, String plz, String city) {
         this.name = name;
         this.number = _phone_number;

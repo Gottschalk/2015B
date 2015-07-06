@@ -1,15 +1,12 @@
 package com.example.flo.myapplication;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -37,7 +34,6 @@ public class StartSplashActivity extends Activity {
             latitude = location.getLatitude();
             longitude = location.getLongitude();
             LatLng latLng = new LatLng(latitude, longitude);
-           // Log.w("############ LAT LONG: ", latitude + ";" + longitude);
         }
 
 

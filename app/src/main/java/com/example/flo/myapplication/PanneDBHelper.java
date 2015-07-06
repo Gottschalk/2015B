@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -40,13 +39,10 @@ public class PanneDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        Log.e("###create: ", "HIIIIIIIIIIIIILFE");
 
         String CREATE_PANNE_TABLE = "CREATE TABLE " + TABLE_PANNEN + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_SYMPTOM + " TEXT," + KEY_BAUTEIL + " TEXT," + KEY_ANZSCHRITTE + " TEXT," + KEY_SCHRITTE + " TEXT," + KEY_BILDER + " TEXT" + ")";
-
-        Log.e("###create: ", CREATE_PANNE_TABLE);
 
         db.execSQL(CREATE_PANNE_TABLE);
     }
@@ -74,7 +70,6 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         values.put(KEY_BILDER, panne.getBilder());
 
 
-        Log.e("blablablablablab", "balkjadfasooooadf");
         // Inserting Row
         db.insert(TABLE_PANNEN, null, values);
         db.close(); // Closing database connection
