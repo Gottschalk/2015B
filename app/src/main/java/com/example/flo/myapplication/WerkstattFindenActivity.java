@@ -39,7 +39,6 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
     private Location location;
     private Spinner searchTagSpinner;
 
-    //private static final String GOOGLE_API_KEY = "AIzaSyC1OuzCRRYU8FykKApdyiNIml5XxMweYm8";
     private static final String GOOGLE_API_KEY = "AIzaSyAegGx3EuWv0NyBrGQZ8JdRhCixQE9MGp0"; // Server key
     private EditText placeText;
     private double latitude = 0;

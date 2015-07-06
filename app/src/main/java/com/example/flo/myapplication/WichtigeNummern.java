@@ -47,10 +47,13 @@ public class WichtigeNummern extends ActionBarActivity {
         if (contacts.size() == 0) {
             Log.e("Creating first contact ", "Creating contact");
 
-            db.addContact(new Contact("ADAC", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
-            db.addContact(new Contact("Automobilclub Europa", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
-            db.addContact(new Contact("Werkstatt", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
-            db.addContact(new Contact("Mechaniker", "*100#", "Teststrasse" , "98300" , "Musterstadt"));
+            db.addContact(new Contact("ADAC", "01802222222", "Paracelsusstrasse 1", "93053", "Regensburg"));
+            db.addContact(new Contact("Automobilclub Europa", "0711530343536", "Schmidener Str. 227" , "70374" , "Stuttgart"));
+            db.addContact(new Contact("Automobilclub Verkehr", "02219126910 ", "Theodor-Heuss-Ring 19-21" , "50668" , "Köln"));
+            db.addContact(new Contact("AvD", "0696606336", "Lyoner Straße 16" , "60528" , "Frankfurt am Main"));
+            db.addContact(new Contact("BAVC-Bruderhilfe", "0561709940", "Karthäuserstr. 3 a" , "34117" , "Kassel"));
+            db.addContact(new Contact("Mobil in Deutschland", "08920001610", "Elsenheimerstr. 45" , "80867 " , "München"));
+            db.addContact(new Contact("Verkehrsclub Deutschland", "0302803510", "Wallstraße 58" , "10179 " , "Berlin"));
 
             contacts = db.getAllContacts();
 
