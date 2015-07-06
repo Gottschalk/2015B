@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,13 +24,25 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
     private ArrayList<String> pannenAnleitung;
     private ArrayList<String> pannnenAnleitungBilder;
     private ImageView helpImage;
+    private Intent intent;
+    private String pannenAnleitungString;
+    private String pannenAnleitungPicturesString;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        boolean stepByStep = true;
+        boolean stepByStep = false;
+
+        intent = getIntent();
+
+        pannenAnleitungString = intent.getStringExtra("SCHRITTE");
+        pannenAnleitungPicturesString = intent.getStringExtra("BILDER");
+        pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
+        pannnenAnleitungBilder = createPannenStepsPicturesFromDBString(pannenAnleitungPicturesString);
+        String name = intent.getStringExtra("NAME");
+        setTitle(name);
 
         if (stepByStep) {
             setupLayoutWithStepByStep();
@@ -42,24 +55,10 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
     private void setupLayoutWithStepByStep() {
         setContentView(R.layout.activity_panne_beheben_anleitung_stepbystep);
 
-        Intent intent = getIntent();
-
-        String name = intent.getStringExtra("NAME");
-        setTitle(name);
-
-        String pannenAnleitungString = intent.getStringExtra("SCHRITTE");
-        String pannenAnleitungPicturesString = intent.getStringExtra("BILDER");
-
-
-        pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
-        pannnenAnleitungBilder = createPannenStepsPicturesFromDBString(pannenAnleitungPicturesString);
-
-
         for (int i = 0; i < pannnenAnleitungBilder.size(); i++) {
 
             String idString = pannnenAnleitungBilder.get(i);
             int id = getResources().getIdentifier(idString, "drawable", getPackageName());
-
         }
 
         maxSteps = pannenAnleitung.size();
@@ -123,8 +122,17 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
     }
 
     private void setupLayoutWithoutStepByStep() {
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_panne_beheben_anleitung_no_stepbystep);
+        TextView noStepByStepTV = (TextView)findViewById(R.id.panne_beheben_no_stepbystep_textview);
 
+        StringBuilder anleitungStringBuilder = new StringBuilder("");
+
+        for(int i = 0; i < pannenAnleitung.size(); i++){
+            Log.w("OOOOOOOOKKKKKK", i + ": " + pannenAnleitung.get(i));
+            anleitungStringBuilder.append("Schritt " + i + ": " + pannenAnleitung.get(i) + '\n' + '\n');
+        }
+
+        noStepByStepTV.setText(anleitungStringBuilder);
     }
 
     private ArrayList<String> createPannenStepsPicturesFromDBString(String stepsPicturesFromDB) {
