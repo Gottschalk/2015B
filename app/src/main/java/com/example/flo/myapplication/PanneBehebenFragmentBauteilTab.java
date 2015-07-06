@@ -53,7 +53,7 @@ public class PanneBehebenFragmentBauteilTab extends Fragment {
             index++;
         }
 
-        ArrayAdapter<String> bauteilAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, bauteilArray);
+        ArrayAdapter<String> bauteilAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, bauteilArray);
 
         bauteilListView.setAdapter(bauteilAdapter);
 

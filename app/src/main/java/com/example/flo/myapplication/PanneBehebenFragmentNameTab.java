@@ -55,7 +55,7 @@ public class PanneBehebenFragmentNameTab extends Fragment {
             index++;
         }
 
-        ArrayAdapter<String> nameAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, nameArray);
+        ArrayAdapter<String> nameAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, nameArray);
 
         nameListView.setAdapter(nameAdapter);
 
