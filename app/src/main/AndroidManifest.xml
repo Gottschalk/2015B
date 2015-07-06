@@ -49,11 +49,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name=".WerkstattFinden_old"
-            android:label="@string/title_activity_werkstatt_finden_activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
-        <activity
             android:name=".GefahrenstelleAbsichern"
             android:label="@string/title_activity_gefahrenstelle_absichern"
             android:screenOrientation="portrait"

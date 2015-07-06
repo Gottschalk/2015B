@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,34 +37,26 @@ public class WichtigeNummern extends ActionBarActivity {
 
         db = new ContactDBHelper(this);
 
-        // falls zu viele testelemente in der db sind
-      //   db.deleteAllContacts();
+        // just for testing
+        //   db.deleteAllContacts();
 
         contacts = db.getAllContacts();
 
-        // Bei erster App-Benutzung leere DB abfangen
+        // catch empty database
         if (contacts.size() == 0) {
-            Log.e("Creating first contact ", "Creating contact");
 
             db.addContact(new Contact("ADAC", "01802222222", "Paracelsusstrasse 1", "93053", "Regensburg"));
-            db.addContact(new Contact("Automobilclub Europa", "0711530343536", "Schmidener Str. 227" , "70374" , "Stuttgart"));
-            db.addContact(new Contact("Automobilclub Verkehr", "02219126910 ", "Theodor-Heuss-Ring 19-21" , "50668" , "Köln"));
-            db.addContact(new Contact("AvD", "0696606336", "Lyoner Straße 16" , "60528" , "Frankfurt am Main"));
-            db.addContact(new Contact("BAVC-Bruderhilfe", "0561709940", "Karthäuserstr. 3 a" , "34117" , "Kassel"));
-            db.addContact(new Contact("Mobil in Deutschland", "08920001610", "Elsenheimerstr. 45" , "80867 " , "München"));
-            db.addContact(new Contact("Verkehrsclub Deutschland", "0302803510", "Wallstraße 58" , "10179 " , "Berlin"));
+            db.addContact(new Contact("Automobilclub Europa", "0711530343536", "Schmidener Str. 227", "70374", "Stuttgart"));
+            db.addContact(new Contact("Automobilclub Verkehr", "02219126910 ", "Theodor-Heuss-Ring 19-21", "50668", "Koeln"));
+            db.addContact(new Contact("AvD", "0696606336", "Lyoner Strasse 16", "60528", "Frankfurt am Main"));
+            db.addContact(new Contact("BAVC-Bruderhilfe", "0561709940", "Karthaeuserstr. 3 a", "34117", "Kassel"));
+            db.addContact(new Contact("Mobil in Deutschland", "08920001610", "Elsenheimerstr. 45", "80867 ", "Muenchen"));
+            db.addContact(new Contact("Verkehrsclub Deutschland", "0302803510", "Wallstrasse 58", "10179 ", "Berlin"));
 
             contacts = db.getAllContacts();
-
         }
 
-        for (Contact cn : contacts) {
-            String log = "Id: " + cn.getId() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getNumber();
-            // Writing Contacts to log
-            Log.e("Name: ", log);
-        }
-
-
+        // set adapter for listview
         adapter = new ContactAdapter(this, R.layout.listview_item_row, contacts);
         final ListView listView = (ListView) findViewById(R.id.wichtige_nummern_listView);
         listView.setAdapter(adapter);
@@ -83,8 +74,6 @@ public class WichtigeNummern extends ActionBarActivity {
                 String contactCity = contacts.get(position).getCity();
 
                 int contactId = contacts.get(position).getId();
-
-                Log.w("###############nr:" , String.valueOf(contactId));
 
                 i.putExtra("NAME", contactName);
                 i.putExtra("NUMMER", contactNumber);
@@ -106,7 +95,6 @@ public class WichtigeNummern extends ActionBarActivity {
                 builder.setTitle(("Element wirklich entfernen?"));
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
 
                         int clickedItemIndex = (int) listView.getAdapter().getItemId(position);
 
@@ -158,46 +146,40 @@ public class WichtigeNummern extends ActionBarActivity {
         final EditText cityInput = (EditText) view.findViewById(R.id.notification_edit_city);
 
 
-
         builder.setView(view)
-                // Add action buttons
+                // Add positive and negative button
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
 
-                        // sign in the user ...
                         String name = nameInput.getText().toString();
                         String number = numberInput.getText().toString();
                         String street = streetInput.getText().toString();
                         String plz = plzInput.getText().toString();
                         String city = cityInput.getText().toString();
 
-                        if(name.equals("")){
+                        if (name.equals("")) {
                             name = "Kein Eintrag";
                         }
-                        if(number.equals("")){
+                        if (number.equals("")) {
                             number = "Kein Eintrag";
                         }
-                        if(street.equals("")){
+                        if (street.equals("")) {
                             street = "Kein Eintrag";
                         }
-                        if(plz.equals("")){
+                        if (plz.equals("")) {
                             plz = "Kein Eintrag";
                         }
-                        if(city.equals("")){
+                        if (city.equals("")) {
                             city = "Kein Eintrag";
                         }
 
-                        db.addContact(new Contact(name, number,street, plz, city));
+                        // create new contact with input values
+                        db.addContact(new Contact(name, number, street, plz, city));
                         contacts.clear();
                         contacts.addAll(db.getAllContacts());
                         adapter.notifyDataSetChanged();
 
-                        for (Contact cn : contacts) {
-                            String log = "Id: " + cn.getId() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getNumber();
-                            // Writing Contacts to log
-                            Log.e("Name: ", log);
-                        }
                     }
                 })
                 .setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
@@ -205,35 +187,28 @@ public class WichtigeNummern extends ActionBarActivity {
 
                     }
                 }).setTitle("Neuen Kontakt erstellen");
-        //  builder.create();
         builder.show();
     }
 
 
     @Override
     public void onResume() {
-        super.onResume();  // Always call the superclass method first
+        super.onResume();
 
         contacts.clear();
         contacts.addAll(db.getAllContacts());
         adapter.notifyDataSetChanged();
-
-        Log.w("balllfasdlj", "ON RESTUME!!!");
-
 
     }
 
     @Override
     protected void onRestart() {
-        super.onRestart();  // Always call the superclass method first
+        super.onRestart();
 
-        // Activity being restarted from stopped state
         contacts.clear();
         contacts.addAll(db.getAllContacts());
         adapter.notifyDataSetChanged();
-
-        Log.w("balllfasdlj", "ON RESTART!!!");
-
+        
     }
 
 

@@ -18,7 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -51,13 +50,12 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
         super.onCreate(savedInstanceState);
 
         Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-            latitude= extras.getDouble("latitude");
-            longitude= extras.getDouble("longitude");
+        if (extras != null) {
+            latitude = extras.getDouble("latitude");
+            longitude = extras.getDouble("longitude");
         }
 
         setContentView(R.layout.activity_werkstatt_maps);
-        // setUpMapIfNeeded();
 
         setupUI();
         createMap();
@@ -71,7 +69,6 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchTagSpinner.setAdapter(adapter);
 
-    //    placeText = (EditText) findViewById(R.id.mapsPlacesSearchEditText);
         Button searchPlacesButton = (Button) findViewById(R.id.mapsPlacesSearchButton);
         searchPlacesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,24 +79,19 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
     }
 
     private void createPlaces() {
-        // akutelle position in lat und long speichern
+        // save current position in lat and long
         fetchCurrentLocation();
 
-      //  String searchTag = "Auto";
+        // get searchterm
         int pos = searchTagSpinner.getSelectedItemPosition();
         String searchTag = searchTagSpinner.getItemAtPosition(pos).toString();
-       // Log.w("#####test#####", test);
 
-       // placeText.setText("");
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
         googlePlacesUrl.append("&keyword=" + searchTag);
         googlePlacesUrl.append("&sensor=true");
         googlePlacesUrl.append("&key=" + GOOGLE_API_KEY);
-
-        // funktionierender searchTag:  String searchString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=53.6020,53.6020&radius=50000&keyword=bank&sensor=false&key=AIzaSyDDEpWL-ajz5r0hVYTlS4DanzTdqDwEBQE";
-        Log.e("#####searchtTAG####", googlePlacesUrl.toString());
 
         GooglePlacesReadTask googlePlacesReadTask = new GooglePlacesReadTask();
         Object[] toPass = new Object[2];
@@ -116,7 +108,7 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
     private void createMap() {
         if (!isGooglePlayServicesAvailable()) {
             Log.w("####MAPS: ", "play services not available");
-           // finish();
+            // finish();
         }
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         supportMapFragment.getMapAsync(this);
@@ -131,6 +123,7 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
         map.getUiSettings().setZoomControlsEnabled(true);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
+        // check if gbs is enabled
         boolean enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
         if (!enabled) {
@@ -152,12 +145,13 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
                         }
                     });
             AlertDialog dialog = builder.create();
-            if(!isFinishing()) {
+            if (!isFinishing()) {
                 dialog.show();
             }
 
         }
 
+        // get current location and react to location change
         Criteria criteria = new Criteria();
         String bestProvider = locationManager.getBestProvider(criteria, true);
         location = locationManager.getLastKnownLocation(bestProvider);
@@ -172,13 +166,12 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
     @Override
     public void onLocationChanged(Location location) {
 
-
-        TextView locationTv = (TextView) findViewById(R.id.latlongLocation);
         fetchCurrentLocation();
         LatLng latLng = new LatLng(latitude, longitude);
 
         if (currentPosMarker == null) {
             MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
             markerOptions.position(latLng);
             markerOptions.title("Aktueller Standort");
             currentPosMarker = googleMap.addMarker(markerOptions);
@@ -187,7 +180,6 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
         }
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
-        locationTv.setText("Latitude:" + latitude + ", Longitude:" + longitude);
     }
 
     @Override
@@ -210,7 +202,7 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
         if (ConnectionResult.SUCCESS == status) {
             return true;
         } else {
-            if(!isFinishing()){
+            if (!isFinishing()) {
                 GooglePlayServicesUtil.getErrorDialog(status, this, 0).show();
             }
             return false;
@@ -256,9 +248,8 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
                 Http http = new Http();
                 googlePlacesData = http.read(googlePlacesUrl);
             } catch (Exception e) {
-                Log.e("Google Place Read Task", e.toString());
+
             }
-            // Log.e("####PlacesREadTAsk: googlePlacesData", googlePlacesData);
             return googlePlacesData;
         }
 
