@@ -17,22 +17,64 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
     private ViewFlipper viewFlipper;
     private float lastX;
     private int currentStep = 1;
+    private int steps;
     private TextView currentStepTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gefahrenstelle_absichern__anleitung);
 
         Intent i = getIntent();
         final String ort = i.getStringExtra("Ort");
 
+        createManual(ort);
 
-        viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
-        currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_stepTextview);
-        Button nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_nextStepButton);
-        Button previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_previousStepButton);
+    }
 
+
+    private void createManual(String ort){
+
+        Button nextStep = null;
+        Button previousStep = null;
+        steps = 0;
+
+        switch(ort){
+            case "innerorts" : ;
+                setContentView(R.layout.activity_gefahrenstelle_absichern_innerorts_anleitung);
+                viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipperInnerorts);
+                currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_innerorts_stepTextview);
+                nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_innerorts_nextStepButton);
+                previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_innerorts_previousStepButton);
+                steps = 9;
+                break;
+            case "ausserorts" : ;
+                setContentView(R.layout.activity_gefahrenstelle_absichern_ausserorts_anleitung);
+                viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipperAusserorts);
+                currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_ausserorts_stepTextview);
+                nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_ausserorts_nextStepButton);
+                previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_ausserorts_previousStepButton);
+                steps = 9;
+                break;
+            case "kurve" : ;
+                setContentView(R.layout.activity_gefahrenstelle_absichern_kurve_anleitung);
+                viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipperKurve);
+                currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_kurve_stepTextview);
+                nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_kurve_nextStepButton);
+                previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_kurve_previousStepButton);
+                steps = 9;
+                break;
+            case "autobahn" : ;
+                setContentView(R.layout.activity_gefahrenstelle_absichern_autobahn_anleitung);
+                viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipperAutobahn);
+                currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_autobahn_stepTextview);
+                nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_autobahn_nextStepButton);
+                previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_autobahn_previousStepButton);
+                steps = 9;
+                break;
+        }
+
+
+        assert previousStep != null;
         previousStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,11 +87,12 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                     // Display next screen.
                     viewFlipper.showNext();
                     currentStep -=1;
-                    currentStepTV.setText(("Schritt " + currentStep + " / 9" ));
+                    currentStepTV.setText(("Schritt " + currentStep + " / " +steps));
                 }
             }
         });
 
+        assert nextStep != null;
         nextStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,13 +105,13 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                     // Display previous screen.
                     viewFlipper.showPrevious();
                     currentStep +=1;
-                    currentStepTV.setText(("Schritt " + currentStep + " / 9"));
+                    currentStepTV.setText(("Schritt " + currentStep + " / "+steps));
                 }
             }
         });
 
-
     }
+
 
     public boolean onTouchEvent(MotionEvent touchevent) {
         switch (touchevent.getAction()) {
@@ -94,7 +137,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                     // Display next screen.
                     viewFlipper.showNext();
                     currentStep -=1;
-                    currentStepTV.setText(("Schritt " + currentStep + " / 9"));
+                    currentStepTV.setText(("Schritt " + currentStep + " / "+steps));
                 }
 
                 // Handling right to left screen swap.
@@ -112,7 +155,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                     // Display previous screen.
                     viewFlipper.showPrevious();
                     currentStep +=1;
-                    currentStepTV.setText(("Schritt " + currentStep + " / 9"));
+                    currentStepTV.setText(("Schritt " + currentStep + " / "+steps));
                 }
                 break;
         }

@@ -30,7 +30,7 @@ public class GefahrenstelleAbsichern extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GefahrenstelleAbsichern.this, GefahrenstelleAbsichernAnleitung.class);
-                intent.putExtra("Ort", "Autobahn");
+                intent.putExtra("Ort", "autobahn");
                 startActivity(intent);
             }
         });
@@ -39,7 +39,7 @@ public class GefahrenstelleAbsichern extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GefahrenstelleAbsichern.this, GefahrenstelleAbsichernAnleitung.class);
-                intent.putExtra("Ort", "Kurve");
+                intent.putExtra("Ort", "kurve");
                 startActivity(intent);
             }
         });

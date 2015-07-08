@@ -52,7 +52,51 @@
     <string name="title_activity_panne_beheben_fragment_symptom_tab">
         PanneBehebenFragmentSymptomTab
     </string>
+
+    <!-- INNERORTS -->
     <string name="title_activity_panne_beheben_anleitung">PanneBehebenAnleitung</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step1">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step2">Vorsichtig zum Fahrzeug zurückkehren. Gegenverkehr beobachten und wenn möglich hinter Leitplanke gehen</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step3">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step4">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step5">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step6">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step7">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step8">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step9">Warnblinkanlage anschalten</string>
+
+    <!-- AUSSERORTS -->
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step1">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step2">Vorsichtig zum Fahrzeug zurückkehren. Gegenverkehr beobachten und wenn möglich hinter Leitplanke gehen</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step3">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step4">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step5">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step6">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step7">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step8">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step9">Warnblinkanlage anschalten</string>
+
+    <!-- KURVE -->
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step1">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step2">Vorsichtig zum Fahrzeug zurückkehren. Gegenverkehr beobachten und wenn möglich hinter Leitplanke gehen</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step3">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step4">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step5">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step6">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step7">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step8">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step9">Warnblinkanlage anschalten</string>
+
+    <!-- AUTOBAHN -->
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step1">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step2">Vorsichtig zum Fahrzeug zurückkehren. Gegenverkehr beobachten und wenn möglich hinter Leitplanke gehen</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step3">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step4">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step5">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step6">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step7">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step8">Warnblinkanlage anschalten</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step9">Warnblinkanlage anschalten</string>
 
 
 </resources>
