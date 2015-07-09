@@ -28,15 +28,15 @@
 
             <ImageView
                 android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:src="@drawable/absichern_warnblinkanlage" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step1"
-                android:textColor="#ffabb1b7"
+                android:textColor="#fff0edee"
                 android:textSize="20sp">
             </TextView>
 

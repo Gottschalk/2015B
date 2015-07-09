@@ -1,6 +1,7 @@
 package com.example.flo.myapplication;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -46,6 +47,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_innerorts_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_innerorts_previousStepButton);
                 steps = 12;
+                setTitle("Innerorts");
                 break;
             case "ausserorts" : ;
                 setContentView(R.layout.activity_gefahrenstelle_absichern_ausserorts_anleitung);
@@ -54,6 +56,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_ausserorts_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_ausserorts_previousStepButton);
                 steps = 12;
+                setTitle("Ausserorts");
                 break;
             case "kurve" : ;
                 setContentView(R.layout.activity_gefahrenstelle_absichern_kurve_anleitung);
@@ -62,6 +65,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_kurve_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_kurve_previousStepButton);
                 steps = 13;
+                setTitle("Kurve");
                 break;
             case "autobahn" : ;
                 setContentView(R.layout.activity_gefahrenstelle_absichern_autobahn_anleitung);
@@ -70,9 +74,13 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_autobahn_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_autobahn_previousStepButton);
                 steps = 12;
+                setTitle("Autobahn");
                 break;
         }
 
+        // Set font
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Chantelli_Antiqua.ttf");
+        currentStepTV.setTypeface(font);
 
         assert previousStep != null;
         previousStep.setOnClickListener(new View.OnClickListener() {

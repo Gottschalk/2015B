@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Nach einer Kurve"
+        android:text="Kurve"
         android:id="@+id/gefahrenstelle_absichern_kurve_textview"
         android:layout_centerVertical="true"
         android:layout_alignRight="@+id/gefahrenstelle_absichern_kurve_button"
