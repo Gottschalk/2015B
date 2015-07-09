@@ -45,7 +45,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_innerorts_stepTextview);
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_innerorts_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_innerorts_previousStepButton);
-                steps = 9;
+                steps = 12;
                 break;
             case "ausserorts" : ;
                 setContentView(R.layout.activity_gefahrenstelle_absichern_ausserorts_anleitung);
@@ -53,7 +53,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_ausserorts_stepTextview);
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_ausserorts_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_ausserorts_previousStepButton);
-                steps = 9;
+                steps = 12;
                 break;
             case "kurve" : ;
                 setContentView(R.layout.activity_gefahrenstelle_absichern_kurve_anleitung);
@@ -61,7 +61,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_kurve_stepTextview);
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_kurve_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_kurve_previousStepButton);
-                steps = 9;
+                steps = 13;
                 break;
             case "autobahn" : ;
                 setContentView(R.layout.activity_gefahrenstelle_absichern_autobahn_anleitung);
@@ -69,7 +69,7 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 currentStepTV = (TextView)findViewById(R.id.gefahrenstelle_absichern_autobahn_stepTextview);
                 nextStep = (Button)findViewById(R.id.gefahrenstelle_absichern_autobahn_nextStepButton);
                 previousStep = (Button)findViewById(R.id.gefahrenstelle_absichern_autobahn_previousStepButton);
-                steps = 9;
+                steps = 12;
                 break;
         }
 

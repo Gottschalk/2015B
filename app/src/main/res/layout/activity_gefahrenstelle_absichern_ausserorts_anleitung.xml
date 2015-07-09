@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center"
+            android:gravity="top"
             android:orientation="vertical"
             android:weightSum="1">
 
@@ -42,25 +42,208 @@
 
         </LinearLayout>
 
-
-        <!-- 2nd Flip  -->
+        <!-- 12th Flip  -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center"
+            android:gravity="top"
             android:orientation="vertical" >
 
             <ImageView
                 android:layout_marginTop="15dp"
-                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip2"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip12"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/absichern_auspuff_verloren" />
+                android:src="@drawable/ic_kein_bild" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step2"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step12"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 11th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip11"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step11"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 10th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip10"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step10"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 9th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip9"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step9"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 8th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip8"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step8"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 7th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip7"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step7"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 6th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip6"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step6"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 5th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip5"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step5"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 4th Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip4"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step4"
                 android:textColor="#ffabb1b7"
                 android:textSize="20sp">
             </TextView>
@@ -70,7 +253,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center"
+            android:gravity="top"
             android:orientation="vertical" >
 
             <ImageView
@@ -78,7 +261,7 @@
                 android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip3"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/absichern_lenkrad" />
+                android:src="@drawable/ic_kein_bild" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,13 +272,37 @@
             </TextView>
         </LinearLayout>
 
+        <!-- 2nd Flip  -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/gefahrenstelle_absichern_ausserorts_anleitung_flip2"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_kein_bild" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gefahrenstelle_absichern_ausserorts_anleitung_step2"
+                android:textColor="#ffabb1b7"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+
     </ViewFlipper>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Schritt 1 / 9 "
+        android:text="Schritt 1 / 12 "
         android:id="@+id/gefahrenstelle_absichern_ausserorts_stepTextview"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
