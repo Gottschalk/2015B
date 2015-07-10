@@ -50,7 +50,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip12"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -73,7 +72,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip11"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -96,7 +94,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip10"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -119,7 +116,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip9"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -142,7 +138,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip8"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -165,7 +160,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip7"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -188,7 +182,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip6"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -211,7 +204,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip5"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -234,7 +226,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip4"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -257,7 +248,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip3"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
@@ -281,7 +271,6 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_marginTop="15dp"
                 android:id="@+id/gefahrenstelle_absichern_autobahn_anleitung_flip2"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"

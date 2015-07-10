@@ -1,7 +1,6 @@
 package com.example.flo.myapplication;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -79,8 +78,9 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
         }
 
         // Set font
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Chantelli_Antiqua.ttf");
-        currentStepTV.setTypeface(font);
+     //   Typeface font = Typeface.createFromAsset(getAssets(), "fonts/monospace.ttf");
+     //   currentStepTV.setTypeface(font);
+        currentStepTV.setTextColor(0xfff0edee);
 
         assert previousStep != null;
         previousStep.setOnClickListener(new View.OnClickListener() {
