@@ -33,11 +33,9 @@
                 android:src="@drawable/absichern_warnblinkanlage" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step1"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+                >
             </TextView>
 
         </LinearLayout>
@@ -56,11 +54,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step13"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+                >
             </TextView>
         </LinearLayout>
 
@@ -78,11 +74,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step12"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+                >
             </TextView>
         </LinearLayout>
 
@@ -100,11 +94,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step11"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+              >
             </TextView>
         </LinearLayout>
 
@@ -122,11 +114,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step10"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+               >
             </TextView>
         </LinearLayout>
 
@@ -144,11 +134,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step9"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+              >
             </TextView>
         </LinearLayout>
 
@@ -166,11 +154,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step8"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+                >
             </TextView>
         </LinearLayout>
 
@@ -188,11 +174,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step7"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+               >
             </TextView>
         </LinearLayout>
 
@@ -210,11 +194,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step6"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+               >
             </TextView>
         </LinearLayout>
 
@@ -232,11 +214,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step5"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+             >
             </TextView>
         </LinearLayout>
 
@@ -254,11 +234,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step4"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+                >
             </TextView>
         </LinearLayout>
 
@@ -276,11 +254,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step3"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+              >
             </TextView>
         </LinearLayout>
 
@@ -298,11 +274,9 @@
                 android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textStyleGefahrenstelleAbsichern"
                 android:text="@string/gefahrenstelle_absichern_kurve_anleitung_step2"
-                android:textColor="#ffabb1b7"
-                android:textSize="20sp">
+              >
             </TextView>
         </LinearLayout>
 
