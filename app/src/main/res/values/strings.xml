@@ -63,13 +63,9 @@
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step5">Warnweste anziehen (die Warnweste befindet sich oft im Hanschuh- oder Seitenfach)</string>
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step6">Verkehr beobachten und vorsichtig aussteigen</string>
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step7">Eventuelle Mitfahrer sollen ebenfalls Warnweste anziehen und aussteigen</string>
-    <string name="gefahrenstelle_absichern_innerorts_anleitung_step8">Warndreieck aus dem Kofferraum nehmen und aufklappen,
-Kofferraum aufgeklappt lassen
-</string>
-    <string name="gefahrenstelle_absichern_innerorts_anleitung_step9">Warndreieck gut sichtbar vor sich tragen und entgegen dem Verkehr laufen. Entgegenkommenden Verkehr durch Winken mit dem Warndreieck warnen bzw. zum Langsamfahren auffordern</string>
-    <string name="gefahrenstelle_absichern_innerorts_anleitung_step10">Nach mindestens 100 Metern Warndreieck gut sichtbar am Fahrbahnrand abstellen
-100 Meter = Abstand zwischen 4 Straßenpfosten
-</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step8">Warndreieck aus dem Kofferraum nehmen und aufklappen \n \n Kofferraum aufgeklappt lassen</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step9">Warndreieck gut sichtbar vor sich tragen und entgegen Fahrtrichtung laufen \n \n Entgegenkommenden Verkehr durch Winken mit Warndreieck warnen</string>
+    <string name="gefahrenstelle_absichern_innerorts_anleitung_step10">Nach mindestens 100 Metern Warndreieck gut sichtbar am Fahrbahnrand abstellen \n \n 100 Meter = Abstand zwischen 4 Straßenpfosten</string>
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step11">Verkehr beobachten und vorsichtig zum Fahrzeug zurückkehren</string>
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step12">Bei liegengebliebenen Teilen auf der Fahrbahn Polizei verständigen und diese nicht selbst von der Fahrbahn entfernen</string>
 
@@ -82,10 +78,8 @@ Kofferraum aufgeklappt lassen
     <string name="gefahrenstelle_absichern_ausserorts_anleitung_step5">Warnweste anziehen (die Warnweste befindet sich oft im Hanschuh- oder Seitenfach)</string>
     <string name="gefahrenstelle_absichern_ausserorts_anleitung_step6">Verkehr beobachten und vorsichtig aussteigen </string>
     <string name="gefahrenstelle_absichern_ausserorts_anleitung_step7">Eventuelle Mitfahrer sollen ebenfalls Warnweste anziehen und sich hinter die Leitplanke begeben</string>
-    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step8">Warndreieck aus dem Kofferraum nehmen und aufklappen,
-Kofferraum aufgeklappt lassen
-</string>
-    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step9">Warndreieck gut sichtbar vor sich tragen und entgegen dem Verkehr laufen. Entgegenkommenden Verkehr durch Winken mit dem Warndreieck warnen bzw. zum Langsamfahren auffordern</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step8">Warndreieck aus dem Kofferraum nehmen und aufklappen \n \n Kofferraum aufgeklappt lassen</string>
+    <string name="gefahrenstelle_absichern_ausserorts_anleitung_step9">Warndreieck gut sichtbar vor sich tragen und entgegen Fahrtrichtung laufen \n \n Entgegenkommenden Verkehr durch Winken mit Warndreieck warnen</string>
     <string name="gefahrenstelle_absichern_ausserorts_anleitung_step10">Nach mindestens 50 Metern Warndreieck gut sichtbar am Fahrbahnrand abstellen, sofern dazwischen keine Kreuzung liegt</string>
     <string name="gefahrenstelle_absichern_ausserorts_anleitung_step11">Verkehr beobachten und vorsichtig zum Fahrzeug zurückkehren</string>
     <string name="gefahrenstelle_absichern_ausserorts_anleitung_step12">Bei liegengebliebenen Teilen auf der Fahrbahn Polizei verständigen und diese nicht selbst von der Fahrbahn entfernen</string>
@@ -99,10 +93,8 @@ Kofferraum aufgeklappt lassen
     <string name="gefahrenstelle_absichern_kurve_anleitung_step6">Warnweste anziehen (die Warnweste befindet sich oft im Hanschuh- oder Seitenfach)</string>
     <string name="gefahrenstelle_absichern_kurve_anleitung_step7">Verkehr beobachten und je nach Ort auf der Fahrer oder Beifahrerseite aussteigen </string>
     <string name="gefahrenstelle_absichern_kurve_anleitung_step8">Eventuelle Mitfahrer sollen ebenfalls Warnweste anziehen und das Fahrzeug verlassen</string>
-    <string name="gefahrenstelle_absichern_kurve_anleitung_step9">Warndreieck aus dem Kofferraum nehmen und aufklappen,
-Kofferraum aufgeklappt lassen
-</string>
-    <string name="gefahrenstelle_absichern_kurve_anleitung_step10">Warndreieck gut sichtbar vor sich tragen und entgegen dem Verkehr laufen. Entgegenkommenden Verkehr durch Winken mit dem Warndreieck warnen bzw. zum Langsamfahren auffordern</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step9">Warndreieck aus dem Kofferraum nehmen und aufklappen \n \n Kofferraum aufgeklappt lassen</string>
+    <string name="gefahrenstelle_absichern_kurve_anleitung_step10">Warndreieck gut sichtbar vor sich tragen und entgegen Fahrtrichtung laufen \n \n Entgegenkommenden Verkehr durch Winken mit Warndreieck warnen</string>
     <string name="gefahrenstelle_absichern_kurve_anleitung_step11">Warndreieck  in ausreichendem Abstand vor der Kurve gut sichtbar am Fahrbahnrand abstellen</string>
     <string name="gefahrenstelle_absichern_kurve_anleitung_step12">Verkehr beobachten und vorsichtig zum Fahrzeug zurückkehren</string>
     <string name="gefahrenstelle_absichern_kurve_anleitung_step13">Bei liegengebliebenen Teilen auf der Fahrbahn Polizei verständigen und diese nicht selbst von der Fahrbahn entfernen</string>
@@ -117,10 +109,8 @@ Kofferraum aufgeklappt lassen
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step6">Verkehr beobachten und auf der <b>Beifahrerseite</b> aussteigen.</string>
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step7">Eventuelle Mitfahrer sollen ebenfalls Warnweste anziehen und sich hinter die Leitplanke begeben</string>
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step8">Warndreieck aus dem Kofferraum nehmen und aufklappen</string>
-    <string name="gefahrenstelle_absichern_autobahn_anleitung_step9">Warndreieck gut sichtbar vor sich tragen und entgegen dem Verkehr laufen. Entgegenkommenden Verkehr durch Winken mit dem Warndreieck warnen bzw. zum Langsamfahren auffordern. <b>Hinter den Leitplanken laufen!</b></string>
-    <string name="gefahrenstelle_absichern_autobahn_anleitung_step10">Nach mindestens 150 Metern das Warndreieck gut sichtbar am Fahrbahnrand abstellen,
-150 Meter = Abstand zwischen 6 Straßenpfosten
-</string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step9">Warndreieck gut sichtbar vor sich tragen und entgegen Fahrtrichtung laufen \n \n Entgegenkommenden Verkehr durch Winken mit Warndreieck warnen \n \n <b>Hinter den Leitplanken laufen!</b></string>
+    <string name="gefahrenstelle_absichern_autobahn_anleitung_step10">Nach mindestens 150 Metern das Warndreieck gut sichtbar am Fahrbahnrand abstellen \n \n 150 Meter = Abstand zwischen 6 Straßenpfosten</string>
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step11">Zurück hinter die Leitplanke begeben und auf Fahrzeughöhe zurückbegeben</string>
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step12">Bei liegengebliebenen Teilen auf der Fahrbahn Polizei verständigen und diese nicht selbst von der Fahrbahn entfernen</string>
 
