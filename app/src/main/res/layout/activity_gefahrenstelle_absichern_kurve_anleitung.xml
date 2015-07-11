@@ -51,7 +51,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip13"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/ic_kein_bild" />
+                android:src="@drawable/absichern_auspuff_verloren" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
@@ -191,7 +191,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip6"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/ic_kein_bild" />
+                android:src="@drawable/absichern_warnweste" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
@@ -231,7 +231,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip4"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/ic_kein_bild" />
+                android:src="@drawable/absichern_lenkrad" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
