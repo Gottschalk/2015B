@@ -51,7 +51,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip13"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/absichern_auspuff_verloren" />
+                android:src="@drawable/absichern_fahrzeugteile" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
@@ -71,7 +71,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip12"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/ic_kein_bild" />
+                android:src="@drawable/absichern_zurueckkehren" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
@@ -151,7 +151,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip8"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/ic_kein_bild" />
+                android:src="@drawable/absichern_beifahrer" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
@@ -171,7 +171,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip7"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/ic_kein_bild" />
+                android:src="@drawable/absichern_verkehr_beobachten" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
@@ -271,7 +271,7 @@
                 android:id="@+id/gefahrenstelle_absichern_kurve_anleitung_flip2"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/ic_kein_bild" />
+                android:src="@drawable/absichern_umparken" />
 
             <TextView
                 style="@style/textStyleGefahrenstelleAbsichern"
