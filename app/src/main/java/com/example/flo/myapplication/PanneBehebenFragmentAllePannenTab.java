@@ -48,7 +48,7 @@ public class PanneBehebenFragmentAllePannenTab extends Fragment {
         int index = 0;
 
         for (Panne panne : pannen) {
-       
+
             nameArray[index] = panne.getName();
             index++;
         }
@@ -72,7 +72,12 @@ public class PanneBehebenFragmentAllePannenTab extends Fragment {
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);
-                i.putExtra("BILDER", panneSchritteBilder);
+
+                if (!panneSchritteBilder.equals("null")) {
+                    i.putExtra("BILDER", panneSchritteBilder);
+                } else {
+                    i.putExtra("BILDER", "null");
+                }
 
 
                 startActivity(i);

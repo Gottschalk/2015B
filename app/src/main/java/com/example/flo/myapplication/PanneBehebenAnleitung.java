@@ -38,11 +38,21 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
         intent = getIntent();
 
         pannenAnleitungString = intent.getStringExtra("SCHRITTE");
-        pannenAnleitungPicturesString = intent.getStringExtra("BILDER");
         pannenAnleitung = createPannenStepsFromDBString(pannenAnleitungString);
-        pannnenAnleitungBilder = createPannenStepsPicturesFromDBString(pannenAnleitungPicturesString);
         String name = intent.getStringExtra("NAME");
         setTitle(name);
+
+
+        pannenAnleitungPicturesString = intent.getStringExtra("BILDER");
+
+        Log.w("blablaString  ", pannenAnleitungPicturesString);
+
+        if (pannenAnleitungPicturesString.equals("null")) {
+            stepByStep = false;
+        } else {
+            stepByStep = true;
+            pannnenAnleitungBilder = createPannenStepsPicturesFromDBString(pannenAnleitungPicturesString);
+        }
 
         if (stepByStep) {
             setupLayoutWithStepByStep();
@@ -123,11 +133,11 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
 
     private void setupLayoutWithoutStepByStep() {
         setContentView(R.layout.activity_panne_beheben_anleitung_no_stepbystep);
-        TextView noStepByStepTV = (TextView)findViewById(R.id.panne_beheben_no_stepbystep_textview);
+        TextView noStepByStepTV = (TextView) findViewById(R.id.panne_beheben_no_stepbystep_textview);
 
         StringBuilder anleitungStringBuilder = new StringBuilder("");
 
-        for(int i = 0; i < pannenAnleitung.size(); i++){
+        for (int i = 0; i < pannenAnleitung.size(); i++) {
             Log.w("OOOOOOOOKKKKKK", i + ": " + pannenAnleitung.get(i));
             anleitungStringBuilder.append("Schritt " + i + ": " + pannenAnleitung.get(i) + '\n' + '\n');
         }

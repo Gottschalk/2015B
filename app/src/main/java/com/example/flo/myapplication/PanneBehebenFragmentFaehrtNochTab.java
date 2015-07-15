@@ -25,6 +25,7 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
     private PanneDBHelper db;
     private PanneAdapter adapter;
     private ArrayList<Panne> pannen;
+    private ArrayList<Panne> pannenList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,20 +37,21 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_faehrtnoch, container, false);
-      //  TextView tv = (TextView) v.findViewById(R.id.text);
-     //   tv.setText("Name");
-        final ListView faehrtNochListview = (ListView)v.findViewById(R.id.panne_beheben_fragment_faehrtnoch_listview);
+        //  TextView tv = (TextView) v.findViewById(R.id.text);
+        //   tv.setText("Name");
+        final ListView faehrtNochListview = (ListView) v.findViewById(R.id.panne_beheben_fragment_faehrtnoch_listview);
         db = new PanneDBHelper(getActivity());
 
         // falls zu viele testelemente in der db sind
         //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
+        pannenList = new ArrayList<Panne>();
         int size = 0;
 
         for (Panne panne : pannen) {
 
-            if(panne.getFaehrtNoch().equals("false")){
+            if (panne.getFaehrtNoch().equals("true")) {
                 size++;
             }
             Log.w("OKOKK;OKOL ", String.valueOf(size));
@@ -61,15 +63,16 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
 
         for (Panne panne : pannen) {
 
-            if(panne.getFaehrtNoch().equals("true")) {
+            if (panne.getFaehrtNoch().equals("true")) {
                 faehrtNochArray[index] = panne.getName();
                 index++;
+                pannenList.add(panne);
             }
         }
 
-        ArrayAdapter<String> nameAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, faehrtNochArray);
+        ArrayAdapter<String> faehrtNochAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, faehrtNochArray);
 
-        faehrtNochListview.setAdapter(nameAdapter);
+        faehrtNochListview.setAdapter(faehrtNochAdapter);
 
         faehrtNochListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,15 +80,21 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
                 Intent i = new Intent(getActivity(), PanneBehebenAnleitung.class);
                 int clickedItemIndex = (int) faehrtNochListview.getAdapter().getItemId(position);
 
-                String panneName = pannen.get(position).getName();
-                String panneSchritte = pannen.get(position).getSchritte();
-                String panneSchritteBilder = pannen.get(position).getBilder();
+                String panneName = pannenList.get(position).getName();
+                String panneSchritte = pannenList.get(position).getSchritte();
+                String panneSchritteBilder = pannenList.get(position).getBilder();
 
-                int symptomId = pannen.get(position).getId();
+
+                int symptomId = pannenList.get(position).getId();
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);
-                i.putExtra("BILDER", panneSchritteBilder);
+
+                if (!panneSchritteBilder.equals("null")) {
+                    i.putExtra("BILDER", panneSchritteBilder);
+                } else {
+                    i.putExtra("BILDER", "null");
+                }
 
                 startActivity(i);
             }

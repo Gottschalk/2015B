@@ -45,7 +45,7 @@ public class PannenCreator {
 
             // KONTROLLLAMPEN LEUCHTEN
             String kontrolllampenAnleitung = "$ kontrollampe rot: $ kontrollampe blau";
-            String kontrolllampenAnleitungBilder = "|ic_camera1|ic_kontakte1";
+            String kontrolllampenAnleitungBilder = "null";
 
             // LENKUNG KLEMMT //
             String lenkungKlemmtAnleitung = "$ Schluessel in Zuendschloss stecken $ Lenkrad drehen";

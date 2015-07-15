@@ -22,6 +22,8 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
     private PanneDBHelper db;
     private PanneAdapter adapter;
     private ArrayList<Panne> pannen;
+    private ArrayList<Panne> pannenList;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,9 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_faehrtnicht, container, false);
-       // TextView tv = (TextView) v.findViewById(R.id.text);
-       // tv.setText("Bauteil");
-        final ListView faehrtNichtListview = (ListView)v.findViewById(R.id.panne_beheben_fragment_faehrtnicht_listview);
+        // TextView tv = (TextView) v.findViewById(R.id.text);
+        // tv.setText("Bauteil");
+        final ListView faehrtNichtListview = (ListView) v.findViewById(R.id.panne_beheben_fragment_faehrtnicht_listview);
 
         db = new PanneDBHelper(getActivity());
 
@@ -43,10 +45,12 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
         //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
+        pannenList = new ArrayList<Panne>();
+
         int size = 0;
         for (Panne panne : pannen) {
 
-            if(panne.getFaehrtNoch().equals("false")){
+            if (panne.getFaehrtNoch().equals("false")) {
                 size++;
             }
             Log.w("OKOKK;OKOL ", String.valueOf(size));
@@ -58,16 +62,18 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
 
         for (Panne panne : pannen) {
 
-            if(panne.getFaehrtNoch().equals("false")){
+            if (panne.getFaehrtNoch().equals("false")) {
                 faehrtNichtArray[index] = panne.getName();
                 index++;
+                pannenList.add(panne);
+
             }
 
         }
 
-        ArrayAdapter<String> bauteilAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, faehrtNichtArray);
+        ArrayAdapter<String> faehrtNichtAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, faehrtNichtArray);
 
-        faehrtNichtListview.setAdapter(bauteilAdapter);
+        faehrtNichtListview.setAdapter(faehrtNichtAdapter);
 
         faehrtNichtListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -75,15 +81,20 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
                 Intent i = new Intent(getActivity(), PanneBehebenAnleitung.class);
                 int clickedItemIndex = (int) faehrtNichtListview.getAdapter().getItemId(position);
 
-                String panneName = pannen.get(position).getName();
-                String panneSchritte = pannen.get(position).getSchritte();
-                String panneSchritteBilder = pannen.get(position).getBilder();
+                String panneName = pannenList.get(position).getName();
+                String panneSchritte = pannenList.get(position).getSchritte();
+                String panneSchritteBilder = pannenList.get(position).getBilder();
 
-                int symptomId = pannen.get(position).getId();
+                int symptomId = pannenList.get(position).getId();
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);
-                i.putExtra("BILDER", panneSchritteBilder);
+
+                if (!panneSchritteBilder.equals("null")) {
+                    i.putExtra("BILDER", panneSchritteBilder);
+                } else {
+                    i.putExtra("BILDER", "null");
+                }
 
 
                 startActivity(i);
