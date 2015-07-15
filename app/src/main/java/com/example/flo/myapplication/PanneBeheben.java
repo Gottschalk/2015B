@@ -39,11 +39,15 @@ public class PanneBeheben extends ActionBarActivity {
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab1").setIndicator("Auto f\u00e4hrt noch", null),
-                PanneBehebenFragmentNameTab.class, null);
+                mTabHost.newTabSpec("tab1").setIndicator("Alle Pannen", null),
+                PanneBehebenFragmentAllePannenTab.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab2").setIndicator("Auto f\u00e4hrt nicht mehr", null),
-                PanneBehebenFragmentBauteilTab.class, null);
+                mTabHost.newTabSpec("tab2").setIndicator("Auto f\u00e4hrt noch", null),
+                PanneBehebenFragmentFaehrtNochTab.class, null);
+        mTabHost.addTab(
+                mTabHost.newTabSpec("tab3").setIndicator("Auto f\u00e4hrt nicht mehr", null),
+                PanneBehebenFragmentFaehrtNichtTab.class, null);
+
     }
 
 

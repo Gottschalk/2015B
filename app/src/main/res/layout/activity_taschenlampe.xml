@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Durch Klicken des Buttons kann die Taschenlampenfunktion aktiviert und deaktiviert werden."
+        android:text="@string/taschenlampe_beschreibungstext"
         android:id="@+id/taschenlampe_erklaerung_text"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"

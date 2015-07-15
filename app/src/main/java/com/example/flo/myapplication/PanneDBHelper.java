@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class PanneDBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 1;
 
     // Database Name
     private static final String DATABASE_NAME = "panneManager";
@@ -30,6 +30,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
     private static final String KEY_ANZSCHRITTE = "anzschritte";
     private static final String KEY_SCHRITTE = "schritte";
     private static final String KEY_BILDER = "bilder";
+    private static final String KEY_FAEHRTNOCH = "faehrtnoch";
 
 
     public PanneDBHelper(Context context) {
@@ -42,7 +43,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
 
         String CREATE_PANNE_TABLE = "CREATE TABLE " + TABLE_PANNEN + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_SYMPTOM + " TEXT," + KEY_BAUTEIL + " TEXT," + KEY_ANZSCHRITTE + " TEXT," + KEY_SCHRITTE + " TEXT," + KEY_BILDER + " TEXT" + ")";
+                + KEY_SYMPTOM + " TEXT," + KEY_BAUTEIL + " TEXT," + KEY_ANZSCHRITTE + " TEXT," + KEY_SCHRITTE + " TEXT," + KEY_BILDER + " TEXT," + KEY_FAEHRTNOCH + " TEXT" + ")";
 
         db.execSQL(CREATE_PANNE_TABLE);
     }
@@ -68,7 +69,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         values.put(KEY_ANZSCHRITTE, panne.getAnzSchritte());
         values.put(KEY_SCHRITTE, panne.getSchritte());
         values.put(KEY_BILDER, panne.getBilder());
-
+        values.put(KEY_FAEHRTNOCH, panne.getFaehrtNoch());
 
         // Inserting Row
         db.insert(TABLE_PANNEN, null, values);
@@ -79,13 +80,13 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_PANNEN, new String[]{KEY_ID,
-                        KEY_NAME, KEY_NAME, KEY_SYMPTOM, KEY_BAUTEIL, KEY_ANZSCHRITTE, KEY_SCHRITTE, KEY_BILDER}, KEY_ID + "=?",
+                        KEY_NAME, KEY_NAME, KEY_SYMPTOM, KEY_BAUTEIL, KEY_ANZSCHRITTE, KEY_SCHRITTE, KEY_BILDER, KEY_FAEHRTNOCH}, KEY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
         Panne panne = new Panne(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5)), cursor.getString(6));
+                cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5)), cursor.getString(6), cursor.getString(7));
         // return contact
         return panne;
     }
@@ -110,6 +111,7 @@ public class PanneDBHelper extends SQLiteOpenHelper {
                 panne.setAnzSchritte(Integer.parseInt(cursor.getString(4)));
                 panne.setSchritte(cursor.getString(5));
                 panne.setBilder(cursor.getString(6));
+                panne.setFaehrtNoch(cursor.getString(7));
                 // Adding contact to list
                 pannenList.add(panne);
             } while (cursor.moveToNext());
@@ -129,6 +131,8 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         values.put(KEY_ANZSCHRITTE, panne.getAnzSchritte());
         values.put(KEY_SCHRITTE, panne.getSchritte());
         values.put(KEY_BILDER, panne.getBilder());
+        values.put(KEY_FAEHRTNOCH, panne.getFaehrtNoch());
+
 
         // updating row
         return db.update(TABLE_PANNEN, values, KEY_ID + " = ?",

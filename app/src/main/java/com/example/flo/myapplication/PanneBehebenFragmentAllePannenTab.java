@@ -14,12 +14,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Flo on 20.06.2015.
- */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class PanneBehebenFragmentNameTab extends Fragment {
 
+public class PanneBehebenFragmentAllePannenTab extends Fragment {
 
     private PanneDBHelper db;
     private PanneAdapter adapter;
@@ -34,10 +30,12 @@ public class PanneBehebenFragmentNameTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_layout_name, container, false);
-      //  TextView tv = (TextView) v.findViewById(R.id.text);
-     //   tv.setText("Name");
-        final ListView nameListView = (ListView)v.findViewById(R.id.panne_beheben_fragment_name_listview);
+        View v = inflater.inflate(R.layout.fragment_layout_allepannen, container, false);
+        //  TextView tv = (TextView) v.findViewById(R.id.text);
+        // tv.setText("Symptom");
+        final ListView nameListView = (ListView) v.findViewById(R.id.panne_beheben_fragment_allepannen_listview);
+
+
         db = new PanneDBHelper(getActivity());
 
         // falls zu viele testelemente in der db sind
@@ -50,30 +48,32 @@ public class PanneBehebenFragmentNameTab extends Fragment {
         int index = 0;
 
         for (Panne panne : pannen) {
-
+       
             nameArray[index] = panne.getName();
             index++;
         }
 
-        ArrayAdapter<String> nameAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, nameArray);
+        ArrayAdapter<String> codeLearnArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, nameArray);
 
-        nameListView.setAdapter(nameAdapter);
+        nameListView.setAdapter(codeLearnArrayAdapter);
 
         nameListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getActivity() , PanneBehebenAnleitung.class);
+                Intent i = new Intent(getActivity(), PanneBehebenAnleitung.class);
                 int clickedItemIndex = (int) nameListView.getAdapter().getItemId(position);
 
                 String panneName = pannen.get(position).getName();
                 String panneSchritte = pannen.get(position).getSchritte();
                 String panneSchritteBilder = pannen.get(position).getBilder();
 
+
                 int symptomId = pannen.get(position).getId();
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);
                 i.putExtra("BILDER", panneSchritteBilder);
+
 
                 startActivity(i);
             }

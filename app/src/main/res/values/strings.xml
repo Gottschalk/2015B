@@ -53,9 +53,10 @@
         PanneBehebenFragmentSymptomTab
     </string>
 
-    <!-- INNERORTS -->
+
     <string name="title_activity_panne_beheben_anleitung">PanneBehebenAnleitung</string>
 
+    <!-- INNERORTS -->
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step1">Warnblinkanlage anschalten</string>
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step2">Handbremse ziehen und Gang einlegen</string>
     <string name="gefahrenstelle_absichern_innerorts_anleitung_step3">Lenkrad eindrehen, sodass die Reifen von der Fahrbahn weg zeigen</string>
@@ -113,6 +114,9 @@
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step10">Nach mindestens 150 Metern das Warndreieck gut sichtbar am Fahrbahnrand abstellen \n \n 150 Meter = Abstand zwischen 6 Straßenpfosten</string>
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step11">Zurück hinter die Leitplanke begeben und auf Fahrzeughöhe zurückbegeben</string>
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step12">Bei liegengebliebenen Teilen auf der Fahrbahn Polizei verständigen und diese nicht selbst von der Fahrbahn entfernen</string>
+
+    <!-- -->
+    <string name="taschenlampe_beschreibungstext">Hier kann die Taschenlampe ein- und ausgeschaltet werden</string>
 
 
 </resources>

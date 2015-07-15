@@ -12,8 +12,9 @@ public class Panne {
     private int anzSchritte;
     private String bilder;
     private int id;
+    private String faehrtNoch;
 
-    public Panne(int id, String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder) {
+    public Panne(int id, String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch) {
         this.id = id;
         this.name = name;
         this.bauteil = bauteil;
@@ -21,15 +22,17 @@ public class Panne {
         this.schritte = schritte;
         this.anzSchritte = anzSchritte;
         this.bilder = bilder;
+        this.faehrtNoch= faehrtNoch;
     }
 
-    public Panne(String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder) {
+    public Panne(String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch) {
         this.name = name;
         this.bauteil = bauteil;
         this.symptom = symptom;
         this.schritte = schritte;
         this.anzSchritte = anzSchritte;
         this.bilder = bilder;
+        this.faehrtNoch = faehrtNoch;
     }
 
     public Panne() {
@@ -90,5 +93,13 @@ public class Panne {
 
     public void setBilder(String bilder) {
         this.bilder = bilder;
+    }
+
+    public String getFaehrtNoch() {
+        return faehrtNoch;
+    }
+
+    public void setFaehrtNoch(String faehrtNoch) {
+        this.faehrtNoch = faehrtNoch;
     }
 }

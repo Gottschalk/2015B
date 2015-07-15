@@ -99,12 +99,12 @@
             android:theme="@style/Theme.AppCompat" >
         </activity>
         <activity
-            android:name=".PanneBehebenFragmentBauteilTab"
+            android:name=".PanneBehebenFragmentFaehrtNichtTab"
             android:theme="@style/Theme.AppCompat"
             android:label="@string/title_activity_fragment_bauteil_tab" >
         </activity>
         <activity
-            android:name=".PanneBehebenFragmentSymptomTab"
+            android:name=".PanneBehebenFragmentAllePannenTab"
             android:theme="@style/Theme.AppCompat"
             android:label="@string/title_activity_panne_beheben_fragment_symptom_tab" >
         </activity>
