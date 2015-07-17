@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by Flo on 20.06.2015.
@@ -46,6 +48,16 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
         //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
+
+        Collections.sort(
+                pannen,
+                new Comparator<Panne>() {
+                    public int compare(Panne lhs, Panne rhs) {
+                        return lhs.getName().compareTo(rhs.getName());
+                    }
+                }
+        );
+
         pannenList = new ArrayList<Panne>();
         int size = 0;
 

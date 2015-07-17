@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
@@ -45,6 +47,15 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
         //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
+
+        Collections.sort(
+                pannen,
+                new Comparator<Panne>() {
+                    public int compare(Panne lhs, Panne rhs) {
+                        return lhs.getName().compareTo(rhs.getName());
+                    }
+                }
+        );
         pannenList = new ArrayList<Panne>();
 
         int size = 0;

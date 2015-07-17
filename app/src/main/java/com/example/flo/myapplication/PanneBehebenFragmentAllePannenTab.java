@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class PanneBehebenFragmentAllePannenTab extends Fragment {
@@ -43,6 +45,15 @@ public class PanneBehebenFragmentAllePannenTab extends Fragment {
 
         pannen = db.getAllPannen();
 
+        Collections.sort(
+                pannen,
+                new Comparator<Panne>() {
+                    public int compare(Panne lhs, Panne rhs) {
+                        return lhs.getName().compareTo(rhs.getName());
+                    }
+                }
+        );
+
         String[] nameArray = new String[pannen.size()];
 
         int index = 0;
@@ -52,6 +63,7 @@ public class PanneBehebenFragmentAllePannenTab extends Fragment {
             nameArray[index] = panne.getName();
             index++;
         }
+
 
         ArrayAdapter<String> codeLearnArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, nameArray);
 
