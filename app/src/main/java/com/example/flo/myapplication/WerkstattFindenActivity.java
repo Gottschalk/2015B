@@ -1,6 +1,7 @@
 package com.example.flo.myapplication;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Criteria;
@@ -101,8 +102,16 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
     }
 
     private void fetchCurrentLocation() {
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
+
+        if(location == null){
+            Criteria criteria = new Criteria();
+            String bestProvider = locationManager.getBestProvider(criteria, true);
+            location = locationManager.getLastKnownLocation(bestProvider);
+        }
+        if(location!=null){
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+        }
     }
 
     private void createMap() {
@@ -121,7 +130,7 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
         map.setMyLocationEnabled(true);
         map.getUiSettings().setMapToolbarEnabled(true);
         map.getUiSettings().setZoomControlsEnabled(true);
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         // check if gbs is enabled
         boolean enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -153,6 +162,7 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
 
         // get current location and react to location change
         Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
         String bestProvider = locationManager.getBestProvider(criteria, true);
         location = locationManager.getLastKnownLocation(bestProvider);
         if (location != null) {

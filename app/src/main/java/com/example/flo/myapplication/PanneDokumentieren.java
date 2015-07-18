@@ -113,15 +113,17 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
         File[] test = mediaStorageDir.listFiles();
 
-        imageIDs = new String[test.length];
-        for(int i = 0; i<test.length; i++){
-            Log.w("BLAAAAAAAAAAAA",test[i].getName());
-            imageIDs[i]= test[i].getPath();
+        if(test!= null){
+            imageIDs = new String[test.length];
+            for(int i = 0; i<test.length; i++){
+                imageIDs[i]= test[i].getPath();
+            }
+        }else{
+            imageIDs = new String[0];
         }
     }
 
     private void setupGallery() {
-        // Note that Gallery view is deprecated in Android 4.1---
          gallery = (Gallery) findViewById(R.id.vorhandene_photos_gallery);
         adapter = new ImageAdapter(this);
         gallery.setAdapter(adapter);
@@ -136,11 +138,13 @@ public class PanneDokumentieren extends ActionBarActivity implements
                 options.outWidth = 50;
                 options.inSampleSize = 4;
 
-                File imgFile = new File(imageIDs[position]);
-                myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
+                if(imageIDs!=null){
+                    File imgFile = new File(imageIDs[position]);
+                    myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
 
-                currentBigImage.setImageBitmap(myBitmap);
-                currentImagePath = imageIDs[position];
+                    currentBigImage.setImageBitmap(myBitmap);
+                    currentImagePath = imageIDs[position];
+                }
             }
         });
 
