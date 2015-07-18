@@ -55,29 +55,29 @@ public class PannenCreator {
 
             // AUTO WIRD LANGSAMER UND BLEIBT STEHEN
 
-            // AUTO VERLIERT AN LEISTUNG, LÄUFT ABER NOCH IM NOTBETRIEB
+            // AUTO VERLIERT AN LEISTUNG, LAEUFT ABER NOCH IM NOTBETRIEB
 
             // AUTO STARTET NICHT
             // -> AUTO STARTET NICHT , ANLASSER DREHT ABER
             // -> AUTO STARTET NICHT, ANLASSER DREHT NICHT
 
-            // AUSPUFF HÄNGT HERUNTER
+            // AUSPUFF HAENGT HERUNTER
 
             // AUTOBATTERIE LEER
 
             // BESCHLAGENE SCHEINWERFER
 
-            // BELEUCHTUNG FÄLLT AUS
+            // BELEUCHTUNG FAELLT AUS
 
             // BREMSEN QUIETSCHEN BEI DER FAHRT
 
-            // FAHRZEUG VERLIERT FLÜSSIGKEITEN
+            // FAHRZEUG VERLIERT FLUESSIGKEITEN
 
             // FAHRZEUG ABSCHLEPPEN
 
-            // GERÄUSCHE AUS DEM FAHRZEUG
+            // GERAEUSCHE AUS DEM FAHRZEUG
 
-            // GERÄUSCHE AUS DER RADGEGEND
+            // GERAEUSCHE AUS DER RADGEGEND
 
 
             // KEIN BILD VORHANDEN STRING
@@ -88,26 +88,30 @@ public class PannenCreator {
             db.addPanne(new Panne("Lenkung klemmt(name)", "Lenkung(bauteil)", "Lenkung klemmt(symptom)", lenkungKlemmtAnleitung, 2, lenkungKlemmtAnleitungBilder, "true"));
 
             // NEU
+
+            // unicode:
+            /*
+
+            Ä,ä: \u00c4, \u00e4
+            Ö,ö: \u00d6, \u00f6
+            Ü,ü: \u00dc, \u00fc
+            ß:   \u00df
+
+            */
+
             // PANNE: ( String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch )
             db.addPanne(new Panne("Autobatterie wechseln", "Elektrik", "Batterie leer", "" , 2, "null", "null"));
             db.addPanne(new Panne("Auto wird langsamer und bleibt stehen", " ", "Auto wird langsamer und bleibt stehen", "" , 2, "null", "null"));
-            db.addPanne(new Panne("Auto verliert an Leistung, läuft aber noch im Notbetrieb", " ", "Auto verliert an Leistung, läuft aber noch im Notbetrieb", "" , 2, "null", "false"));
+            db.addPanne(new Panne("Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", " ", "Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", "" , 2, "null", "false"));
             db.addPanne(new Panne("Auto startet nicht", " ", "Auto startet nicht", "" , 2, "null", "false"));
-            db.addPanne(new Panne("Auto verliert an Leistung, läuft aber noch im Notbetrieb", " ", "Auto verliert an Leistung, läuft aber noch im Notbetrieb", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Auspuff hängt herunter", " ", " ", "" , 2, "null", "true"));
+            db.addPanne(new Panne("Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", " ", "Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", "" , 2, "null", "true"));
+            db.addPanne(new Panne("Auspuff h\u00e4ngt herunter", " ", " ", "" , 2, "null", "true"));
             db.addPanne(new Panne("Autobatterie leer", " ", " ", "" , 2, "null", "false"));
             db.addPanne(new Panne("Beschlagene Scheinwerfer", " ", " ", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Beleuchtung fällt aus", " ", " ", "" , 2, "null", "true"));
+            db.addPanne(new Panne("Beleuchtung f\u00e4llt aus", " ", " ", "" , 2, "null", "true"));
             db.addPanne(new Panne("Bremsen quietschen", " ", "Bremsen quietschen", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Fahrzeug verliert Flüssigkeiten", " ", "Fahrzeug verliert Flüssigkeiten", "" , 2, "null", "true"));
+            db.addPanne(new Panne("Fahrzeug verliert Fl\u00fcssigkeiten", " ", "Fahrzeug verliert Fl\u00fcssigkeiten", "" , 2, "null", "true"));
             db.addPanne(new Panne("Fahrzeug abschleppen", " ", " ", "" , 2, "null", "false"));
-
-
-
-
-
-
-
 
 
             pannen = db.getAllPannen();

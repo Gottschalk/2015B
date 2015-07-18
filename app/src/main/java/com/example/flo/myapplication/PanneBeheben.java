@@ -38,18 +38,25 @@ public class PanneBeheben extends ActionBarActivity {
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
+
+
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab1").setIndicator("Alle", null),
+                mTabHost.newTabSpec("tab0").setIndicator("Alle", null),
                 PanneBehebenFragmentAllePannenTab.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab2").setIndicator("Symptom", null),
+                mTabHost.newTabSpec("tab1").setIndicator("Symptom", null),
                 PanneBehebenFragmentSymptomTab.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab3").setIndicator("Auto f\u00e4hrt noch", null),
+                mTabHost.newTabSpec("tab2").setIndicator("Auto f\u00e4hrt", null),
                 PanneBehebenFragmentFaehrtNochTab.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab4").setIndicator("Auto f\u00e4hrt nicht mehr", null),
+                mTabHost.newTabSpec("tab3").setIndicator("Auto f\u00e4hrt nicht", null),
                 PanneBehebenFragmentFaehrtNichtTab.class, null);
+
+        mTabHost.getTabWidget().getChildAt(3).getLayoutParams().width = 70;
+        mTabHost.getTabWidget().getChildAt(2).getLayoutParams().width = 50;
+        mTabHost.getTabWidget().getChildAt(1).getLayoutParams().width = 60;
+        mTabHost.getTabWidget().getChildAt(0).getLayoutParams().width = 10;
 
     }
 

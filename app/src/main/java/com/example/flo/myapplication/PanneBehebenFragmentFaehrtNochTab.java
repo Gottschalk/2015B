@@ -82,7 +82,9 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
             }
         }
 
-        ArrayAdapter<String> faehrtNochAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, faehrtNochArray);
+        // Set custom listview items
+       // ArrayAdapter<String> faehrtNochAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, faehrtNochArray);
+        ArrayAdapter<String> faehrtNochAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, faehrtNochArray);
 
         faehrtNochListview.setAdapter(faehrtNochAdapter);
 
