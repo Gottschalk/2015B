@@ -1,7 +1,6 @@
 package com.example.flo.myapplication;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -24,94 +23,86 @@ public class PannenCreator {
     public void savePannenToDB(Context context) {
 
         db = new PanneDBHelper(context);
-
         pannen = db.getAllPannen();
 
         // TODO RAUSMACHEN!!!!
-            db.deleteAllPannen();
+        db.deleteAllPannen();
 
-        // Bei erster App-Benutzung leere DB abfangen
+        // catch empty database on first usage
         if (pannen.size() == 0) {
-            Log.e("Creating first panne ", "Creating panne");
-
 
             //  REIFEN PLATT //
             String reifenPlattAnleitung = "$ Wagen abstellen $ Handbremse ziehen $ Gang einlegen $ Wagenheber holen";
             String reifenPlattAnleitungBilder = "|ic_camera1|ic_kontakte1|ic_camera1|ic_kontakte1";
 
-            //  BATTERIE LEER //
-            String batterieLeerAnleitung = "$ Plus pol an plus pol $ zweitwagen bal $ nix";
-            String batterieLeerAnleitungBilder = "|ic_camera1|ic_kontakte1|ic_camera1";
-
-            // KONTROLLLAMPEN LEUCHTEN
-            String kontrolllampenAnleitung = "$ kontrollampe rot: $ kontrollampe blau";
-            String kontrolllampenAnleitungBilder = "null";
-
-            // LENKUNG KLEMMT //
-            String lenkungKlemmtAnleitung = "$ Schluessel in Zuendschloss stecken $ Lenkrad drehen";
-            String lenkungKlemmtAnleitungBilder = "|ic_camera1|ic_kontakte1";
 
             // AUTOBATTERIE WECHSELN
-
-            // AUTO WIRD LANGSAMER UND BLEIBT STEHEN
-
-            // AUTO VERLIERT AN LEISTUNG, LAEUFT ABER NOCH IM NOTBETRIEB
-
-            // AUTO STARTET NICHT
-            // -> AUTO STARTET NICHT , ANLASSER DREHT ABER
-            // -> AUTO STARTET NICHT, ANLASSER DREHT NICHT
+            String autobatterieWechselnAnleitung = "$Motor und alle elektrischen Verbraucher (Radio, Licht, etc.) abschalten" +
+                    "$Motorhaube öffnen und Mutter am Minuspol abschrauben. Jetzt das schwarze Verbindungskabel abziehen" +
+                    "$Durch Lösen der Mutter von der Batterie das rote Kabel, das zum Pluspol läuft, entfernen" +
+                    "$Jetzt Halterungsschrauben der Batterie entfernen" +
+                    "$Jetzt kann die Batterie herausgenommen werden und eine neue Batterie eingesetzt werden. Batterie dabei nicht kippen!" +
+                    "$Rotes Kabel wieder mit der Schraube an den Pluspol anbringen" +
+                    "$Schwarzes Kabel am Minuspol anbringen und mit Schraube befestigen" +
+                    "$Falls vorrätig, beide Pole  mit Polfett beschmieren";
+            int autobatterieWechselnAnzSchritte = 8;
+            String autobatterieWechselnBilder = "|beheben_autobatterie_wechseln1|beheben_autobatterie_wechseln1|beheben_autobatterie_wechseln1|beheben_autobatterie_wechseln1|beheben_autobatterie_wechseln1|beheben_autobatterie_wechseln1|beheben_autobatterie_wechseln1|beheben_autobatterie_wechseln2";
 
             // AUSPUFF HAENGT HERUNTER
-
-            // AUTOBATTERIE LEER
+            String auspuffHaengtAnleitung = "$Darauf achten, dass der Auspuff nicht mehr heiß ist" +
+                    "$Ein Stück Draht oder Kabelbinder vorbereiten. Es können auch mehrere Kabelbinder miteinander verbunden werden." +
+                    "$Draht oder Kabelbinder möglichst an Auspuffhalterung anbringen" +
+                    "$Mit dieser provisorischen Lösung nur so geringe Strecke wie möglich zurücklegen und Schaden anschließend in einer Werkstatt beheben lassen.";
+            int auspuffHaengtAnzSchritte = 4;
+            String auspuffHaengtBilder = "|beheben_auspuff_haengt1|beheben_auspuff_haengt2|beheben_auspuff_haengt3|beheben_auspuff_haengt3";
 
             // BESCHLAGENE SCHEINWERFER
+            String beschlageneScheinwerferAnleitung = "$Normalerweise verschwindet die Feuchtigkeit nach einer Weile wieder von selbst. Durch das Fahren mit Licht verdunstet das Wasser noch schneller." +
+                    "$Um Feuchtigkeit zu vermeiden, sollte bei der Autowäsche mit dem Hochdruckreiniger nicht direkt auf die Scheinwerfer gezielt und mind. 30cm Abstand gehalten werden.";
+            int beschlageneScheinwerferAnzSchritte = 2;
+            String beschlageneScheinwerferBilder = "|beheben_beschlagene_scheinwerfer1|beheben_beschlagene_scheinwerfer1";
 
-            // BELEUCHTUNG FAELLT AUS
+            // BREMSEN QUIETSCHEN
+            String bremsenQuietschenAnleitung = "$Quietschende Bremsen können mehrere Ursachen haben. Falls die Ursache an den Bremsklötzen liegt, so ist es ratsam, die Reparatur einem erfahrenen Mechaniker in der Werkstatt zu überlassen, da die Bremsanlage ein sicherheitsrelevanter Bestandteil des Fahrzeuges ist." +
+                    "$Ansonsten kann folgendes Vorgehen möglicherweise Abhilfe schaffen:" +
+                    "$Überprüfen, ob die Handbremse richtig gelöst ist" +
+                    "$Eventuell klebende Bremsbacken durch langsames Rückwärtsfahren lösen" +
+                    "$Mehrmals stark bremsen";
+            int bremsenQuietschenAnzSchritte = 5;
+            String bremsenQuietschenBilder = "|beheben_bremsen_quietschen1|beheben_bremsen_quietschen2|beheben_bremsen_quietschen3|beheben_bremsen_quietschen4|beheben_bremsen_quietschen5";
 
-            // BREMSEN QUIETSCHEN BEI DER FAHRT
+            // FRONTSCHEINWERFER BIRNE WECHSELN
+            String frontscheinwerferBirneWechselnAnleitung = "$Motorhaube öffnen" +
+                    "$Pluspol der Autobatterie abklemmen. Dazu die Mutter am Pluspol lösen und das daran befindliche Kabel von der Batterie lösen" +
+                    "$Zum Scheinwerfer, der defekt ist gehen und dessen Schutzklappe im Motorinnenraum abziehen oder abklappen." +
+                    "$Stecker am Scheinwerferlicht abziehen. Falls vorhanden, Metallbügel vorsichtig zusammendrücken und nach hinten abschieben" +
+                    "$Alte Birne herausziehen und neue Birne einsetzen. Wichtig: Birne nur mit einem Tuch oder mit Handschuhen anfassen." +
+                    "$Alte Birne herausziehen und neue Birne einsetzen. Wichtig: Birne nur mit einem Tuch oder mit Handschuhen anfassen." +
+                    "$Metallbügel und Stecker wieder anbringen." +
+                    "$Schutzklappe raufstecken und Pluspol an Batterie wieder mit Mutter befestigen.";
 
-            // FAHRZEUG VERLIERT FLUESSIGKEITEN
-
-            // FAHRZEUG ABSCHLEPPEN
-
-            // GERAEUSCHE AUS DEM FAHRZEUG
-
-            // GERAEUSCHE AUS DER RADGEGEND
-
+            int frontscheinwerferBirneWechselnAnzSchritte = 5;
+            String frontscheinwerferBirneWechselnBilder = "|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1";
 
             // KEIN BILD VORHANDEN STRING
             // String noPicture = "null";
-            db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 4, reifenPlattAnleitungBilder, "false"));
-            db.addPanne(new Panne("Batterie leer(name)", "Elektrik - Batterie leer(bauteil)", "Batterie leer(symptom)", batterieLeerAnleitung, 3, batterieLeerAnleitungBilder, "false"));
-            db.addPanne(new Panne("Kontrollampen leuchten(name)", "Anzeigen - Kontrollampen(bauteil)", "Kontrollampen leuchten(symptom)", kontrolllampenAnleitung, 2, kontrolllampenAnleitungBilder, "true"));
-            db.addPanne(new Panne("Lenkung klemmt(name)", "Lenkung(bauteil)", "Lenkung klemmt(symptom)", lenkungKlemmtAnleitung, 2, lenkungKlemmtAnleitungBilder, "true"));
-
-            // NEU
+            //    db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 4, reifenPlattAnleitungBilder, "false"));
 
             // unicode:
             /*
-
             Ä,ä: \u00c4, \u00e4
             Ö,ö: \u00d6, \u00f6
             Ü,ü: \u00dc, \u00fc
             ß:   \u00df
-
             */
 
+            // NEU
             // PANNE: ( String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch )
-            db.addPanne(new Panne("Autobatterie wechseln", "Elektrik", "Batterie leer", "" , 2, "null", "null"));
-            db.addPanne(new Panne("Auto wird langsamer und bleibt stehen", " ", "Auto wird langsamer und bleibt stehen", "" , 2, "null", "null"));
-            db.addPanne(new Panne("Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", " ", "Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", "" , 2, "null", "false"));
-            db.addPanne(new Panne("Auto startet nicht", " ", "Auto startet nicht", "" , 2, "null", "false"));
-            db.addPanne(new Panne("Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", " ", "Auto verliert an Leistung, l\u00e4uft aber noch im Notbetrieb", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Auspuff h\u00e4ngt herunter", " ", " ", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Autobatterie leer", " ", " ", "" , 2, "null", "false"));
-            db.addPanne(new Panne("Beschlagene Scheinwerfer", " ", " ", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Beleuchtung f\u00e4llt aus", " ", " ", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Bremsen quietschen", " ", "Bremsen quietschen", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Fahrzeug verliert Fl\u00fcssigkeiten", " ", "Fahrzeug verliert Fl\u00fcssigkeiten", "" , 2, "null", "true"));
-            db.addPanne(new Panne("Fahrzeug abschleppen", " ", " ", "" , 2, "null", "false"));
+            db.addPanne(new Panne("Autobatterie wechseln", " ", " ", autobatterieWechselnAnleitung, autobatterieWechselnAnzSchritte, autobatterieWechselnBilder, "false"));
+            db.addPanne(new Panne("Auspuff hängt herunter", " ", " ", auspuffHaengtAnleitung, auspuffHaengtAnzSchritte, auspuffHaengtBilder, "false"));
+            db.addPanne(new Panne("Beschlagene Scheinwerfer", " ", " ", beschlageneScheinwerferAnleitung, beschlageneScheinwerferAnzSchritte, beschlageneScheinwerferBilder, "false"));
+            db.addPanne(new Panne("Bremsen quietschen", " ", " ", bremsenQuietschenAnleitung, bremsenQuietschenAnzSchritte, bremsenQuietschenBilder, "false"));
+            db.addPanne(new Panne("Frontscheinwerfer Birne wechseln", " ", " ", frontscheinwerferBirneWechselnAnleitung, frontscheinwerferBirneWechselnAnzSchritte, frontscheinwerferBirneWechselnBilder, "false"));
 
 
             pannen = db.getAllPannen();
