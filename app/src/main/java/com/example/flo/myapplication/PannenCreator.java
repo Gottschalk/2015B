@@ -81,11 +81,59 @@ public class PannenCreator {
                     "$Metallbügel und Stecker wieder anbringen." +
                     "$Schutzklappe raufstecken und Pluspol an Batterie wieder mit Mutter befestigen.";
 
-            int frontscheinwerferBirneWechselnAnzSchritte = 5;
-            String frontscheinwerferBirneWechselnBilder = "|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1";
+            int frontscheinwerferBirneWechselnAnzSchritte = 8;
+            String frontscheinwerferBirneWechselnBilder = "|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1|beheben_frontscheinwerfer_birne_wechseln1";
+
+            // FAHRZEUG ABSCHLEPPEN
+            String fahrzeugAbschleppenAnleitung =
+                    "$In der Bedienungsanleitung den genauen Standort der Abschleppösen nachsehen. In der Regel befinden sich diese vorne und hinten rechts, manchmal aber von einer Abdeckung verdeckt." +
+                            "$Abschleppseil in Abschleppösen einhaken" +
+                            "$Zündung einschalten" +
+                            "$Getriebe in Leerlaufstellung bringen. Bei Automatikgetriebe in Neutralstellung bringen" +
+                            "$Bei beiden Fahrzeugen Warnblinkanlage einschalten" +
+                            "$Während des Abschleppens sollte das Abschleppseil dauernd unter Spannung stehen";
+
+            int fahrzeugAbschleppenAnzSchritte = 6;
+            String fahrzeugAbschleppenBilder = "|beheben_abschleppen1|beheben_abschleppen1|beheben_abschleppen2|beheben_abschleppen3|beheben_abschleppen4|beheben_abschleppen5";
+
+
+            // FAHRZEUG ANSCHLEPPEN ZUM MOTORSTART
+            String fahrzeugAnschleppenAnleitung =
+                    "$Wichtig: Nur bei Fahrzeugen mit manuellem Getriebe möglich!!! Nicht länger als 50 Meter anschleppen, ansonsten könnte der Katalysator Schaden nehmen!" +
+                            "$In der Betriebsanleitung nachsehen, ob anschleppen nicht untersagt ist" +
+                            "$In der Bedienungsanleitung den genauen Standort der Abschleppösen nachsehen. In der Regel befinden sich diese vorne und hinten rechts, manchmal aber von einer Abdeckung verdeckt" +
+                            "$Abschleppseil in Abschleppösen einhaken" +
+                            "$Zündung einschalten" +
+                            "$2. oder 3. Gang einlegen und Kupplung durchdrücken"+
+                            "$Bei beiden Fahrzeugen Warnblinkanlage einschalten" +
+                            "$Sobald beide Fahrzeuge in Bewegung sind, langsam einkuppeln" +
+                            "$Wenn der Motor angesprungen ist, Kuppplung treten und Gang herausnehmen" +
+                            "$Etwas Gas geben (ca. 2000U/min). Wenn der Motor problemlos läuft, kann die Fahrt fortgesetzt werden.";
+
+            int fahrzeugAnschleppenAnzSchritte = 8;
+            String fahrzeugAnschleppenBilder = "|beheben_anschleppen1|beheben_anschleppen2|beheben_anschleppen2|beheben_anschleppen3|beheben_anschleppen4|beheben_anschleppen5|beheben_anschleppen6|beheben_anschleppen7|beheben_anschleppen5|beheben_anschleppen10";
+
+
+
+
+
+
+
+
+            // RUECKLEUCHTE BIRNE WECHSELN
+            String rueckleuchteBirneWechselnAnleitung =
+                    "$Kofferraum öffnen" +
+                            "$Abdeckung der Rückleuchten abschrauben" +
+                            "$Abdeckung abziehen. Hierbei vorsichtig vorgehen und keine Gewalt anwenden" +
+                            "$Auszutauschende Birne gegen den Uhrzeigersinn herausdrehen. Nach ca ¼ Drehung kann die Birne herausgezogen werden." +
+                            "$Neue Birne einsetzen. Dazu im Uhrzeigersinn ca ¼ Drehung hineindrehen." +
+                            "$Abdeckung wieder anbringen";
+
+            int rueckleuchteBirneWechselnAnzSchritte = 6;
+            String rueckleuchteBirneWechselnBilder = "|beheben_rueckleuchte_birne_wechseln1|beheben_rueckleuchte_birne_wechseln2|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln2";
+
 
             // KEIN BILD VORHANDEN STRING
-            // String noPicture = "null";
             //    db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 4, reifenPlattAnleitungBilder, "false"));
 
             // unicode:
@@ -96,14 +144,22 @@ public class PannenCreator {
             ß:   \u00df
             */
 
+            String noPicture = "null";
+
             // NEU
             // PANNE: ( String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch )
             db.addPanne(new Panne("Autobatterie wechseln", " ", " ", autobatterieWechselnAnleitung, autobatterieWechselnAnzSchritte, autobatterieWechselnBilder, "false"));
             db.addPanne(new Panne("Auspuff hängt herunter", " ", " ", auspuffHaengtAnleitung, auspuffHaengtAnzSchritte, auspuffHaengtBilder, "false"));
             db.addPanne(new Panne("Beschlagene Scheinwerfer", " ", " ", beschlageneScheinwerferAnleitung, beschlageneScheinwerferAnzSchritte, beschlageneScheinwerferBilder, "false"));
-            db.addPanne(new Panne("Bremsen quietschen", " ", " ", bremsenQuietschenAnleitung, bremsenQuietschenAnzSchritte, bremsenQuietschenBilder, "false"));
+            db.addPanne(new Panne("Bremsen quietschen", " ", " ", bremsenQuietschenAnleitung, bremsenQuietschenAnzSchritte, noPicture, "false"));
             db.addPanne(new Panne("Frontscheinwerfer Birne wechseln", " ", " ", frontscheinwerferBirneWechselnAnleitung, frontscheinwerferBirneWechselnAnzSchritte, frontscheinwerferBirneWechselnBilder, "false"));
+            db.addPanne(new Panne("Fahrzeug abschleppen", " ", " ", fahrzeugAbschleppenAnleitung, fahrzeugAbschleppenAnzSchritte, fahrzeugAbschleppenBilder, "false"));
+            db.addPanne(new Panne("Fahrzeug anschleppen zum Motorstart", " ", " ", fahrzeugAnschleppenAnleitung, fahrzeugAnschleppenAnzSchritte, fahrzeugAnschleppenBilder, "false"));
 
+
+
+
+            db.addPanne(new Panne("Rückleuchte Birne wechseln", " ", " ", rueckleuchteBirneWechselnAnleitung, rueckleuchteBirneWechselnAnzSchritte, rueckleuchteBirneWechselnBilder, "false"));
 
             pannen = db.getAllPannen();
 
