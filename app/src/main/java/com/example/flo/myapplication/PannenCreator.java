@@ -104,7 +104,7 @@ public class PannenCreator {
                             "$In der Bedienungsanleitung den genauen Standort der Abschleppösen nachsehen. In der Regel befinden sich diese vorne und hinten rechts, manchmal aber von einer Abdeckung verdeckt" +
                             "$Abschleppseil in Abschleppösen einhaken" +
                             "$Zündung einschalten" +
-                            "$2. oder 3. Gang einlegen und Kupplung durchdrücken"+
+                            "$2. oder 3. Gang einlegen und Kupplung durchdrücken" +
                             "$Bei beiden Fahrzeugen Warnblinkanlage einschalten" +
                             "$Sobald beide Fahrzeuge in Bewegung sind, langsam einkuppeln" +
                             "$Wenn der Motor angesprungen ist, Kuppplung treten und Gang herausnehmen" +
@@ -114,10 +114,15 @@ public class PannenCreator {
             String fahrzeugAnschleppenBilder = "|beheben_anschleppen1|beheben_anschleppen2|beheben_anschleppen2|beheben_anschleppen3|beheben_anschleppen4|beheben_anschleppen5|beheben_anschleppen6|beheben_anschleppen7|beheben_anschleppen5|beheben_anschleppen10";
 
 
+            // INNENSCHEIBE BESCHLAGEN
+            String innenscheibeBeschlagenAnleitung =
+                    "$Lüftung einschalten und so einstellen, dass die Luft zur Frontscheibe geführt wird. Gebläse auf höchste Stufe und Heizung auf warm stellen." +
+                            "$Falls vorhanden, Klimaanlage anschalten. Damit wird die Scheibe noch schneller frei." +
+                            "$Falls vorhanden, auch die Heckscheibenheizung einschalten." +
+                            "$Weiterhin ab und zu Scheibenwischer betätigen. Die Scheibe kann nämlich auch von aussen beschlagen sein.";
 
-
-
-
+            int innenscheibeBeschlagenAnzSchritte = 4;
+            String innenscheibeBeschlagenBilder = "|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1";
 
 
             // RUECKLEUCHTE BIRNE WECHSELN
@@ -131,6 +136,28 @@ public class PannenCreator {
 
             int rueckleuchteBirneWechselnAnzSchritte = 6;
             String rueckleuchteBirneWechselnBilder = "|beheben_rueckleuchte_birne_wechseln1|beheben_rueckleuchte_birne_wechseln2|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln2";
+
+            // SCHEIBENWISCHER WECHSELN
+            String scheibenwischerWechselnAnleitung =
+                    "$Scheibenwischer hochklappen, sodass er von der Windschutzscheibe absteht" +
+                            "$Gummiblatt lösen. Dazu Plastikstopper zwischen Gummiwischer und Metallarm zusammendrücken und Gummiblatt abnehmen." +
+                            "$Neuen Wischer einbauen. Dazu diesen einfach an der Stelle, wo der alte Wischer abgezogen wurde einschieben. Dann drehen, bis der Haken einschnappt." +
+                            "$Wischer zurück gegen Windschutzscheibe drücken";
+
+            int scheibenwischerWechselnAnzSchritte = 4;
+            String scheibenwischerWechselnBilder = "|beheben_scheibenwischer_wechseln1|beheben_scheibenwischer_wechseln2|beheben_scheibenwischer_wechseln3|beheben_scheibenwischer_wechseln4";
+
+            // TANK LEER
+            String tankLeerAnleitung =
+                    "$Bei älteren Dieselfahrzeugen besser einen Pannenhelfer verständigen. " +
+                            "Möglicherweise muss die Kraftstoffanlage entlüftet werden. " +
+                            "Bei neueren Fahrzeugen und Benzinern kann problemlos nachgetankt und dann weitergefahren werden." +
+                            "Vorher allerdings in der Betriebsanleitung des Wagens nachsehen, ob Informationen zum Verhalten bei" +
+                            " einem leergefahrenen Tank angegeben sind.";
+
+
+            int tankLeerAnzSchritte = 1;
+            String tankLeerBilder = "null";
 
 
             // KEIN BILD VORHANDEN STRING
@@ -155,11 +182,12 @@ public class PannenCreator {
             db.addPanne(new Panne("Frontscheinwerfer Birne wechseln", " ", " ", frontscheinwerferBirneWechselnAnleitung, frontscheinwerferBirneWechselnAnzSchritte, frontscheinwerferBirneWechselnBilder, "false"));
             db.addPanne(new Panne("Fahrzeug abschleppen", " ", " ", fahrzeugAbschleppenAnleitung, fahrzeugAbschleppenAnzSchritte, fahrzeugAbschleppenBilder, "false"));
             db.addPanne(new Panne("Fahrzeug anschleppen zum Motorstart", " ", " ", fahrzeugAnschleppenAnleitung, fahrzeugAnschleppenAnzSchritte, fahrzeugAnschleppenBilder, "false"));
-
-
+            db.addPanne(new Panne("Innenscheibe beschlagen", " ", " ", innenscheibeBeschlagenAnleitung, innenscheibeBeschlagenAnzSchritte, innenscheibeBeschlagenBilder, "false"));
 
 
             db.addPanne(new Panne("Rückleuchte Birne wechseln", " ", " ", rueckleuchteBirneWechselnAnleitung, rueckleuchteBirneWechselnAnzSchritte, rueckleuchteBirneWechselnBilder, "false"));
+            db.addPanne(new Panne("Scheibenwischerblätter wechseln", " ", " ", scheibenwischerWechselnAnleitung, scheibenwischerWechselnAnzSchritte, scheibenwischerWechselnBilder, "false"));
+            db.addPanne(new Panne("Tank leer", " ", " ", tankLeerAnleitung, tankLeerAnzSchritte, noPicture, "false"));
 
             pannen = db.getAllPannen();
 
