@@ -124,6 +124,20 @@ public class PannenCreator {
             int innenscheibeBeschlagenAnzSchritte = 4;
             String innenscheibeBeschlagenBilder = "|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1";
 
+            // REIFENPLATTEN MIT PANNENSPRAY DICHTEN
+            String reifenPlattenPannensprayAnleitung =
+                    "$Wichtig: Das Flicken mit Dichtmittel ist eine Notlösung. Es sollte baldigst der Reifen gewechselt oder eine Werkstatt aufgesucht werden." +
+                            "$Reifen gründlich säubern um Fremdkörper zu beseitigen" +
+                            "$Luft des Reifens ablassen, falls dieser nicht schon platt ist." +
+                            "$Pannenspray auspacken und erwärmen (mit Händen oder Autoheizung)" +
+                            "$Pannenspray gut schütteln (ca 1-2 Minuten)" +
+                            "$Spray auf das Ventil des Reifens aufsetzen und kompletten Inhalt einsprühen" +
+                            "$Mithilfe des Kompressors aus dem Pannenset den Reifen aufpumpen" +
+                            "$Falls die Luft im Reifen hält, kann vorsichtig (max. 80km/h) weitergefahren werden";
+
+            int reifenPlattenPannensprayAnzSchritte = 8;
+            String reifenPlattenPannensprayBilder = "|beheben_pannenspray1|beheben_pannenspray2|beheben_pannenspray3|beheben_pannenspray4|beheben_pannenspray4|beheben_pannenspray6|beheben_pannenspray7|beheben_pannenspray8";
+
 
             // RUECKLEUCHTE BIRNE WECHSELN
             String rueckleuchteBirneWechselnAnleitung =
@@ -137,7 +151,24 @@ public class PannenCreator {
             int rueckleuchteBirneWechselnAnzSchritte = 6;
             String rueckleuchteBirneWechselnBilder = "|beheben_rueckleuchte_birne_wechseln1|beheben_rueckleuchte_birne_wechseln2|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln3|beheben_rueckleuchte_birne_wechseln2";
 
-            // SCHEIBENWISCHER WECHSELN
+            // STARTHILFE GEBEN
+            String starthilfeAnleitung =
+                    "$Motorhaube bei beiden Fahrzeugen öffnen" +
+                            "$Die Klemmen des roten Kabels mit den Pluspolen beider Batterien verbinden" +
+                            "$Eine Klemme des schwarzen Kabels mit dem Minuspol der Batterie des Hilfsfahrzeuges verbinden " +
+                            "$Die andere schwarze Klemme an einem Metallteil im Motorraum des Pannenfahrzeuges befestigen" +
+                            "$Motor des Hilfsfahrzeuges starten" +
+                            "$Startversuch beim Pannenfahrzeug" +
+                            "$Startet der Motor, elektrische Verbraucher einschalten" +
+                            "$Elektrische Verbraucher nach einiger Zeit wieder ausschalten" +
+                            "$Schwarzes Kabel Klemmen entfernen" +
+                            "$Rotes Kabel Klemmen entfernen" +
+                            "$Mit dem Pannenfahrzeug sollte eine etwas längere Fahrt unternommen werden, damit sich die Batterie aufladen kann";
+
+            int starthilfeAnzSchritte = 11;
+            String starthilfeBilder = "|beheben_starthilfe1|beheben_starthilfe2|beheben_starthilfe3|beheben_starthilfe4|beheben_starthilfe5|beheben_starthilfe5|beheben_starthilfe7|beheben_starthilfe7|beheben_starthilfe3|beheben_starthilfe2|beheben_starthilfe11";
+
+            // SCHEIBENWISCHER WECHSELN GEBEN
             String scheibenwischerWechselnAnleitung =
                     "$Scheibenwischer hochklappen, sodass er von der Windschutzscheibe absteht" +
                             "$Gummiblatt lösen. Dazu Plastikstopper zwischen Gummiwischer und Metallarm zusammendrücken und Gummiblatt abnehmen." +
@@ -146,6 +177,7 @@ public class PannenCreator {
 
             int scheibenwischerWechselnAnzSchritte = 4;
             String scheibenwischerWechselnBilder = "|beheben_scheibenwischer_wechseln1|beheben_scheibenwischer_wechseln2|beheben_scheibenwischer_wechseln3|beheben_scheibenwischer_wechseln4";
+
 
             // TANK LEER
             String tankLeerAnleitung =
@@ -184,9 +216,10 @@ public class PannenCreator {
             db.addPanne(new Panne("Fahrzeug anschleppen zum Motorstart", " ", " ", fahrzeugAnschleppenAnleitung, fahrzeugAnschleppenAnzSchritte, fahrzeugAnschleppenBilder, "false"));
             db.addPanne(new Panne("Innenscheibe beschlagen", " ", " ", innenscheibeBeschlagenAnleitung, innenscheibeBeschlagenAnzSchritte, innenscheibeBeschlagenBilder, "false"));
 
-
+            db.addPanne(new Panne("Reifenplatten mit Pannenspray abdichten", " ", " ", reifenPlattenPannensprayAnleitung, reifenPlattenPannensprayAnzSchritte,reifenPlattenPannensprayBilder , "false"));
             db.addPanne(new Panne("Rückleuchte Birne wechseln", " ", " ", rueckleuchteBirneWechselnAnleitung, rueckleuchteBirneWechselnAnzSchritte, rueckleuchteBirneWechselnBilder, "false"));
             db.addPanne(new Panne("Scheibenwischerblätter wechseln", " ", " ", scheibenwischerWechselnAnleitung, scheibenwischerWechselnAnzSchritte, scheibenwischerWechselnBilder, "false"));
+            db.addPanne(new Panne("Starthilfe", " ", " ", starthilfeAnleitung, starthilfeAnzSchritte, starthilfeBilder, "false"));
             db.addPanne(new Panne("Tank leer", " ", " ", tankLeerAnleitung, tankLeerAnzSchritte, noPicture, "false"));
 
             pannen = db.getAllPannen();
