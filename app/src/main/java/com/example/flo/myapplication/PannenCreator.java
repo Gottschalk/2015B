@@ -124,6 +124,17 @@ public class PannenCreator {
             int innenscheibeBeschlagenAnzSchritte = 4;
             String innenscheibeBeschlagenBilder = "|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1|beheben_innenscheibe_beschlagen1";
 
+            // KONTROLLLAMPEN LEUCHTEN (ROT)
+            String kontrolllampenRotAnleitung = "$ " + "$ ";
+            int kontrolllampenRotAnzSchritte = 2;
+            String kontrolllampenRotBilder = "|beheben_kontrollleuchten_rot1|beheben_kontrollleuchten_rot2";
+
+
+            // KONTROLLLAMPEN LEUCHTEN (GELB)
+            String kontrolllampenGelbAnleitung = "$ " + "$ ";
+            int kontrolllampenGelbAnzSchritte = 2;
+            String kontrolllampenGelbBilder = "|beheben_kontrollleuchten_gelb1|beheben_kontrollleuchten_gelb2";
+
             // REIFENPLATTEN MIT PANNENSPRAY DICHTEN
             String reifenPlattenPannensprayAnleitung =
                     "$Wichtig: Das Flicken mit Dichtmittel ist eine Notlösung. Es sollte baldigst der Reifen gewechselt oder eine Werkstatt aufgesucht werden." +
@@ -137,6 +148,24 @@ public class PannenCreator {
 
             int reifenPlattenPannensprayAnzSchritte = 8;
             String reifenPlattenPannensprayBilder = "|beheben_pannenspray1|beheben_pannenspray2|beheben_pannenspray3|beheben_pannenspray4|beheben_pannenspray4|beheben_pannenspray6|beheben_pannenspray7|beheben_pannenspray8";
+
+
+            // REIFENWECHSEL
+            String reifenwechselAnleitung =
+                    "$Handbremse ziehen und Gang einlegen" +
+                            "$Schrauben vor dem Aufbocken lockern, aber noch nicht herausdrehen" +
+                            "$Wagenheber unter die Aufnahmepunke des Wagens schieben (s. Bedienungsanleitung) und aufbocken" +
+                            "$Schrauben mit den Schraubenschlüssel herausdrehen" +
+                            "$Rad abnehmen" +
+                            "$Neues Rad aufstecken, Schrauben über Kreuz einsetzen und leicht anziehen" +
+                            "$Wagen leicht absenken: Das Ventil am Wagenheber so öffnen, dass der Wagen etwas absinkt und das Rad blockiert" +
+                            "$Falls Drehmomentschlüssel vorhanden, Drehmoment und Luftdruck in der Bedienungsanleitung nachsehen" +
+                            "$Drehmomentschlüssel entsprechend einstellen" +
+                            "$Anziehen: Über Kreuz die Radschrauben anziehen. Aber nur, bis der Drehmomentschlüssel hörbar einrastet." +
+                            "$Der Luftdruck soll beim leeren Auto 2,2 Bar betragen. Reifen entsprechend auffüllen. Fertig";
+
+            int reifenwechselAnzSchritte = 11;
+            String reifenwechselBilder = "|beheben_reifenwechsel1|beheben_reifenwechsel2|beheben_reifenwechsel3|beheben_reifenwechsel4|beheben_reifenwechsel5|beheben_reifenwechsel6|beheben_reifenwechsel7|beheben_reifenwechsel8|beheben_reifenwechsel9|beheben_reifenwechsel10|beheben_reifenwechsel11";
 
 
             // RUECKLEUCHTE BIRNE WECHSELN
@@ -215,8 +244,11 @@ public class PannenCreator {
             db.addPanne(new Panne("Fahrzeug abschleppen", " ", " ", fahrzeugAbschleppenAnleitung, fahrzeugAbschleppenAnzSchritte, fahrzeugAbschleppenBilder, "false"));
             db.addPanne(new Panne("Fahrzeug anschleppen zum Motorstart", " ", " ", fahrzeugAnschleppenAnleitung, fahrzeugAnschleppenAnzSchritte, fahrzeugAnschleppenBilder, "false"));
             db.addPanne(new Panne("Innenscheibe beschlagen", " ", " ", innenscheibeBeschlagenAnleitung, innenscheibeBeschlagenAnzSchritte, innenscheibeBeschlagenBilder, "false"));
+            db.addPanne(new Panne("Kontrolllampen GELB", " ", " ", kontrolllampenGelbAnleitung, kontrolllampenGelbAnzSchritte, kontrolllampenGelbBilder, "false"));
+            db.addPanne(new Panne("Kontrolllampen ROT", " ", " ", kontrolllampenRotAnleitung, kontrolllampenRotAnzSchritte, kontrolllampenRotBilder, "false"));
 
-            db.addPanne(new Panne("Reifenplatten mit Pannenspray abdichten", " ", " ", reifenPlattenPannensprayAnleitung, reifenPlattenPannensprayAnzSchritte,reifenPlattenPannensprayBilder , "false"));
+            db.addPanne(new Panne("Reifenwechsel", " ", " ", reifenwechselAnleitung, reifenwechselAnzSchritte, reifenwechselBilder, "false"));
+            db.addPanne(new Panne("Reifenplatten mit Pannenspray abdichten", " ", " ", reifenPlattenPannensprayAnleitung, reifenPlattenPannensprayAnzSchritte, reifenPlattenPannensprayBilder, "false"));
             db.addPanne(new Panne("Rückleuchte Birne wechseln", " ", " ", rueckleuchteBirneWechselnAnleitung, rueckleuchteBirneWechselnAnzSchritte, rueckleuchteBirneWechselnBilder, "false"));
             db.addPanne(new Panne("Scheibenwischerblätter wechseln", " ", " ", scheibenwischerWechselnAnleitung, scheibenwischerWechselnAnzSchritte, scheibenwischerWechselnBilder, "false"));
             db.addPanne(new Panne("Starthilfe", " ", " ", starthilfeAnleitung, starthilfeAnzSchritte, starthilfeBilder, "false"));
