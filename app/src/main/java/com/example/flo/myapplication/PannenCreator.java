@@ -236,30 +236,30 @@ public class PannenCreator {
 
             // NEU
             // PANNE: ( String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch )
-            db.addPanne(new Panne("Autobatterie wechseln", " ", " ", autobatterieWechselnAnleitung, autobatterieWechselnAnzSchritte, autobatterieWechselnBilder, "false"));
-            db.addPanne(new Panne("Auspuff h\u00e4ngt herunter", " ", " ", auspuffHaengtAnleitung, auspuffHaengtAnzSchritte, auspuffHaengtBilder, "true"));
-            db.addPanne(new Panne("Beschlagene Scheinwerfer", "", "Beschlagene Scheinwerfer", beschlageneScheinwerferAnleitung, beschlageneScheinwerferAnzSchritte, beschlageneScheinwerferBilder, "true"));
-            db.addPanne(new Panne("Bremsen quietschen", " ", "Bremsen quietschen ", bremsenQuietschenAnleitung, bremsenQuietschenAnzSchritte, noPicture, "true"));
-            db.addPanne(new Panne("Frontscheinwerfer Birne wechseln", " ", " ", frontscheinwerferBirneWechselnAnleitung, frontscheinwerferBirneWechselnAnzSchritte, frontscheinwerferBirneWechselnBilder, "true"));
-            db.addPanne(new Panne("Fahrzeug abschleppen", " ", " ", fahrzeugAbschleppenAnleitung, fahrzeugAbschleppenAnzSchritte, fahrzeugAbschleppenBilder, "false"));
-            db.addPanne(new Panne("Fahrzeug anschleppen zum Motorstart", " ", " ", fahrzeugAnschleppenAnleitung, fahrzeugAnschleppenAnzSchritte, fahrzeugAnschleppenBilder, "false"));
-            db.addPanne(new Panne("Innenscheibe beschlagen", " ", "Innenscheibe beschlagen ", innenscheibeBeschlagenAnleitung, innenscheibeBeschlagenAnzSchritte, innenscheibeBeschlagenBilder, "true"));
-            db.addPanne(new Panne("Kontrolllampen GELB", " ", " ", kontrolllampenGelbAnleitung, kontrolllampenGelbAnzSchritte, kontrolllampenGelbBilder, "true"));
-            db.addPanne(new Panne("Kontrolllampen ROT", " ", " ", kontrolllampenRotAnleitung, kontrolllampenRotAnzSchritte, kontrolllampenRotBilder, "true"));
+            db.addPanne(new Panne("Autobatterie wechseln", " ", autobatterieWechselnAnleitung, autobatterieWechselnAnzSchritte, autobatterieWechselnBilder, "false"));
+            db.addPanne(new Panne("Auspuff h\u00e4ngt herunter", " ", auspuffHaengtAnleitung, auspuffHaengtAnzSchritte, auspuffHaengtBilder, "true"));
+            db.addPanne(new Panne("Beschlagene Scheinwerfer", "Beschlagene Scheinwerfer", beschlageneScheinwerferAnleitung, beschlageneScheinwerferAnzSchritte, beschlageneScheinwerferBilder, "true"));
+            db.addPanne(new Panne("Bremsen quietschen", "Bremsen quietschen ", bremsenQuietschenAnleitung, bremsenQuietschenAnzSchritte, noPicture, "true"));
+            db.addPanne(new Panne("Frontscheinwerfer Birne wechseln", " ", frontscheinwerferBirneWechselnAnleitung, frontscheinwerferBirneWechselnAnzSchritte, frontscheinwerferBirneWechselnBilder, "true"));
+            db.addPanne(new Panne("Fahrzeug abschleppen", " ", fahrzeugAbschleppenAnleitung, fahrzeugAbschleppenAnzSchritte, fahrzeugAbschleppenBilder, "false"));
+            db.addPanne(new Panne("Fahrzeug anschleppen zum Motorstart", " ", fahrzeugAnschleppenAnleitung, fahrzeugAnschleppenAnzSchritte, fahrzeugAnschleppenBilder, "false"));
+            db.addPanne(new Panne("Innenscheibe beschlagen", "Innenscheibe beschlagen ", innenscheibeBeschlagenAnleitung, innenscheibeBeschlagenAnzSchritte, innenscheibeBeschlagenBilder, "true"));
+            db.addPanne(new Panne("Kontrolllampen GELB", " ", kontrolllampenGelbAnleitung, kontrolllampenGelbAnzSchritte, kontrolllampenGelbBilder, "true"));
+            db.addPanne(new Panne("Kontrolllampen ROT", " ", kontrolllampenRotAnleitung, kontrolllampenRotAnzSchritte, kontrolllampenRotBilder, "true"));
 
-            db.addPanne(new Panne("Reifenwechsel", " ", " ", reifenwechselAnleitung, reifenwechselAnzSchritte, reifenwechselBilder, "false"));
-            db.addPanne(new Panne("Reifenplatten mit Pannenspray abdichten", " ", " ", reifenPlattenPannensprayAnleitung, reifenPlattenPannensprayAnzSchritte, reifenPlattenPannensprayBilder, "false"));
-            db.addPanne(new Panne("R\u00fcckleuchte Birne wechseln", " ", " ", rueckleuchteBirneWechselnAnleitung, rueckleuchteBirneWechselnAnzSchritte, rueckleuchteBirneWechselnBilder, "true"));
-            db.addPanne(new Panne("Scheibenwischerbl\u00e4tter wechseln", " ", " ", scheibenwischerWechselnAnleitung, scheibenwischerWechselnAnzSchritte, scheibenwischerWechselnBilder, "true"));
-            db.addPanne(new Panne("Starthilfe", " ", " ", starthilfeAnleitung, starthilfeAnzSchritte, starthilfeBilder, "false"));
-            db.addPanne(new Panne("Tank leer", " ", " ", tankLeerAnleitung, tankLeerAnzSchritte, noPicture, "false"));
+            db.addPanne(new Panne("Reifenwechsel", " ", reifenwechselAnleitung, reifenwechselAnzSchritte, reifenwechselBilder, "false"));
+            db.addPanne(new Panne("Reifenplatten mit Pannenspray abdichten", " ", reifenPlattenPannensprayAnleitung, reifenPlattenPannensprayAnzSchritte, reifenPlattenPannensprayBilder, "false"));
+            db.addPanne(new Panne("R\u00fcckleuchte Birne wechseln", " ", rueckleuchteBirneWechselnAnleitung, rueckleuchteBirneWechselnAnzSchritte, rueckleuchteBirneWechselnBilder, "true"));
+            db.addPanne(new Panne("Scheibenwischerbl\u00e4tter wechseln", " ", scheibenwischerWechselnAnleitung, scheibenwischerWechselnAnzSchritte, scheibenwischerWechselnBilder, "true"));
+            db.addPanne(new Panne("Starthilfe", " ", starthilfeAnleitung, starthilfeAnzSchritte, starthilfeBilder, "false"));
+            db.addPanne(new Panne("Tank leer", " ", tankLeerAnleitung, tankLeerAnzSchritte, noPicture, "false"));
 
             pannen = db.getAllPannen();
 
         }
 
         for (Panne panne : pannen) {
-            String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Symptom: " + panne.getSymptom() + " ,Bauteil: " + panne.getBauteil()
+            String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Symptom: " + panne.getSymptom()
                     + " ,AnzahlSchritte: " + panne.getAnzSchritte() + " ,Schritte: " + panne.getSchritte() + " ,Bilder: " + panne.getBilder() + " ,faehrtNoch: " + panne.getFaehrtNoch();
 
         }

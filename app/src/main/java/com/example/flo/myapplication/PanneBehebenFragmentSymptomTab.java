@@ -66,7 +66,7 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
             if (!panne.getSymptom().equals("") && !panne.getSymptom().equals(" ")) {
                 size++;
             }
-            Log.w("OKOKK;OKOL ", String.valueOf(size) + " / " +panne.getSymptom());
+            Log.w("OKOKK;OKOL ", String.valueOf(size) + " / " + panne.getSymptom());
         }
 
         String[] symptomArray = new String[size];
@@ -109,12 +109,12 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
                 Intent i = new Intent(getActivity(), PanneBehebenAnleitung.class);
                 int clickedItemIndex = (int) nameListView.getAdapter().getItemId(position);
 
-                String panneName = pannen.get(position).getName();
-                String panneSchritte = pannen.get(position).getSchritte();
-                String panneSchritteBilder = pannen.get(position).getBilder();
+                String panneName = pannenList.get(position).getName();
+                String panneSchritte = pannenList.get(position).getSchritte();
+                String panneSchritteBilder = pannenList.get(position).getBilder();
 
 
-                int symptomId = pannen.get(position).getId();
+                int symptomId = pannenList.get(position).getId();
 
                 i.putExtra("NAME", panneName);
                 i.putExtra("SCHRITTE", panneSchritte);

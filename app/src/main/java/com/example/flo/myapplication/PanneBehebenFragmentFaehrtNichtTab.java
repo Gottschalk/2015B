@@ -38,7 +38,6 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_faehrtnicht, container, false);
         // TextView tv = (TextView) v.findViewById(R.id.text);
-        // tv.setText("Bauteil");
         final ListView faehrtNichtListview = (ListView) v.findViewById(R.id.panne_beheben_fragment_faehrtnicht_listview);
 
         db = new PanneDBHelper(getActivity());
