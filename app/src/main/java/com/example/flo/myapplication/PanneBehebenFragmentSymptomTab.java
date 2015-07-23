@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
     private PanneDBHelper db;
     private PanneAdapter adapter;
     private ArrayList<Panne> pannen;
+    private ArrayList<Panne> pannenList;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,37 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
                 }
         );
 
+
+        pannenList = new ArrayList<Panne>();
+        int size = 0;
+
+        for (Panne panne : pannen) {
+
+            if (!panne.getSymptom().equals("") && !panne.getSymptom().equals(" ")) {
+                size++;
+            }
+            Log.w("OKOKK;OKOL ", String.valueOf(size) + " / " +panne.getSymptom());
+        }
+
+        String[] symptomArray = new String[size];
+
+        int index = 0;
+
+        for (Panne panne : pannen) {
+
+            if (!panne.getSymptom().equals("") && !panne.getSymptom().equals(" ")) {
+                symptomArray[index] = panne.getSymptom();
+                index++;
+                pannenList.add(panne);
+
+                Log.w("OKOKK;OKOL ", String.valueOf(index) + " /// " + panne.getSymptom());
+
+            }
+        }
+
+
+
+/*
         String[] nameArray = new String[pannen.size()];
 
         int index = 0;
@@ -63,9 +97,9 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
             nameArray[index] = panne.getName();
             index++;
         }
+*/
 
-
-        ArrayAdapter<String> codeLearnArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, nameArray);
+        ArrayAdapter<String> codeLearnArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, symptomArray);
 
         nameListView.setAdapter(codeLearnArrayAdapter);
 
