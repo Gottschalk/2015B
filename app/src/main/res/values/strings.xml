@@ -4,7 +4,8 @@
     <string name="app_name">Pannenhilfe</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Einstellungen</string>
-    <string name="flashlightButton">Taschenlampe</string>
+    <string name="flashlightButton">Taschen-
+        lampe</string>
     <string name="title_activity_flashlight">Taschenlampe</string>
     <string name="pannenbehebung_button_text">Panne beheben</string>
     <string name="wichtige_nummern_button_text">Wichtige Nummern</string>

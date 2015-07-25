@@ -74,7 +74,7 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
         maxSteps = pannenAnleitung.size();
         currentStep = 1;
 
-        Button nextButton = (Button) findViewById(R.id.panne_beheben_nextStepButton);
+        final Button nextButton = (Button) findViewById(R.id.panne_beheben_nextStepButton);
         Button previousButton = (Button) findViewById(R.id.panne_beheben_previousStepButton);
 
         helpImage = (ImageView) findViewById(R.id.panneBeheben_anleitung_bild);
@@ -93,6 +93,11 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
+                // return to menu if last step is done
+                if (currentStep == maxSteps) {
+                    Intent intent = new Intent(PanneBehebenAnleitung.this, MenuActivity.class);
+                    startActivity(intent);
+                }
                 if (currentStep < maxSteps) {
 
                     currentStep++;
@@ -105,6 +110,10 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
                     Drawable new_image = getResources().getDrawable(id);
                     helpImage.setImageDrawable(new_image);
 
+                    if (currentStep == maxSteps) {
+                        nextButton.setText("FERTIG");
+                    }
+
                 }
             }
         });
@@ -112,6 +121,8 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                nextButton.setText("vor");
 
                 if (currentStep > 1) {
 
@@ -124,7 +135,6 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
                     int id = getResources().getIdentifier(idString, "drawable", getPackageName());
                     Drawable new_image = getResources().getDrawable(id);
                     helpImage.setImageDrawable(new_image);
-
                 }
             }
         });
