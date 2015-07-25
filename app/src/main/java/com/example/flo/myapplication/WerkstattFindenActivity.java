@@ -168,13 +168,15 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
         if (location != null) {
             onLocationChanged(location);
         }
-        locationManager.requestLocationUpdates(bestProvider, 10000, 0, this);
+        locationManager.requestLocationUpdates(bestProvider, 30000, 0, this);
 
     }
 
 
     @Override
     public void onLocationChanged(Location location) {
+
+        Log.w("locationManager______", "location changed!!!");
 
         fetchCurrentLocation();
         LatLng latLng = new LatLng(latitude, longitude);
@@ -189,7 +191,7 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
             currentPosMarker.setPosition(latLng);
         }
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
     }
 
     @Override
