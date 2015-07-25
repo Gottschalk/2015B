@@ -32,7 +32,7 @@ public class MenuActivity extends ActionBarActivity {
         Button panne_beheben_button = (Button) findViewById(R.id.panne_beheben_button);
         Button werkstatt_finden_button = (Button) findViewById(R.id.werkstatt_finden_button);
         Button wichtige_nummern_button = (Button) findViewById(R.id.wichtige_nummern_button);
-        Button flashlight_button = (Button) findViewById(R.id.flashlight_button_text);
+        Button flashlight_button = (Button) findViewById(R.id.taschenlampe_button);
         Button panne_dokumentieren_button = (Button) findViewById(R.id.panne_dokumentieren_button);
 
 

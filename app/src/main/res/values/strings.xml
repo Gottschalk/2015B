@@ -28,7 +28,7 @@
     <string name="StartSplashHeader">Pannenhilfe</string>
     <string name="panne_dokumentieren_button_text">Panne doku- mentieren</string>
     <string name="title_activity_maps_activity2">Map</string>
-    <string name="werkstatt_finden_text_resource">Durch Klicken auf den Button kann auf der Karte nach dem Element, dass im Dropdown Menü ausgewählt ist, gesucht werden.</string>
+    <string name="werkstatt_finden_text_resource">Nach dem Ziel aus der Dropdown Liste suchen</string>
     <string name="wichtige_nummern_row_contact_name_text">beispieltext</string>
     <string name="wichtige_nummern_row_contact_number_text">beispieltext_zwei</string>
     <string name="panne_dokumentieren_header">Vorhandene Bilder</string>
@@ -116,7 +116,7 @@
     <string name="gefahrenstelle_absichern_autobahn_anleitung_step12">Bei liegengebliebenen Teilen auf der Fahrbahn Polizei verständigen und diese nicht selbst von der Fahrbahn entfernen</string>
 
     <!-- -->
-    <string name="taschenlampe_beschreibungstext">Hier kann die Taschenlampe ein- und ausgeschaltet werden</string>
+    <string name="taschenlampe_beschreibungstext">Taschenlampe ein- und ausschalten</string>
 
 
 </resources>
