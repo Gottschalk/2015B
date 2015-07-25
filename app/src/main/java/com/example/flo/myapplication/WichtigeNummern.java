@@ -42,12 +42,21 @@ public class WichtigeNummern extends ActionBarActivity {
         if (contacts.size() == 0) {
 
             db.addContact(new Contact("ADAC", "01802222222", "Paracelsusstrasse 1", "93053", "Regensburg"));
+            db.addContact(new Contact("ARCD", "098440949", "", "", ""));
+            db.addContact(new Contact("Auto und Reise Assistance", "09841409700", "", "", ""));
             db.addContact(new Contact("Automobilclub Europa", "0711530343536", "Schmidener Str. 227", "70374", "Stuttgart"));
             db.addContact(new Contact("Automobilclub Verkehr", "02219126910 ", "Theodor-Heuss-Ring 19-21", "50668", "Koeln"));
             db.addContact(new Contact("AvD", "0696606336", "Lyoner Strasse 16", "60528", "Frankfurt am Main"));
             db.addContact(new Contact("BAVC-Bruderhilfe", "0561709940", "Karthaeuserstr. 3 a", "34117", "Kassel"));
+            db.addContact(new Contact("Europa Notruf", "112", "", "", ""));
+            db.addContact(new Contact("Pannenhilfe / TCS ", "140", "", "", ""));
+            db.addContact(new Contact("Polizei", "110", "", "", ""));
+            db.addContact(new Contact("Notruf", "112", "", "", ""));
             db.addContact(new Contact("Mobil in Deutschland", "08920001610", "Elsenheimerstr. 45", "80867 ", "Muenchen"));
             db.addContact(new Contact("Verkehrsclub Deutschland", "0302803510", "Wallstrasse 58", "10179 ", "Berlin"));
+            db.addContact(new Contact("Zentralruf der Autoversicherer GDV", "08002502600", "", "", ""));
+            db.addContact(new Contact("Zentralruf der Autoversicherungsermittlung", "01803399888", "", "", ""));
+
 
             contacts = db.getAllContacts();
         }

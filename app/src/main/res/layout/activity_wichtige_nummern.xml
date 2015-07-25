@@ -15,7 +15,7 @@
     <Button
         android:id="@+id/nummer_hinzufuegen_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="@string/nummer_hinzufuegen_text"
         android:layout_gravity="center_horizontal" />
 
