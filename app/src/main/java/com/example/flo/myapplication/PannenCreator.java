@@ -26,7 +26,7 @@ public class PannenCreator {
         pannen = db.getAllPannen();
 
         // TODO RAUSMACHEN!!!!
-        db.deleteAllPannen();
+       // db.deleteAllPannen();
 
         // catch empty database on first usage
         if (pannen.size() == 0) {
