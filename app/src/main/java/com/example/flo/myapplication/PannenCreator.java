@@ -26,7 +26,7 @@ public class PannenCreator {
         pannen = db.getAllPannen();
 
         // TODO RAUSMACHEN!!!!
-      //  db.deleteAllPannen();
+        db.deleteAllPannen();
 
         // catch empty database on first usage
         if (pannen.size() == 0) {
@@ -260,7 +260,7 @@ public class PannenCreator {
 
         for (Panne panne : pannen) {
             String log = "Id: " + panne.getId() + " ,Name: " + panne.getName() + " ,Symptom: " + panne.getSymptom()
-                    + " ,AnzahlSchritte: " + panne.getAnzSchritte() + " ,Schritte: " + panne.getSchritte() + " ,Bilder: " + panne.getBilder() + " ,faehrtNoch: " + panne.getFaehrtNoch();
+                    + " ,AnzahlSchritte: " + panne.getNumberOfSteps() + " ,Schritte: " + panne.getSteps() + " ,Bilder: " + panne.getPictures() + " ,faehrtNoch: " + panne.getDriveAble();
 
         }
     }

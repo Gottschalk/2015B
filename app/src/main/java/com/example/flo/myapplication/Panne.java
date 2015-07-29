@@ -7,29 +7,29 @@ public class Panne {
 
     private String name;
     private String symptom;
-    private String schritte;
-    private int anzSchritte;
-    private String bilder;
+    private String steps;
+    private int numberOfSteps;
+    private String pictures;
     private int id;
-    private String faehrtNoch;
+    private String driveAble;
 
-    public Panne(int id, String name, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch) {
+    public Panne(int id, String name, String symptom, String steps, int numberOfSteps, String pictures, String driveAble) {
         this.id = id;
         this.name = name;
         this.symptom = symptom;
-        this.schritte = schritte;
-        this.anzSchritte = anzSchritte;
-        this.bilder = bilder;
-        this.faehrtNoch = faehrtNoch;
+        this.steps = steps;
+        this.numberOfSteps = numberOfSteps;
+        this.pictures = pictures;
+        this.driveAble = driveAble;
     }
 
-    public Panne(String name, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch) {
+    public Panne(String name, String symptom, String steps, int numberOfSteps, String pictures, String driveAble) {
         this.name = name;
         this.symptom = symptom;
-        this.schritte = schritte;
-        this.anzSchritte = anzSchritte;
-        this.bilder = bilder;
-        this.faehrtNoch = faehrtNoch;
+        this.steps = steps;
+        this.numberOfSteps = numberOfSteps;
+        this.pictures = pictures;
+        this.driveAble = driveAble;
     }
 
     public Panne() {
@@ -48,16 +48,16 @@ public class Panne {
         return symptom;
     }
 
-    public String getSchritte() {
-        return schritte;
+    public String getSteps() {
+        return steps;
     }
 
-    public int getAnzSchritte() {
-        return anzSchritte;
+    public int getNumberOfSteps() {
+        return numberOfSteps;
     }
 
-    public String getBilder() {
-        return bilder;
+    public String getPictures() {
+        return pictures;
     }
 
     public void setId(int id) {
@@ -72,23 +72,23 @@ public class Panne {
         this.symptom = symptom;
     }
 
-    public void setSchritte(String schritte) {
-        this.schritte = schritte;
+    public void setSteps(String steps) {
+        this.steps = steps;
     }
 
-    public void setAnzSchritte(int anzSchritte) {
-        this.anzSchritte = anzSchritte;
+    public void setNumberOfSteps(int numberOfSteps) {
+        this.numberOfSteps = numberOfSteps;
     }
 
-    public void setBilder(String bilder) {
-        this.bilder = bilder;
+    public void setPictures(String pictures) {
+        this.pictures = pictures;
     }
 
-    public String getFaehrtNoch() {
-        return faehrtNoch;
+    public String getDriveAble() {
+        return driveAble;
     }
 
-    public void setFaehrtNoch(String faehrtNoch) {
-        this.faehrtNoch = faehrtNoch;
+    public void setDriveAble(String driveAble) {
+        this.driveAble = driveAble;
     }
 }

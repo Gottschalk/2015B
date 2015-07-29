@@ -64,10 +64,10 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, panne.getName());
         values.put(KEY_SYMPTOM, panne.getSymptom());
-        values.put(KEY_ANZSCHRITTE, panne.getAnzSchritte());
-        values.put(KEY_SCHRITTE, panne.getSchritte());
-        values.put(KEY_BILDER, panne.getBilder());
-        values.put(KEY_FAEHRTNOCH, panne.getFaehrtNoch());
+        values.put(KEY_ANZSCHRITTE, panne.getNumberOfSteps());
+        values.put(KEY_SCHRITTE, panne.getSteps());
+        values.put(KEY_BILDER, panne.getPictures());
+        values.put(KEY_FAEHRTNOCH, panne.getDriveAble());
 
         // Inserting Row
         db.insert(TABLE_PANNEN, null, values);
@@ -105,10 +105,10 @@ public class PanneDBHelper extends SQLiteOpenHelper {
                 panne.setId(Integer.parseInt(cursor.getString(0)));
                 panne.setName(cursor.getString(1));
                 panne.setSymptom(cursor.getString(2));
-                panne.setAnzSchritte(Integer.parseInt(cursor.getString(3)));
-                panne.setSchritte(cursor.getString(4));
-                panne.setBilder(cursor.getString(5));
-                panne.setFaehrtNoch(cursor.getString(6));
+                panne.setNumberOfSteps(Integer.parseInt(cursor.getString(3)));
+                panne.setSteps(cursor.getString(4));
+                panne.setPictures(cursor.getString(5));
+                panne.setDriveAble(cursor.getString(6));
                 // Adding contact to list
                 pannenList.add(panne);
             } while (cursor.moveToNext());
@@ -124,10 +124,10 @@ public class PanneDBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, panne.getName());
         values.put(KEY_SYMPTOM, panne.getSymptom());
-        values.put(KEY_ANZSCHRITTE, panne.getAnzSchritte());
-        values.put(KEY_SCHRITTE, panne.getSchritte());
-        values.put(KEY_BILDER, panne.getBilder());
-        values.put(KEY_FAEHRTNOCH, panne.getFaehrtNoch());
+        values.put(KEY_ANZSCHRITTE, panne.getNumberOfSteps());
+        values.put(KEY_SCHRITTE, panne.getSteps());
+        values.put(KEY_BILDER, panne.getPictures());
+        values.put(KEY_FAEHRTNOCH, panne.getDriveAble());
 
 
         // updating row

@@ -149,7 +149,7 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
 
         for (int i = 0; i < pannenAnleitung.size(); i++) {
             Log.w("OOOOOOOOKKKKKK", i + ": " + pannenAnleitung.get(i));
-            anleitungStringBuilder.append("Schritt " + i + ": " + pannenAnleitung.get(i) + '\n' + '\n');
+            anleitungStringBuilder.append("Schritt " + (i+1) + ": " + pannenAnleitung.get(i) + '\n' + '\n');
         }
 
         noStepByStepTV.setText(anleitungStringBuilder);

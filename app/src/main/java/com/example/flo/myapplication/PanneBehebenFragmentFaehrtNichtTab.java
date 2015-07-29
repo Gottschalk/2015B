@@ -60,7 +60,7 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
         int size = 0;
         for (Panne panne : pannen) {
 
-            if (panne.getFaehrtNoch().equals("false")) {
+            if (panne.getDriveAble().equals("false")) {
                 size++;
             }
             Log.w("OKOKK;OKOL ", String.valueOf(size));
@@ -72,7 +72,7 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
 
         for (Panne panne : pannen) {
 
-            if (panne.getFaehrtNoch().equals("false")) {
+            if (panne.getDriveAble().equals("false")) {
                 faehrtNichtArray[index] = panne.getName();
                 index++;
                 pannenList.add(panne);
@@ -92,8 +92,8 @@ public class PanneBehebenFragmentFaehrtNichtTab extends Fragment {
                 int clickedItemIndex = (int) faehrtNichtListview.getAdapter().getItemId(position);
 
                 String panneName = pannenList.get(position).getName();
-                String panneSchritte = pannenList.get(position).getSchritte();
-                String panneSchritteBilder = pannenList.get(position).getBilder();
+                String panneSchritte = pannenList.get(position).getSteps();
+                String panneSchritteBilder = pannenList.get(position).getPictures();
 
                 int symptomId = pannenList.get(position).getId();
 

@@ -76,8 +76,8 @@ public class PanneBehebenFragmentAllePannenTab extends Fragment {
                 int clickedItemIndex = (int) nameListView.getAdapter().getItemId(position);
 
                 String panneName = pannen.get(position).getName();
-                String panneSchritte = pannen.get(position).getSchritte();
-                String panneSchritteBilder = pannen.get(position).getBilder();
+                String panneSchritte = pannen.get(position).getSteps();
+                String panneSchritteBilder = pannen.get(position).getPictures();
 
 
                 int symptomId = pannen.get(position).getId();
