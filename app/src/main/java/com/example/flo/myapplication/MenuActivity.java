@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MenuActivity extends ActionBarActivity {
@@ -35,7 +36,15 @@ public class MenuActivity extends ActionBarActivity {
         Button flashlight_button = (Button) findViewById(R.id.taschenlampe_button);
         Button panne_dokumentieren_button = (Button) findViewById(R.id.panne_dokumentieren_button);
 
+        TextView gefahrenstelle_absichern_tv = (TextView)findViewById(R.id.menu_gefahrenstelle_absichern_titel);
+        TextView panne_beheben_tv = (TextView)findViewById(R.id.menu_panne_beheben_titel);
+        TextView werkstatt_finden_tv = (TextView)findViewById(R.id.menu_werkstatt_finden_titel);
+        TextView wichtige_nummern_tv = (TextView)findViewById(R.id.menu_wichtige_nummern_titel);
+        TextView flashlight_tv = (TextView)findViewById(R.id.menu_taschenlampe_titel);
+        TextView panne_dokumentieren_tv = (TextView)findViewById(R.id.menu_panne_dokumentieren_titel);
 
+
+        // Set onClicklisteners on Buttons
         gefahrenstelle_absichern_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +88,57 @@ public class MenuActivity extends ActionBarActivity {
         });
 
         panne_dokumentieren_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, PanneDokumentieren.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set onClicklisteners on textviews
+        gefahrenstelle_absichern_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, GefahrenstelleAbsichern.class);
+                startActivity(intent);
+            }
+        });
+
+        panne_beheben_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, PanneBeheben.class);
+                startActivity(intent);
+            }
+        });
+
+        werkstatt_finden_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, WerkstattFindenActivity.class);
+                intent.putExtra("latitude", latitude);
+                intent.putExtra("longitude", longitude);
+                startActivity(intent);
+            }
+        });
+
+        wichtige_nummern_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, WichtigeNummern.class);
+                startActivity(intent);
+            }
+        });
+
+        flashlight_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, Taschenlampe.class);
+                startActivity(intent);
+            }
+        });
+
+        panne_dokumentieren_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, PanneDokumentieren.class);

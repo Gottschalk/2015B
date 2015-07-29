@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/flashlightButton"
-        android:id="@+id/button_taschenlampe_titel"
+        android:id="@+id/menu_taschenlampe_titel"
         android:layout_below="@+id/taschenlampe_button"
         android:layout_alignLeft="@+id/taschenlampe_button"
         android:layout_alignStart="@+id/taschenlampe_button"
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/wichtige_nummern_button_text"
-        android:id="@+id/button_wichtige_nummern_titel"
+        android:id="@+id/menu_wichtige_nummern_titel"
         android:layout_below="@+id/wichtige_nummern_button"
         android:layout_alignLeft="@+id/wichtige_nummern_button"
         android:layout_alignStart="@+id/wichtige_nummern_button" />
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/pannenbehebung_button_text"
-        android:id="@+id/button_panne_beheben_titel"
+        android:id="@+id/menu_panne_beheben_titel"
         android:layout_below="@+id/panne_beheben_button"
         android:layout_alignLeft="@+id/panne_beheben_button"
         android:layout_alignStart="@+id/panne_beheben_button" />
@@ -105,7 +105,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/absicherung_gefahrenstelle_button_text"
-        android:id="@+id/button_gefahrenstelle_absichern_titel"
+        android:id="@+id/menu_gefahrenstelle_absichern_titel"
         android:layout_below="@+id/gefahrenstelle_absichern_button"
         android:layout_alignLeft="@+id/gefahrenstelle_absichern_button"
         android:layout_alignStart="@+id/gefahrenstelle_absichern_button" />
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/werkstatt_finden_button_text"
-        android:id="@+id/button_werkstatt_finden"
+        android:id="@+id/menu_werkstatt_finden_titel"
         android:layout_below="@+id/werkstatt_finden_button"
         android:layout_alignLeft="@+id/werkstatt_finden_button"
         android:layout_alignStart="@+id/werkstatt_finden_button" />
@@ -125,7 +125,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/panne_dokumentieren_button_text"
-        android:id="@+id/button_panne_dokumentieren_titel"
+        android:id="@+id/menu_panne_dokumentieren_titel"
         android:layout_below="@+id/panne_dokumentieren_button"
         android:layout_alignLeft="@+id/panne_dokumentieren_button"
         android:layout_alignStart="@+id/panne_dokumentieren_button" />
