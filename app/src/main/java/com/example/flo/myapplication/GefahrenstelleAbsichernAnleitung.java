@@ -91,7 +91,13 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
         previousStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finalNextStep.setText("vor");
+
+                if (currentStep == 1) {
+                    Intent intent = new Intent(GefahrenstelleAbsichernAnleitung.this, MenuActivity.class);
+                    startActivity(intent);
+                }
 
                 if (viewFlipper.getDisplayedChild() != 0) {
                     // Next screen comes in from left.

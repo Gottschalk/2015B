@@ -124,6 +124,11 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
 
                 nextButton.setText("vor");
 
+                if (currentStep == 1) {
+                    Intent intent = new Intent(PanneBehebenAnleitung.this, MenuActivity.class);
+                    startActivity(intent);
+                }
+
                 if (currentStep > 1) {
 
                     currentStep--;
