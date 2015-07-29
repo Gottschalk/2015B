@@ -137,8 +137,8 @@ public class PannenCreator {
 
             // REIFENPLATTEN MIT PANNENSPRAY DICHTEN
             String reifenPlattenPannensprayAnleitung =
-                    "$Wichtig: Das Flicken mit Dichtmittel ist eine Notl\u00f6sung. Es sollte baldigst der Reifen gewechselt oder eine Werkstatt aufgesucht werden." +
-                            "$Reifen gr\u00fcndlich s\u00e4ubern um Fremdk\u00f6rper zu beseitigen" +
+                    "$Wichtig: Das Flicken mit Dichtmittel ist eine Notl\u00f6sung. Es sollte schnellstm\u00f6glichst der Reifen gewechselt oder eine Werkstatt aufgesucht werden." +
+                            "$Reifen m\u00f6glichst von Fremdk\u00f6rpern befreien." +
                             "$Luft des Reifens ablassen, falls dieser nicht schon platt ist." +
                             "$Pannenspray auspacken und erw\u00e4rmen (mit H\u00e4nden oder Autoheizung)" +
                             "$Pannenspray gut sch\u00fctteln (ca 1-2 Minuten)" +
@@ -173,8 +173,8 @@ public class PannenCreator {
                     "$Kofferraum \u00f6ffnen" +
                             "$Abdeckung der R\u00fcckleuchten abschrauben" +
                             "$Abdeckung abziehen. Hierbei vorsichtig vorgehen und keine Gewalt anwenden" +
-                            "$Auszutauschende Birne gegen den Uhrzeigersinn herausdrehen. Nach ca ¼ Drehung kann die Birne herausgezogen werden." +
-                            "$Neue Birne einsetzen. Dazu im Uhrzeigersinn ca ¼ Drehung hineindrehen." +
+                            "$Auszutauschende Birne gegen den Uhrzeigersinn herausdrehen. Nach ca 1/4 Drehung kann die Birne herausgezogen werden." +
+                            "$Neue Birne einsetzen. Dazu im Uhrzeigersinn ca 1/4 Drehung hineindrehen." +
                             "$Abdeckung wieder anbringen";
 
             int rueckleuchteBirneWechselnAnzSchritte = 6;

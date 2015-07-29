@@ -14,10 +14,9 @@
         android:layout_alignTop="@+id/mapsPlacesSearchButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/mapsPlacesSearchButton"
-        android:layout_alignRight="@+id/progressBarFetchPlaces"
-        android:layout_alignEnd="@+id/progressBarFetchPlaces"
-        android:layout_above="@+id/map" />
+        android:layout_toStartOf="@+id/progressBarFetchPlaces"
+        android:layout_above="@+id/map"
+        android:layout_toLeftOf="@+id/progressBarFetchPlaces" />
 
     <Button
         android:layout_width="wrap_content"
@@ -26,7 +25,9 @@
         android:id="@+id/mapsPlacesSearchButton"
         android:layout_below="@+id/werkstatt_finden_textview"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/progressBarFetchPlaces"
+        android:layout_toEndOf="@+id/progressBarFetchPlaces" />
 
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"

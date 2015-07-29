@@ -3,8 +3,10 @@ package com.example.flo.myapplication;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 
 import java.util.ArrayList;
 
@@ -15,6 +17,7 @@ public class PanneBeheben extends ActionBarActivity {
     private PanneDBHelper db;
     private PanneAdapter adapter;
     private ArrayList<Panne> pannen;
+    private float lastX;
 
 
     @Override
@@ -39,7 +42,6 @@ public class PanneBeheben extends ActionBarActivity {
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
 
-
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab0").setIndicator("Alle", null),
                 PanneBehebenFragmentAllePannenTab.class, null);
@@ -60,6 +62,58 @@ public class PanneBeheben extends ActionBarActivity {
 
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent touchevent) {
+        switch (touchevent.getAction()) {
+            // when user first touches the screen to swap
+            case MotionEvent.ACTION_DOWN: {
+                lastX = touchevent.getX();
+                break;
+            }
+            case MotionEvent.ACTION_UP: {
+                float currentX = touchevent.getX();
+
+                // if left to right swipe on screen
+                if (lastX < currentX) {
+
+                    switchTabs(false);
+                }
+
+                // if right to left swipe on screen
+                if (lastX > currentX) {
+                    switchTabs(true);
+                }
+
+                break;
+            }
+        }
+        return false;
+    }
+
+    public void switchTabs(boolean direction) {
+        if (direction) // true = move left
+        {
+            if (mTabHost.getCurrentTab() == 0) {
+                mTabHost.setCurrentTab(mTabHost.getTabWidget().getTabCount() - 1);
+                Log.w("ballll", "direction true, if");
+
+            } else {
+                mTabHost.setCurrentTab(mTabHost.getCurrentTab() - 1);
+                Log.w("ballll", "direction true, else");
+            }
+        } else
+        // move right
+        {
+            if (mTabHost.getCurrentTab() != (mTabHost.getTabWidget()
+                    .getTabCount() - 1)) {
+                mTabHost.setCurrentTab(mTabHost.getCurrentTab() + 1);
+                Log.w("ballll", "direction false, if");
+            } else {
+                mTabHost.setCurrentTab(0);
+                Log.w("ballll", "direction false, else");
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
