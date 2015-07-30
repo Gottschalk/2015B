@@ -81,9 +81,6 @@ public class GefahrenstelleAbsichernAnleitung extends ActionBarActivity {
                 break;
         }
 
-        // Set font
-        //   Typeface font = Typeface.createFromAsset(getAssets(), "fonts/monospace.ttf");
-        //   currentStepTV.setTypeface(font);
         currentStepTV.setTextColor(0xfff0edee);
         final Button finalNextStep = nextStep;
 

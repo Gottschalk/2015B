@@ -8,11 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-/**
- * Created by Flo_2 on 05.03.2015.
- */
 
-public class ContactDBHelper extends  SQLiteOpenHelper {
+public class ContactDBHelper extends SQLiteOpenHelper {
 
 
     // All Static variables
@@ -34,7 +31,6 @@ public class ContactDBHelper extends  SQLiteOpenHelper {
     private static final String KEY_CITY = "city";
 
 
-
     public ContactDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -44,7 +40,7 @@ public class ContactDBHelper extends  SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_NUMBER + " TEXT," + KEY_STREET + " TEXT," + KEY_PLZ + " TEXT," + KEY_CITY + " TEXT"  + ")";
+                + KEY_NUMBER + " TEXT," + KEY_STREET + " TEXT," + KEY_PLZ + " TEXT," + KEY_CITY + " TEXT" + ")";
 
         db.execSQL(CREATE_CONTACTS_TABLE);
 
@@ -101,7 +97,6 @@ public class ContactDBHelper extends  SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
 
 
         // looping through all rows and adding to list

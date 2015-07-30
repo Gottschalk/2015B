@@ -21,10 +21,10 @@ public class GefahrenstelleAbsichern extends ActionBarActivity {
 
     private void setupUI() {
 
-        final ImageButton autobahn = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_autobahn_button);
-        ImageButton kurve = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_kurve_button);
-        ImageButton innerorts = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_innerorts_button);
-        ImageButton ausserorts = (ImageButton)findViewById(R.id.gefahrenstelle_absichern_aussererorts_button);
+        final ImageButton autobahn = (ImageButton) findViewById(R.id.gefahrenstelle_absichern_autobahn_button);
+        ImageButton kurve = (ImageButton) findViewById(R.id.gefahrenstelle_absichern_kurve_button);
+        ImageButton innerorts = (ImageButton) findViewById(R.id.gefahrenstelle_absichern_innerorts_button);
+        ImageButton ausserorts = (ImageButton) findViewById(R.id.gefahrenstelle_absichern_aussererorts_button);
 
         autobahn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,7 @@ public class GefahrenstelleAbsichern extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  getMenuInflater().inflate(R.menu.menu_gefahrenstelle_absichern, menu);
+        //  getMenuInflater().inflate(R.menu.menu_gefahrenstelle_absichern, menu);
         return true;
     }
 

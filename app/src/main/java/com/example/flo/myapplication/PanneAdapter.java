@@ -20,7 +20,7 @@ public class PanneAdapter extends ArrayAdapter<Panne> {
     private ArrayList<Panne> panne_data;
 
 
-    public PanneAdapter(Context context, int layoutResourceId, ArrayList<Panne> panne_data){
+    public PanneAdapter(Context context, int layoutResourceId, ArrayList<Panne> panne_data) {
         super(context, layoutResourceId, panne_data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -44,7 +44,6 @@ public class PanneAdapter extends ArrayAdapter<Panne> {
             holder.panneName = (TextView) row.findViewById(R.id.contactName);
             holder.panneUrsache = (TextView) row.findViewById(R.id.contactNumber);
             holder.panneSymptom = (TextView) row.findViewById(R.id.contactNumber);
-
 
 
             row.setTag(holder);

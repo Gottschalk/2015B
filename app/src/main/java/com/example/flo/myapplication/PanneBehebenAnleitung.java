@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,8 +43,6 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
 
 
         pannenAnleitungPicturesString = intent.getStringExtra("BILDER");
-
-        Log.w("blablaString  ", pannenAnleitungPicturesString);
 
         if (pannenAnleitungPicturesString.equals("null")) {
             stepByStep = false;
@@ -153,8 +150,7 @@ public class PanneBehebenAnleitung extends ActionBarActivity {
         StringBuilder anleitungStringBuilder = new StringBuilder("");
 
         for (int i = 0; i < pannenAnleitung.size(); i++) {
-            Log.w("OOOOOOOOKKKKKK", i + ": " + pannenAnleitung.get(i));
-            anleitungStringBuilder.append("Schritt " + (i+1) + ": " + pannenAnleitung.get(i) + '\n' + '\n');
+            anleitungStringBuilder.append("Schritt " + (i + 1) + ": " + pannenAnleitung.get(i) + '\n' + '\n');
         }
 
         noStepByStepTV.setText(anleitungStringBuilder);

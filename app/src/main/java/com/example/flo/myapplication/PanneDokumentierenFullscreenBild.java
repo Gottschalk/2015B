@@ -19,7 +19,7 @@ public class PanneDokumentierenFullscreenBild extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panne_dokumentieren_fullscreen_bild);
 
-        ImageView detailImage = (ImageView)findViewById(R.id.panne_dokumentieren_detailbild);
+        ImageView detailImage = (ImageView) findViewById(R.id.panne_dokumentieren_detailbild);
         Intent i = getIntent();
         String imagePath = i.getStringExtra("IMAGE");
         Bitmap myBitmap;
@@ -40,7 +40,7 @@ public class PanneDokumentierenFullscreenBild extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  getMenuInflater().inflate(R.menu.menu_panne_dokumentieren_fullscreen_bild, menu);
+        //  getMenuInflater().inflate(R.menu.menu_panne_dokumentieren_fullscreen_bild, menu);
         return true;
     }
 

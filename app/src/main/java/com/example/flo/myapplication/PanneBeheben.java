@@ -95,11 +95,9 @@ public class PanneBeheben extends ActionBarActivity {
         {
             if (mTabHost.getCurrentTab() == 0) {
                 mTabHost.setCurrentTab(mTabHost.getTabWidget().getTabCount() - 1);
-                Log.w("ballll", "direction true, if");
 
             } else {
                 mTabHost.setCurrentTab(mTabHost.getCurrentTab() - 1);
-                Log.w("ballll", "direction true, else");
             }
         } else
         // move right
@@ -107,10 +105,8 @@ public class PanneBeheben extends ActionBarActivity {
             if (mTabHost.getCurrentTab() != (mTabHost.getTabWidget()
                     .getTabCount() - 1)) {
                 mTabHost.setCurrentTab(mTabHost.getCurrentTab() + 1);
-                Log.w("ballll", "direction false, if");
             } else {
                 mTabHost.setCurrentTab(0);
-                Log.w("ballll", "direction false, else");
             }
         }
     }

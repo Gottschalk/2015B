@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,15 +35,10 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_allepannen, container, false);
-        //  TextView tv = (TextView) v.findViewById(R.id.text);
-        // tv.setText("Symptom");
         final ListView nameListView = (ListView) v.findViewById(R.id.panne_beheben_fragment_allepannen_listview);
-
 
         db = new PanneDBHelper(getActivity());
 
-        // falls zu viele testelemente in der db sind
-        //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
 
@@ -66,7 +60,6 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
             if (!panne.getSymptom().equals("") && !panne.getSymptom().equals(" ")) {
                 size++;
             }
-            Log.w("OKOKK;OKOL ", String.valueOf(size) + " / " + panne.getSymptom());
         }
 
         String[] symptomArray = new String[size];
@@ -80,24 +73,9 @@ public class PanneBehebenFragmentSymptomTab extends Fragment {
                 index++;
                 pannenList.add(panne);
 
-                Log.w("OKOKK;OKOL ", String.valueOf(index) + " /// " + panne.getSymptom());
-
             }
         }
 
-
-
-/*
-        String[] nameArray = new String[pannen.size()];
-
-        int index = 0;
-
-        for (Panne panne : pannen) {
-
-            nameArray[index] = panne.getName();
-            index++;
-        }
-*/
 
         ArrayAdapter<String> codeLearnArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, symptomArray);
 

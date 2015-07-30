@@ -33,57 +33,57 @@ public class Contact {
 
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getNumber(){
+    public String getNumber() {
         return number;
     }
 
-    public String getStreet(){
+    public String getStreet() {
         return street;
     }
 
-    public String getPLZ(){
+    public String getPLZ() {
         return plz;
     }
 
-    public String getCity(){
+    public String getCity() {
         return city;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setNumber(String number){
+    public void setNumber(String number) {
         this.number = number;
     }
 
-    public void setStreet(String street){
-        this.street =  street;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public void setPLZ(String plz){
-        this.plz =  plz;
+    public void setPLZ(String plz) {
+        this.plz = plz;
     }
 
-    public void setCity(String city){
-        this.city =  city;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String toString() {
         return "Contact [id=" + id + ", name=" + name + ", number=" + number + ", street=" + street
-                + ", plz=" + plz  + ", city=" + city+ "]";
+                + ", plz=" + plz + ", city=" + city + "]";
     }
 
 }

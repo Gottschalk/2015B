@@ -1,8 +1,5 @@
 package com.example.flo.myapplication;
 
-/**
- * Created by Flo_2 on 10.04.2015.
- */
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -35,7 +32,6 @@ public class PlacesDisplayTask extends AsyncTask<Object, Integer, List<HashMap<S
         } catch (Exception e) {
             Log.d("Exception", e.toString());
         }
-        Log.e("###PlacesDisplayTask: ", googlePlacesList.toString());
         return googlePlacesList;
     }
 

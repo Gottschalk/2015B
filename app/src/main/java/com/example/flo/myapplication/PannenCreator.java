@@ -17,7 +17,6 @@ public class PannenCreator {
 
         this.context = context;
 
-        // savePannenToDB(context);
     }
 
     public void savePannenToDB(Context context) {
@@ -25,8 +24,8 @@ public class PannenCreator {
         db = new PanneDBHelper(context);
         pannen = db.getAllPannen();
 
-        // TODO RAUSMACHEN!!!!
-       // db.deleteAllPannen();
+        // for testing purposes delete all
+        // db.deleteAllPannen();
 
         // catch empty database on first usage
         if (pannen.size() == 0) {
@@ -219,22 +218,8 @@ public class PannenCreator {
 
             int tankLeerAnzSchritte = 1;
             String tankLeerBilder = "null";
-
-
-            // KEIN BILD VORHANDEN STRING
-            //    db.addPanne(new Panne("Reifen platt (name)", "Karosserie - Reifen platt (bauteil)", "Reifen platt (symptom)", reifenPlattAnleitung, 4, reifenPlattAnleitungBilder, "false"));
-
-            // unicode:
-            /*
-            Ä,ä: \u00c4, \u00e4
-            Ö,ö: \u00d6, \u00f6
-            Ü,ü: \u00dc, \u00fc
-            ß:   \u00df
-            */
-
             String noPicture = "null";
 
-            // NEU
             // PANNE: ( String name, String bauteil, String symptom, String schritte, int anzSchritte, String bilder, String faehrtNoch )
             db.addPanne(new Panne("Autobatterie wechseln", " ", autobatterieWechselnAnleitung, autobatterieWechselnAnzSchritte, autobatterieWechselnBilder, "false"));
             db.addPanne(new Panne("Auspuff h\u00e4ngt herunter", " ", auspuffHaengtAnleitung, auspuffHaengtAnzSchritte, auspuffHaengtBilder, "true"));

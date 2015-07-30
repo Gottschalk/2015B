@@ -1,8 +1,5 @@
 package com.example.flo.myapplication;
 
-/**
- * Created by Flo_2 on 10.04.2015.
- */
 
 import org.json.JSONArray;
 import org.json.JSONException;

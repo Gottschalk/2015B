@@ -33,16 +33,10 @@ public class PanneBehebenFragmentAllePannenTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_allepannen, container, false);
-        //  TextView tv = (TextView) v.findViewById(R.id.text);
-        // tv.setText("Symptom");
         final ListView nameListView = (ListView) v.findViewById(R.id.panne_beheben_fragment_allepannen_listview);
 
 
         db = new PanneDBHelper(getActivity());
-
-        // falls zu viele testelemente in der db sind
-        //   db.deleteAllContacts();
-
         pannen = db.getAllPannen();
 
         Collections.sort(

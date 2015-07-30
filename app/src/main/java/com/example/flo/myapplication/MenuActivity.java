@@ -20,9 +20,9 @@ public class MenuActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-            latitude= extras.getDouble("latitude");
-            longitude= extras.getDouble("longitude");
+        if (extras != null) {
+            latitude = extras.getDouble("latitude");
+            longitude = extras.getDouble("longitude");
         }
         setContentView(R.layout.activity_menu);
         setupUI();
@@ -36,12 +36,12 @@ public class MenuActivity extends ActionBarActivity {
         Button flashlight_button = (Button) findViewById(R.id.taschenlampe_button);
         Button panne_dokumentieren_button = (Button) findViewById(R.id.panne_dokumentieren_button);
 
-        TextView gefahrenstelle_absichern_tv = (TextView)findViewById(R.id.menu_gefahrenstelle_absichern_titel);
-        TextView panne_beheben_tv = (TextView)findViewById(R.id.menu_panne_beheben_titel);
-        TextView werkstatt_finden_tv = (TextView)findViewById(R.id.menu_werkstatt_finden_titel);
-        TextView wichtige_nummern_tv = (TextView)findViewById(R.id.menu_wichtige_nummern_titel);
-        TextView flashlight_tv = (TextView)findViewById(R.id.menu_taschenlampe_titel);
-        TextView panne_dokumentieren_tv = (TextView)findViewById(R.id.menu_panne_dokumentieren_titel);
+        TextView gefahrenstelle_absichern_tv = (TextView) findViewById(R.id.menu_gefahrenstelle_absichern_titel);
+        TextView panne_beheben_tv = (TextView) findViewById(R.id.menu_panne_beheben_titel);
+        TextView werkstatt_finden_tv = (TextView) findViewById(R.id.menu_werkstatt_finden_titel);
+        TextView wichtige_nummern_tv = (TextView) findViewById(R.id.menu_wichtige_nummern_titel);
+        TextView flashlight_tv = (TextView) findViewById(R.id.menu_taschenlampe_titel);
+        TextView panne_dokumentieren_tv = (TextView) findViewById(R.id.menu_panne_dokumentieren_titel);
 
 
         // Set onClicklisteners on Buttons
@@ -151,7 +151,7 @@ public class MenuActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  getMenuInflater().inflate(R.menu.menu_main, menu);
+        //  getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

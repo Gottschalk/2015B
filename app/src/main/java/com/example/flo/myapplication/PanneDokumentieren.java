@@ -34,7 +34,7 @@ import java.util.Date;
 
 public class PanneDokumentieren extends ActionBarActivity implements
         GestureDetector.OnGestureListener,
-        GestureDetector.OnDoubleTapListener{
+        GestureDetector.OnDoubleTapListener {
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private Uri fileUri;
@@ -48,18 +48,6 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
-
-    // hier zum befuellen des arrays methode benutzen, die in ordner nach vorhandenen photos sucht
-   /* Integer[] imageIDs = {
-            R.drawable.ic_gefahrenstelle1,
-            R.drawable.ic_gefahrenstelle2,
-            R.drawable.ic_camera1,
-            R.drawable.ic_camera2,
-            R.drawable.ic_kontakte1,
-            R.drawable.ic_kontakte2,
-    };
-
-    */
 
 
     @Override
@@ -80,8 +68,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
     }
 
     private void showFirstPicture() {
-       // Log.w("bla", imageIDs[0]);
-        if(imageIDs != null){
+        if (imageIDs != null) {
             Bitmap myBitmap;
 
             BitmapFactory.Options options = new BitmapFactory.Options();
@@ -90,8 +77,8 @@ public class PanneDokumentieren extends ActionBarActivity implements
             options.outWidth = 50;
             options.inSampleSize = 4;
 
-            for(int i = 0; i<imageIDs.length; i++){
-                if(imageIDs[i] != null){
+            for (int i = 0; i < imageIDs.length; i++) {
+                if (imageIDs[i] != null) {
                     File imgFile = new File(imageIDs[0]);
                     myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
 
@@ -113,18 +100,18 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
         File[] test = mediaStorageDir.listFiles();
 
-        if(test!= null){
+        if (test != null) {
             imageIDs = new String[test.length];
-            for(int i = 0; i<test.length; i++){
-                imageIDs[i]= test[i].getPath();
+            for (int i = 0; i < test.length; i++) {
+                imageIDs[i] = test[i].getPath();
             }
-        }else{
+        } else {
             imageIDs = new String[0];
         }
     }
 
     private void setupGallery() {
-         gallery = (Gallery) findViewById(R.id.vorhandene_photos_gallery);
+        gallery = (Gallery) findViewById(R.id.vorhandene_photos_gallery);
         adapter = new ImageAdapter(this);
         gallery.setAdapter(adapter);
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -138,7 +125,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
                 options.outWidth = 50;
                 options.inSampleSize = 4;
 
-                if(imageIDs!=null){
+                if (imageIDs != null) {
                     File imgFile = new File(imageIDs[position]);
                     myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
 
@@ -152,8 +139,6 @@ public class PanneDokumentieren extends ActionBarActivity implements
         gallery.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                Log.w("//////////////gallery ", "long clicke!!!");
-
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(PanneDokumentieren.this);
                 builder.setTitle(("Bild loeschen?"));
@@ -167,7 +152,6 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
                         getImagesFromStorage();
                         adapter.notifyDataSetChanged();
-
 
 
                     }
@@ -185,7 +169,6 @@ public class PanneDokumentieren extends ActionBarActivity implements
                 dialog.show();
 
 
-
                 return false;
             }
         });
@@ -196,7 +179,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
     private void setupUI() {
 
         currentBigImage = (ImageView) findViewById(R.id.aktuelles_photo_panne_dokumentieren);
-        Button takeNewPictureButton = (Button)findViewById(R.id.neues_photo_button);
+        Button takeNewPictureButton = (Button) findViewById(R.id.neues_photo_button);
         takeNewPictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -265,7 +248,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
         View.OnTouchListener gestureListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
-                System.out.println("TOUCH!" +event);
+                System.out.println("TOUCH!" + event);
                 if (detector.onTouchEvent(event)) {
                     return true;
                 }
@@ -278,7 +261,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
 
     }
 
-    private void zoomImage( ) {
+    private void zoomImage() {
         Intent intent = new Intent(PanneDokumentieren.this, PanneDokumentierenFullscreenBild.class);
         String image = currentImagePath;
         intent.putExtra("IMAGE", image);
@@ -303,13 +286,17 @@ public class PanneDokumentieren extends ActionBarActivity implements
         }
     }
 
-    /** Create a file Uri for saving an image or video */
-    private static Uri getOutputMediaFileUri(int type){
+    /**
+     * Create a file Uri for saving an image or video
+     */
+    private static Uri getOutputMediaFileUri(int type) {
         return Uri.fromFile(getOutputMediaFile(type));
     }
 
-    /** Create a File for saving an image or video */
-    private static File getOutputMediaFile(int type){
+    /**
+     * Create a File for saving an image or video
+     */
+    private static File getOutputMediaFile(int type) {
         // To be safe, you should check that the SDCard is mounted
         // using Environment.getExternalStorageState() before doing this.
 
@@ -319,8 +306,8 @@ public class PanneDokumentieren extends ActionBarActivity implements
         // between applications and persist after your app has been uninstalled.
 
         // Create the storage directory if it does not exist
-        if (! mediaStorageDir.exists()){
-            if (! mediaStorageDir.mkdirs()){
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
                 Log.d("MyCameraApp", "failed to create directory");
                 return null;
             }
@@ -329,12 +316,12 @@ public class PanneDokumentieren extends ActionBarActivity implements
         // Create a media file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE){
+        if (type == MEDIA_TYPE_IMAGE) {
             mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "IMG_"+ timeStamp + ".jpg");
-        } else if(type == MEDIA_TYPE_VIDEO) {
+                    "IMG_" + timeStamp + ".jpg");
+        } else if (type == MEDIA_TYPE_VIDEO) {
             mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "VID_"+ timeStamp + ".mp4");
+                    "VID_" + timeStamp + ".mp4");
         } else {
             return null;
         }
@@ -368,7 +355,7 @@ public class PanneDokumentieren extends ActionBarActivity implements
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-     //   getMenuInflater().inflate(R.menu.menu_panne_dokumentieren, menu);
+        //   getMenuInflater().inflate(R.menu.menu_panne_dokumentieren, menu);
         return true;
     }
 
@@ -442,26 +429,30 @@ public class PanneDokumentieren extends ActionBarActivity implements
     public class ImageAdapter extends BaseAdapter {
         private Context context;
         private int itemBackground;
-        public ImageAdapter(Context c)
-        {
+
+        public ImageAdapter(Context c) {
             context = c;
             // sets a grey background; wraps around the images
-            TypedArray a =obtainStyledAttributes(R.styleable.MyGallery);
+            TypedArray a = obtainStyledAttributes(R.styleable.MyGallery);
             itemBackground = a.getResourceId(R.styleable.MyGallery_android_galleryItemBackground, 0);
             a.recycle();
         }
+
         // returns the number of images
         public int getCount() {
             return imageIDs.length;
         }
+
         // returns the ID of an item
         public Object getItem(int position) {
             return position;
         }
+
         // returns the ID of an item
         public long getItemId(int position) {
             return position;
         }
+
         // returns an ImageView view
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView = new ImageView(context);

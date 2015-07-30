@@ -103,12 +103,12 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
 
     private void fetchCurrentLocation() {
 
-        if(location == null){
+        if (location == null) {
             Criteria criteria = new Criteria();
             String bestProvider = locationManager.getBestProvider(criteria, true);
             location = locationManager.getLastKnownLocation(bestProvider);
         }
-        if(location!=null){
+        if (location != null) {
             latitude = location.getLatitude();
             longitude = location.getLongitude();
         }
@@ -175,8 +175,6 @@ public class WerkstattFindenActivity extends ActionBarActivity implements Locati
 
     @Override
     public void onLocationChanged(Location location) {
-
-        Log.w("locationManager______", "location changed!!!");
 
         fetchCurrentLocation();
         LatLng latLng = new LatLng(latitude, longitude);

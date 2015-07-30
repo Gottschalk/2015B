@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,13 +38,9 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout_faehrtnoch, container, false);
-        //  TextView tv = (TextView) v.findViewById(R.id.text);
-        //   tv.setText("Name");
         final ListView faehrtNochListview = (ListView) v.findViewById(R.id.panne_beheben_fragment_faehrtnoch_listview);
         db = new PanneDBHelper(getActivity());
 
-        // falls zu viele testelemente in der db sind
-        //   db.deleteAllContacts();
 
         pannen = db.getAllPannen();
 
@@ -66,7 +61,6 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
             if (panne.getDriveAble().equals("true")) {
                 size++;
             }
-            Log.w("OKOKK;OKOL ", String.valueOf(size));
         }
 
         String[] faehrtNochArray = new String[size];
@@ -82,8 +76,6 @@ public class PanneBehebenFragmentFaehrtNochTab extends Fragment {
             }
         }
 
-        // Set custom listview items
-       // ArrayAdapter<String> faehrtNochAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.custom_listitem, faehrtNochArray);
         ArrayAdapter<String> faehrtNochAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, faehrtNochArray);
 
         faehrtNochListview.setAdapter(faehrtNochAdapter);

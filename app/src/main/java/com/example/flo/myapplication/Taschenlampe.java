@@ -145,10 +145,7 @@ public class Taschenlampe extends ActionBarActivity {
         }
     }
 
-    /*
-    * Toggle switch button images
-    * changing image states to on / off
-    * */
+
     private void toggleButtonImage() {
         if (isFlashOn) {
             flashlightSwitch.setImageResource(R.drawable.flashlight_on_hdpi);
